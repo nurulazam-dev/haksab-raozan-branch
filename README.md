@@ -131,13 +131,13 @@ v0.0.1 website repo.
 
 ## 4. Tech Stack
 
-- Frontend: React.js + Tailwind CSS + Framer Motion + Sweets alart2 + React Router Dom + React Icons + React Hook Form.
-- Backend: Node.js + Express.js
-- Database: MongoDB (Mongoose ORM)
-- Authentication: JWT + bcrypt
-- Deployment: Render (frontend), Render (backend)
-- File Storage: Cloudinary.
-- Reporting: jsPDF
+- Frontend: `React.js` + `Tailwind CSS` + `Framer Motion` + `Sweets alart2` + `React Router Dom` + `React Icons` + `React Hook Form`.
+- Backend: `Node.js` + `Express.js`
+- Database: `MongoDB (Mongoose ORM)`
+- Authentication: `JWT` + `bcrypt`
+- Deployment: `Render (frontend)`, `Render (backend)`
+- File Storage: `Cloudinary`.
+- Reporting: `jsPDF`
 
 ## 5. API Modules
 
