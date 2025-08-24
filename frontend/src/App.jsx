@@ -3,7 +3,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <h1>HAKSAB, Raozan Branch</h1>
+      <h1 className="text-4xl font-bold underline">HAKSAB, Raozan Branch</h1>
     </>
   );
 }
