@@ -30,11 +30,26 @@ export const addExpense = createAsyncThunk(
   }
 );
 
+// Async thunk for financial summary
+export const fetchFinancialSummary = createAsyncThunk(
+  "finance/fetchFinancialSummary",
+  async (_, { rejectWithValue }) => {
+    try {
+      // Replace with your actual API call for summary
+      const response = await financeService.generateFinancialReport();
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 const financeSlice = createSlice({
   name: "finance",
   initialState: {
     income: [],
     expenses: [],
+    summary: {},
     loading: false,
     error: null,
   },
@@ -72,6 +87,18 @@ const financeSlice = createSlice({
       })
       .addCase(addExpense.fulfilled, (state, action) => {
         state.expenses.push(action.payload);
+      })
+      .addCase(fetchFinancialSummary.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchFinancialSummary.fulfilled, (state, action) => {
+        state.loading = false;
+        state.summary = action.payload;
+      })
+      .addCase(fetchFinancialSummary.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       });
   },
 });
