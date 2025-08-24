@@ -148,125 +148,128 @@ v0.0.1 website repo.
 - Event API: CRUD events, manage attendees
 - Notice API: CRUD announcements
 - Report API: generate & export
+
 ---
+
 ## Folder Structure
+
 haksab-raozan-branch/
 │
-├── backend/                        # Node.js + Express + MongoDB
-│   ├── config/                     # DB & env configs
-│   │   └── db.js
-│   │
-│   ├── controllers/                # Business logic
-│   │   ├── auth.controller.js
-│   │   ├── user.controller.js
-│   │   ├── finance.controller.js
-│   │   ├── attendance.controller.js
-│   │   ├── event.controller.js
-│   │   └── notice.controller.js
-│   │
-│   ├── middlewares/                # Security & validation middlewares
-│   │   ├── auth.middleware.js
-│   │   ├── role.middleware.js
-│   │   └── error.middleware.js
-│   │
-│   ├── models/                     # Mongoose schemas
-│   │   ├── user.model.js
-│   │   ├── income.model.js
-│   │   ├── expense.model.js
-│   │   ├── event.model.js
-│   │   ├── attendance.model.js
-│   │   ├── donation.model.js
-│   │   └── notice.model.js
-│   │
-│   ├── routes/                     # Express routes
-│   │   ├── auth.routes.js
-│   │   ├── user.routes.js
-│   │   ├── finance.routes.js
-│   │   ├── attendance.routes.js
-│   │   ├── event.routes.js
-│   │   └── notice.routes.js
-│   │
-│   ├── utils/                      # Helper functions
-│   │   ├── generateReport.js
-│   │   ├── sendEmail.js
-│   │   └── fileUpload.js
-│   │
-│   ├── validations/                # Joi/Yup validations
-│   │   ├── auth.validation.js
-│   │   ├── finance.validation.js
-│   │   └── event.validation.js
-│   │
-│   ├── .env                        # Environment variables
-│   ├── server.js                   # Entry point
-│   └── package.json
+├── backend/ # Node.js + Express + MongoDB
+│ ├── config/ # DB & env configs
+│ │ └── db.js
+│ │
+│ ├── controllers/ # Business logic
+│ │ ├── auth.controller.js
+│ │ ├── user.controller.js
+│ │ ├── finance.controller.js
+│ │ ├── attendance.controller.js
+│ │ ├── event.controller.js
+│ │ └── notice.controller.js
+│ │
+│ ├── middlewares/ # Security & validation middlewares
+│ │ ├── auth.middleware.js
+│ │ ├── role.middleware.js
+│ │ └── error.middleware.js
+│ │
+│ ├── models/ # Mongoose schemas
+│ │ ├── user.model.js
+│ │ ├── income.model.js
+│ │ ├── expense.model.js
+│ │ ├── event.model.js
+│ │ ├── attendance.model.js
+│ │ ├── donation.model.js
+│ │ └── notice.model.js
+│ │
+│ ├── routes/ # Express routes
+│ │ ├── auth.routes.js
+│ │ ├── user.routes.js
+│ │ ├── finance.routes.js
+│ │ ├── attendance.routes.js
+│ │ ├── event.routes.js
+│ │ └── notice.routes.js
+│ │
+│ ├── utils/ # Helper functions
+│ │ ├── generateReport.js
+│ │ ├── sendEmail.js
+│ │ └── fileUpload.js
+│ │
+│ ├── validations/ # Joi validations
+│ │ ├── auth.validation.js
+│ │ ├── finance.validation.js
+│ │ └── event.validation.js
+│ │
+│ ├── .env # Environment variables
+│ ├── server.js # Entry point
+│ └── package.json
 │
 │
-├── frontend/                       # React.js + Tailwind CSS
-│   ├── public/                     # Static files
-│   │   └── index.html
-│   │
-│   ├── src/
-│   │   ├── assets/                 # Images, icons, fonts
-│   │   ├── components/             # Reusable UI components
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── Sidebar.jsx
-│   │   │   ├── Footer.jsx
-│   │   │   └── ChartCard.jsx
-│   │   │
-│   │   ├── layouts/                # Dashboard & Auth layouts
-│   │   │   ├── DashboardLayout.jsx
-│   │   │   └── AuthLayout.jsx
-│   │   │
-│   │   ├── pages/                  # Page-wise modules
-│   │   │   ├── auth/
-│   │   │   │   ├── Login.jsx
-│   │   │   │   └── Register.jsx
-│   │   │   ├── dashboard/
-│   │   │   │   ├── AdminDashboard.jsx
-│   │   │   │   └── AccountantDashboard.jsx
-│   │   │   ├── finance/
-│   │   │   │   ├── IncomeList.jsx
-│   │   │   │   ├── AddIncome.jsx
-│   │   │   │   ├── ExpenseList.jsx
-│   │   │   │   └── AddExpense.jsx
-│   │   │   ├── attendance/
-│   │   │   │   ├── AttendanceList.jsx
-│   │   │   │   └── MarkAttendance.jsx
-│   │   │   ├── events/
-│   │   │   │   ├── EventList.jsx
-│   │   │   │   └── AddEvent.jsx
-│   │   │   ├── members/
-│   │   │   │   ├── MemberList.jsx
-│   │   │   │   └── MemberProfile.jsx
-│   │   │   ├── notices/
-│   │   │   │   ├── NoticeList.jsx
-│   │   │   │   └── AddNotice.jsx
-│   │   │   └── reports/
-│   │   │       └── ReportsPage.jsx
-│   │   │
-│   │   ├── redux/                   # Redux Toolkit (state management)
-│   │   │   ├── store.js
-│   │   │   ├── authSlice.js
-│   │   │   ├── userSlice.js
-│   │   │   ├── financeSlice.js
-│   │   │   └── eventSlice.js
-│   │   │
-│   │   ├── services/                # API calls (Axios)
-│   │   │   ├── authService.js
-│   │   │   ├── userService.js
-│   │   │   ├── financeService.js
-│   │   │   ├── eventService.js
-│   │   │   └── attendanceService.js
-│   │   │
-│   │   ├── routes/                  # Protected & public routes
-│   │   │   └── AppRoutes.jsx
-│   │   │
-│   │   ├── utils/                   # Helper functions
-│   │   │   └── formatDate.js
-│   │   │
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   │
-│   └── package.json
+├── frontend/ # React.js + Tailwind CSS
+│ ├── public/ # Static files
+│ │ └── index.html
+│ │
+│ ├── src/
+│ │ ├── assets/ # Images, icons, fonts
+│ │ ├── components/ # Reusable UI components
+│ │ │ ├── Navbar.jsx
+│ │ │ ├── Sidebar.jsx
+│ │ │ ├── Footer.jsx
+│ │ │ └── ChartCard.jsx
+│ │ │
+│ │ ├── layouts/ # Dashboard & Auth layouts
+│ │ │ ├── DashboardLayout.jsx
+│ │ │ └── AuthLayout.jsx
+│ │ │
+│ │ ├── pages/ # Page-wise modules
+│ │ │ ├── auth/
+│ │ │ │ ├── Login.jsx
+│ │ │ │ └── Register.jsx
+│ │ │ ├── dashboard/
+│ │ │ │ ├── AdminDashboard.jsx
+│ │ │ │ └── AccountantDashboard.jsx
+│ │ │ ├── finance/
+│ │ │ │ ├── IncomeList.jsx
+│ │ │ │ ├── AddIncome.jsx
+│ │ │ │ ├── ExpenseList.jsx
+│ │ │ │ └── AddExpense.jsx
+│ │ │ ├── attendance/
+│ │ │ │ ├── AttendanceList.jsx
+│ │ │ │ └── MarkAttendance.jsx
+│ │ │ ├── events/
+│ │ │ │ ├── EventList.jsx
+│ │ │ │ └── AddEvent.jsx
+│ │ │ ├── members/
+│ │ │ │ ├── MemberList.jsx
+│ │ │ │ └── MemberProfile.jsx
+│ │ │ ├── notices/
+│ │ │ │ ├── NoticeList.jsx
+│ │ │ │ └── AddNotice.jsx
+│ │ │ └── reports/
+│ │ │ └── ReportsPage.jsx
+│ │ │
+│ │ ├── redux/ # Redux Toolkit (state management)
+│ │ │ ├── store.js
+│ │ │ ├── authSlice.js
+│ │ │ ├── userSlice.js
+│ │ │ ├── financeSlice.js
+│ │ │ └── eventSlice.js
+│ │ │
+│ │ ├── services/ # API calls (Axios)
+│ │ │ ├── authService.js
+│ │ │ ├── userService.js
+│ │ │ ├── financeService.js
+│ │ │ ├── eventService.js
+│ │ │ └── attendanceService.js
+│ │ │
+│ │ ├── routes/ # Protected & public routes
+│ │ │ └── AppRoutes.jsx
+│ │ │
+│ │ ├── utils/ # Helper functions
+│ │ │ └── formatDate.js
+│ │ │
+│ │ ├── App.jsx
+│ │ └── main.jsx
+│ │
+│ └── package.json
 │
 └── README.md
