@@ -1,10 +1,20 @@
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
   return (
-    <>
-      <h1 className="text-4xl font-bold underline">HAKSAB, Raozan Branch</h1>
-    </>
+    <Router>
+      <div className="app-container">
+        <Navbar />
+        <main>
+          <AppRoutes />
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
