@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { markAttendance, fetchEvents } from "../../services/attendanceService";
+import { markAttendance, getEvents } from "../../services/attendanceService";
 import Swal from "sweetalert2";
 
 const MarkAttendance = () => {
@@ -13,7 +13,7 @@ const MarkAttendance = () => {
   useEffect(() => {
     const loadEvents = async () => {
       try {
-        await dispatch(fetchEvents());
+        await dispatch(getEvents());
         setLoading(false);
       } catch (error) {
         console.error("Failed to load events:", error);
