@@ -11,7 +11,7 @@ const Contact = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        যোগাযোগ করুন (Contact Us)
+        Contact <span className="text-black">Us</span>
       </motion.h2>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -23,11 +23,11 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-xl font-semibold text-gray-800 mb-4">
-            আমাদের সাথে যোগাযোগ করুন
+            Get in Touch
           </h3>
           <p className="text-gray-600 mb-6">
-            যদি আপনার কোন প্রশ্ন, মতামত, বা প্রয়োজন থাকে, আমাদের সাথে যোগাযোগ
-            করুন।
+            We are here to answer your questions and provide more information.
+            Feel free to reach out to us through any of the following ways:
           </p>
 
           <div className="space-y-4">
@@ -68,38 +68,44 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-xl font-semibold text-gray-800 mb-4">
-            মেসেজ পাঠান
+            Send Us a Message
           </h3>
           <form className="space-y-4">
             <div>
-              <label className="block text-gray-600 text-sm mb-1">নাম</label>
+              <label className="block text-gray-600 text-sm mb-1">
+                Your Name
+              </label>
               <input
                 type="text"
-                placeholder="আপনার নাম লিখুন"
-                className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"
+                placeholder="Enter your full name"
+                className="w-full px-4 py-2 border rounded border-green-500"
               />
             </div>
             <div>
-              <label className="block text-gray-600 text-sm mb-1">ইমেইল</label>
+              <label className="block text-gray-600 text-sm mb-1">
+                Your Email
+              </label>
               <input
                 type="email"
-                placeholder="আপনার ইমেইল লিখুন"
-                className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"
+                placeholder="Enter your email"
+                className="w-full px-4 py-2 border rounded border-green-500"
               />
             </div>
             <div>
-              <label className="block text-gray-600 text-sm mb-1">মেসেজ</label>
+              <label className="block text-gray-600 text-sm mb-1">
+                Your Message
+              </label>
               <textarea
                 rows="4"
-                placeholder="আপনার মেসেজ লিখুন..."
-                className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"
+                placeholder="Type your message here"
+                className="w-full px-4 py-2 border rounded border-green-500"
               ></textarea>
             </div>
             <button
               type="submit"
-              className="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition"
+              className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
             >
-              পাঠান
+              Send
             </button>
           </form>
         </motion.div>
