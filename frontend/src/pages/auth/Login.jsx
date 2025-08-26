@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../redux/authSlice";
-import AuthLayout from "../../layouts/AuthLayout";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,16 +16,16 @@ const Login = () => {
 
     try {
       await dispatch(login({ email, password })).unwrap();
-      navigate("/dashboard"); // Redirect to dashboard on successful login
+      navigate("/");
     } catch (err) {
       setError("Invalid email or password", err);
     }
   };
 
   return (
-    <AuthLayout>
-      <div className="flex flex-col items-center justify-center h-screen">
-        <h2 className="text-2xl font-bold mb-4">Login</h2>
+    <div className="flex flex-col items-center justify-center h-screen ">
+      <div className="border shadow-md p-6 rounded-lg">
+        <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleSubmit} className="w-80">
           <div className="mb-4">
@@ -63,7 +62,7 @@ const Login = () => {
           </button>
         </form>
       </div>
-    </AuthLayout>
+    </div>
   );
 };
 
