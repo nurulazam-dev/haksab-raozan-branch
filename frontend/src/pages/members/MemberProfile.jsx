@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchMember } from "../../redux/userSlice";
+import { fetchMembers } from "../../redux/userSlice";
 import Loader from "../../components/Shared/Loader";
 import Error from "../../components/Shared/Error";
 
@@ -11,7 +11,7 @@ const MemberProfile = () => {
   const { member, loading, error } = useSelector((state) => state.user);
 
   useEffect(() => {
-    dispatch(fetchMember(id));
+    dispatch(fetchMembers(id));
   }, [dispatch, id]);
 
   if (loading) return <Loader />;

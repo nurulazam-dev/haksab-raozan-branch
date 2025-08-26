@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { markAttendance, getEvents } from "../../services/attendanceService";
+import attendanceService from "../../services/attendanceService";
 import Swal from "sweetalert2";
 
 const MarkAttendance = () => {
@@ -13,7 +13,7 @@ const MarkAttendance = () => {
   useEffect(() => {
     const loadEvents = async () => {
       try {
-        await dispatch(getEvents());
+        await dispatch(attendanceService?.getEvents());
         setLoading(false);
       } catch (error) {
         console.error("Failed to load events:", error);
@@ -31,7 +31,7 @@ const MarkAttendance = () => {
 
   const handleAttendance = async () => {
     try {
-      await markAttendance(selectedEvent, attendees);
+      await attendanceService?.markAttendance(selectedEvent, attendees);
       Swal.fire({
         title: "Success!",
         text: "Attendance marked successfully",
