@@ -44,6 +44,20 @@ export const fetchFinancialSummary = createAsyncThunk(
   }
 );
 
+// Add this above your slice definition
+export const fetchReports = createAsyncThunk(
+  "finance/fetchReports",
+  async (params, { rejectWithValue }) => {
+    try {
+      // Replace with your actual API/service call for reports
+      const response = await financeService.generateFinancialReport(params);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 const financeSlice = createSlice({
   name: "finance",
   initialState: {
@@ -99,10 +113,22 @@ const financeSlice = createSlice({
       .addCase(fetchFinancialSummary.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(fetchReports.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchReports.fulfilled, (state, action) => {
+        state.loading = false;
+        // You can store the reports in summary or create a new state property
+        state.summary = action.payload;
+      })
+      .addCase(fetchReports.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       });
   },
 });
 
 export const { clearError } = financeSlice.actions;
-
 export default financeSlice.reducer;
