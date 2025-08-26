@@ -1,6 +1,6 @@
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Megaphone } from "lucide-react";
+import { RiMegaphoneLine } from "react-icons/ri";
 
 const notices = [
   {
@@ -39,27 +39,27 @@ const Notices = () => {
       </div>
 
       <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {notices.map((notice, index) => (
+        {notices?.map((notice, index) => (
           <motion.div
-            key={notice.id}
+            key={notice?.id}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
             className="bg-gray-50 shadow-md rounded-2xl p-6 hover:shadow-lg transition"
           >
             <div className="flex items-center gap-3 mb-4">
-              <Megaphone className="w-6 h-6 text-green-700" />
+              <RiMegaphoneLine className="w-6 h-6 text-green-700" />
               <h3 className="text-xl font-semibold text-gray-900">
-                {notice.title}
+                {notice?.title}
               </h3>
             </div>
 
-            <p className="text-sm text-gray-500 mb-3">📅 {notice.date}</p>
+            <p className="text-sm text-gray-500 mb-3">📅 {notice?.date}</p>
 
-            <p className="text-gray-600 mb-6">{notice.description}</p>
+            <p className="text-gray-600 mb-6">{notice?.description}</p>
 
             <Link
-              to={`/notices/${notice.id}`}
+              to={`/notices/${notice?.id}`}
               className="inline-block w-full bg-green-700 text-white text-center font-semibold px-4 py-2 rounded-lg hover:bg-green-800 transition"
             >
               Read More

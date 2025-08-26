@@ -1,11 +1,15 @@
-import React from "react";
+import Hero from "../components/Home/Hero";
+import MembersOverview from "../components/Home/MembersOverview";
+import Notices from "../components/Home/Notices";
+import UpcomingEvents from "../components/Home/UpcomingEvents";
 
 const Home = () => {
   return (
     <div>
-      <h1 className="text-3xl font-bold text-white">
-        Welcome to the Home Page
-      </h1>
+      <Hero />
+      <Notices />
+      <UpcomingEvents />
+      <MembersOverview />
     </div>
   );
 };

@@ -1,5 +1,5 @@
-// import { motion } from "framer-motion";
-import { UserCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { FaUserCircle } from "react-icons/fa";
 
 const members = [
   {
@@ -52,34 +52,34 @@ const MembersOverview = () => {
       </div>
 
       <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-        {members.map((member, index) => (
+        {members?.map((member, index) => (
           <motion.div
-            key={member.id}
+            key={member?.id}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
             className="bg-white shadow-lg rounded-2xl p-6 flex flex-col items-center hover:shadow-xl transition relative"
           >
-            {member.avatar ? (
+            {member?.avatar ? (
               <img
-                src={member.avatar}
-                alt={member.name}
+                src={member?.avatar}
+                alt={member?.name}
                 className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-green-600"
               />
             ) : (
-              <UserCircle2 className="w-20 h-20 text-gray-400 mb-4" />
+              <FaUserCircle className="w-20 h-20 text-gray-400 mb-4" />
             )}
 
             <h3 className="text-lg font-semibold text-gray-900">
-              {member.name}
+              {member?.name}
             </h3>
-            <p className="text-sm text-gray-600">{member.role}</p>
+            <p className="text-sm text-gray-600">{member?.role}</p>
 
             <p className="text-xs text-gray-500 mt-2">
-              Joined: {member.joinDate}
+              Joined: {member?.joinDate}
             </p>
 
-            {isNewMember(member.joinDate) && (
+            {isNewMember(member?.joinDate) && (
               <span className="absolute top-3 right-3 bg-green-600 text-white text-xs px-2 py-1 rounded-full">
                 New
               </span>

@@ -1,6 +1,6 @@
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { CalendarDays, MapPin } from "lucide-react";
+import { FaCalendarDay, FaMapMarkerAlt } from "react-icons/fa";
 
 const events = [
   {
@@ -45,9 +45,9 @@ const UpcomingEvents = () => {
       </div>
 
       <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {events.map((event, index) => (
+        {events?.map((event, index) => (
           <motion.div
-            key={event.id}
+            key={event?.id}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -55,27 +55,27 @@ const UpcomingEvents = () => {
           >
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                {event.title}
+                {event?.title}
               </h3>
 
-              <p className="text-gray-600 text-sm mb-4">{event.description}</p>
+              <p className="text-gray-600 text-sm mb-4">{event?.description}</p>
 
               <div className="flex items-center gap-2 text-gray-700 text-sm mb-2">
-                <CalendarDays className="w-4 h-4 text-green-600" />
+                <FaCalendarDay className="w-4 h-4 text-green-600" />
                 <span>
-                  {event.date} • {event.time}
+                  {event?.date} • {event?.time}
                 </span>
               </div>
 
               <div className="flex items-center gap-2 text-gray-700 text-sm">
-                <MapPin className="w-4 h-4 text-red-600" />
-                <span>{event.location}</span>
+                <FaMapMarkerAlt className="w-4 h-4 text-red-600" />
+                <span>{event?.location}</span>
               </div>
             </div>
 
             <div className="mt-6">
               <Link
-                to={`/events/${event.id}`}
+                to={`/events/${event?.id}`}
                 className="inline-block w-full bg-green-700 text-white font-semibold px-4 py-2 rounded-lg hover:bg-green-800 transition"
               >
                 View Details
