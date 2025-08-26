@@ -39,6 +39,15 @@ export const fetchNotices = createAsyncThunk("users/fetchNotices", async () => {
   return response.data;
 });
 
+// Add this above your slice definition
+export const addNotice = createAsyncThunk(
+  "users/addNotice",
+  async (noticeData) => {
+    const response = await userService.addNotice(noticeData);
+    return response.data;
+  }
+);
+
 const userSlice = createSlice({
   name: "users",
   initialState: {
@@ -94,11 +103,12 @@ const userSlice = createSlice({
       .addCase(fetchNotices.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
+      })
+      .addCase(addNotice.fulfilled, (state, action) => {
+        state.notices.push(action.payload);
       });
   },
 });
 
 export const { clearError } = userSlice.actions;
-
 export default userSlice.reducer;
-export { fetchNotices };
