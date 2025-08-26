@@ -1,8 +1,8 @@
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect,
+  Routes,
+  Navigate,
 } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout";
 import AuthLayout from "../layouts/AuthLayout";
@@ -24,162 +24,228 @@ import NoticeList from "../pages/notices/NoticeList";
 import AddNotice from "../pages/notices/AddNotice";
 import ReportsPage from "../pages/reports/ReportsPage";
 import { useSelector } from "react-redux";
+import Home from "../pages/Home";
 
 const AppRoutes = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const userRole = useSelector((state) => state.auth.user?.role);
 
   return (
-    <Router>
-      <Switch>
-        <Route path="/login" exact>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <AuthLayout>
+            <Home />
+          </AuthLayout>
+        }
+      />
+      <Route
+        path="/home"
+        element={
+          <AuthLayout>
+            <Home />
+          </AuthLayout>
+        }
+      />
+      <Route
+        path="/login"
+        element={
           <AuthLayout>
             <Login />
           </AuthLayout>
-        </Route>
-        <Route path="/register" exact>
+        }
+      />
+      <Route
+        path="/register"
+        element={
           <AuthLayout>
             <Register />
           </AuthLayout>
-        </Route>
-        <Route path="/dashboard/admin" exact>
-          {isAuthenticated && userRole === "Admin" ? (
+        }
+      />
+      <Route
+        path="/dashboard/admin"
+        element={
+          isAuthenticated && userRole === "Admin" ? (
             <DashboardLayout>
               <AdminDashboard />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/dashboard/accountant" exact>
-          {isAuthenticated && userRole === "Accountant" ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/dashboard/accountant"
+        element={
+          isAuthenticated && userRole === "Accountant" ? (
             <DashboardLayout>
               <AccountantDashboard />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/finance/income" exact>
-          {isAuthenticated ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/finance/income"
+        element={
+          isAuthenticated ? (
             <DashboardLayout>
               <IncomeList />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/finance/add-income" exact>
-          {isAuthenticated ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/finance/add-income"
+        element={
+          isAuthenticated ? (
             <DashboardLayout>
               <AddIncome />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/finance/expenses" exact>
-          {isAuthenticated ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/finance/expenses"
+        element={
+          isAuthenticated ? (
             <DashboardLayout>
               <ExpenseList />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/finance/add-expense" exact>
-          {isAuthenticated ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/finance/add-expense"
+        element={
+          isAuthenticated ? (
             <DashboardLayout>
               <AddExpense />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/attendance" exact>
-          {isAuthenticated ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/attendance"
+        element={
+          isAuthenticated ? (
             <DashboardLayout>
               <AttendanceList />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/attendance/mark" exact>
-          {isAuthenticated ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/attendance/mark"
+        element={
+          isAuthenticated ? (
             <DashboardLayout>
               <MarkAttendance />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/events" exact>
-          {isAuthenticated ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/events"
+        element={
+          isAuthenticated ? (
             <DashboardLayout>
               <EventList />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/events/add" exact>
-          {isAuthenticated ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/events/add"
+        element={
+          isAuthenticated ? (
             <DashboardLayout>
               <AddEvent />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/members" exact>
-          {isAuthenticated ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/members"
+        element={
+          isAuthenticated ? (
             <DashboardLayout>
               <MemberList />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/members/:id" exact>
-          {isAuthenticated ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/members/:id"
+        element={
+          isAuthenticated ? (
             <DashboardLayout>
               <MemberProfile />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/notices" exact>
-          {isAuthenticated ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/notices"
+        element={
+          isAuthenticated ? (
             <DashboardLayout>
               <NoticeList />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/notices/add" exact>
-          {isAuthenticated ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/notices/add"
+        element={
+          isAuthenticated ? (
             <DashboardLayout>
               <AddNotice />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Route path="/reports" exact>
-          {isAuthenticated ? (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/reports"
+        element={
+          isAuthenticated ? (
             <DashboardLayout>
               <ReportsPage />
             </DashboardLayout>
           ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
-        <Redirect from="/" to="/login" />
-      </Switch>
-    </Router>
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route path="*" element={<Navigate to="/login" replace />} />
+    </Routes>
   );
 };
 
