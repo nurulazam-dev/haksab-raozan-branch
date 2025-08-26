@@ -5,6 +5,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { TfiFacebook } from "react-icons/tfi";
 
 const Footer = () => {
   return (
@@ -95,7 +96,15 @@ const Footer = () => {
               href="https://facebook.com"
               target="_blank"
               rel="noreferrer"
-              className="p-2 rounded-full bg-gray-800 hover:bg-blue-600 transition"
+              className="p-2 rounded-full hover:bg-gray-800 bg-yellow-700 transition"
+            >
+              <TfiFacebook size={22} />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noreferrer"
+              className="p-2 rounded-full hover:bg-gray-800 bg-blue-600 transition"
             >
               <FaFacebook size={22} />
             </a>
@@ -103,7 +112,7 @@ const Footer = () => {
               href="https://youtube.com"
               target="_blank"
               rel="noreferrer"
-              className="p-2 rounded-full bg-gray-800 hover:bg-red-600 transition"
+              className="p-2 rounded-full hover:bg-gray-800 bg-red-600 transition"
             >
               <FaYoutube size={22} />
             </a>
