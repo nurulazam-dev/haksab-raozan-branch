@@ -1,4 +1,4 @@
-# Hazrat_Abul_Khair_Sultanpury_RH._Association_Bangladesh (HAKSAB) - Frontend Documentation
+# Hazrat_Abul_Khair_Sultanpury_RH.\_Association_Bangladesh (HAKSAB) - Frontend Documentation
 
 ## Overview
 
@@ -24,17 +24,20 @@ The frontend is structured as follows:
 ## Setup Instructions
 
 1. **Clone the repository**:
+
    ```
    git clone <repository-url>
    cd frontend
    ```
 
 2. **Install dependencies**:
+
    ```
    npm install
    ```
 
 3. **Run the application**:
+
    ```
    npm start
    ```
@@ -60,10 +63,46 @@ The frontend is structured as follows:
 - **Routing**: React Router
 - **API Calls**: Axios
 
-## Contribution
+## Home page sections/components:
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
+1. **Hero / Welcome Section**
 
-## License
+   - Displays a welcome message, logo, and brief intro.
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+2. **Statistics Overview**
+
+   - Quick summary cards for income, expenses, members, events, notices, etc.
+
+3. **Recent Activities**
+
+   - List of latest transactions, attendance, or updates.
+
+4. **Upcoming Events**
+
+   - Shows next scheduled events or meetings.
+
+5. **Quick Actions / Shortcuts**
+
+   - Buttons/links for adding income, expenses, marking attendance, etc.
+
+6. **Notices / Announcements**
+
+   - Latest notices or important messages.
+
+7. **Members Overview**
+
+   - Highlights active members or new registrations.
+
+8. **Reports Snapshot**
+   - Mini charts or links to financial/attendance reports.
+
+**Suggested Components:**
+
+- `HeroSection`
+- `StatsOverview`
+- `RecentActivities`
+- `UpcomingEvents`
+- `QuickActions`
+- `NoticeBoard`
+- `MembersOverview`
+- `ReportsPreview`
