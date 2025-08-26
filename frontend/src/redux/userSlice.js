@@ -30,10 +30,20 @@ export const deactivateMember = createAsyncThunk(
   }
 );
 
+// Add this import if you have a getNotices function in userService
+// import * as userService from "../services/userService";
+
+// Async thunk for fetching notices
+export const fetchNotices = createAsyncThunk("users/fetchNotices", async () => {
+  const response = await userService.getNotices();
+  return response.data;
+});
+
 const userSlice = createSlice({
   name: "users",
   initialState: {
     members: [],
+    notices: [], // <-- add this line
     loading: false,
     error: null,
   },
@@ -73,6 +83,17 @@ const userSlice = createSlice({
         if (index !== -1) {
           state.members[index].active = false;
         }
+      })
+      .addCase(fetchNotices.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchNotices.fulfilled, (state, action) => {
+        state.loading = false;
+        state.notices = action.payload;
+      })
+      .addCase(fetchNotices.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
       });
   },
 });
@@ -80,3 +101,4 @@ const userSlice = createSlice({
 export const { clearError } = userSlice.actions;
 
 export default userSlice.reducer;
+export { fetchNotices };
