@@ -8,14 +8,12 @@ import TestRoutes from "./routes/TestRoutes";
 function App() {
   return (
     <Router>
-      <div className="app-container">
-        <Navbar />
-        <main>
-          <TestRoutes />
-          {/* <AppRoutes /> */}
-        </main>
-        <Footer />
-      </div>
+      <Navbar />
+      <main>
+        <TestRoutes />
+        {/* <AppRoutes /> */}
+      </main>
+      <Footer />
     </Router>
   );
 }

@@ -41,8 +41,8 @@ const isNewMember = (joinDate) => {
 
 const MembersOverview = () => {
   return (
-    <section className="py-16 px-6 md:px-12 bg-gray-50">
-      <div className="max-w-7xl mx-auto text-center mb-12">
+    <section className="py-6 px-6 md:px-12 bg-gray-50">
+      <div className="max-w-7xl mx-auto text-center mb-5">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
           Members <span className="text-green-700">Overview</span>
         </h2>
