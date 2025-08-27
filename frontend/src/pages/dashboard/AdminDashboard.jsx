@@ -20,7 +20,7 @@ const AdminDashboard = () => {
       {/* <Navbar /> */}
       <div className="flex flex-grow">
         <Sidebar />
-        <main className="flex-grow p-4">
+        <main className="flex-grow p-4 mt-10">
           <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
           {loading ? (
             <p>Loading...</p>
@@ -28,19 +28,19 @@ const AdminDashboard = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <ChartCard
                 title="Today's Income"
-                value={financialSummary.todayIncome}
+                value={financialSummary?.todayIncome}
               />
               <ChartCard
                 title="Today's Expenses"
-                value={financialSummary.todayExpenses}
+                value={financialSummary?.todayExpenses}
               />
               <ChartCard
                 title="Total Donations"
-                value={financialSummary.totalDonations}
+                value={financialSummary?.totalDonations}
               />
               <ChartCard
                 title="Monthly Collections"
-                value={financialSummary.monthlyCollections}
+                value={financialSummary?.monthlyCollections}
               />
             </div>
           )}

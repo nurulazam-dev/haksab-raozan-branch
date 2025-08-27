@@ -47,6 +47,15 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink
+              to="/finance/add-expense"
+              className="block py-2 px-4 hover:bg-gray-700"
+              activeClassName="bg-gray-600"
+            >
+              Add Expense
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/attendance"
               className="block py-2 px-4 hover:bg-gray-700"
               activeClassName="bg-gray-600"
