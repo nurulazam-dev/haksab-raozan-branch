@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 const MemberList = () => {
   const dispatch = useDispatch();
-  const members = useSelector((state) => state.user.members);
-  const loading = useSelector((state) => state.user.loading);
-  const error = useSelector((state) => state.user.error);
+  const members = useSelector((state) => state?.user?.members);
+  const loading = useSelector((state) => state?.user?.loading);
+  const error = useSelector((state) => state?.user?.error);
 
   useEffect(() => {
     dispatch(fetchMembers());

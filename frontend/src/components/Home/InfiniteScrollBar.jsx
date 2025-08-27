@@ -3,9 +3,9 @@ const InfiniteScrollBar = () => {
     "Welcome to Haksab-Raozan-Branch! Stay updated with our latest news and events. Join us in making a difference!";
 
   return (
-    <div className="overflow-hidden whitespace-nowrap w-full bg-green-500 py-1">
+    <div className="overflow-hidden whitespace-nowrap w-full bg-red-800 py-1">
       <div
-        className="inline-block text-black lg:text-[25px] text-[18px] font-serif leading-10"
+        className="inline-block text-yellow-300 lg:text-[25px] text-[18px] font-serif leading-10"
         style={{
           display: "inline-block",
           whiteSpace: "nowrap",

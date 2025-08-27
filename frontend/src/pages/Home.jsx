@@ -12,8 +12,8 @@ import Contact from "./Contact";
 const Home = () => {
   return (
     <div className="min-h-screen pt-0 md:pt-15">
-      <Hero />
       <InfiniteScrollBar />
+      <Hero />
       <Notices />
       <UpcomingEvents />
       <OrgHistory />
