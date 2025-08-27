@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFinancialSummary } from "../../redux/financeSlice";
 import ChartCard from "../../components/ChartCard";
-import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
-import Footer from "../../components/Footer";
 
 const AdminDashboard = () => {
   const dispatch = useDispatch();
@@ -20,7 +18,7 @@ const AdminDashboard = () => {
       {/* <Navbar /> */}
       <div className="flex flex-grow">
         <Sidebar />
-        <main className="flex-grow p-4 mt-10">
+        <main className="flex-grow p-4">
           <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
           {loading ? (
             <p>Loading...</p>

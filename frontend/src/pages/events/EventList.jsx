@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 const EventList = () => {
   const dispatch = useDispatch();
-  const events = useSelector((state) => state.events.events);
-  const loading = useSelector((state) => state.events.loading);
-  const error = useSelector((state) => state.events.error);
+  const events = useSelector((state) => state?.events?.events);
+  const loading = useSelector((state) => state?.events?.loading);
+  const error = useSelector((state) => state?.events?.error);
 
   useEffect(() => {
     dispatch(fetchEvents());
@@ -22,7 +22,7 @@ const EventList = () => {
   }
 
   return (
-    <div className="p-4">
+    <div className="p-4 py-12">
       <h1 className="text-2xl font-bold mb-4">Event List</h1>
       <Link
         to="/events/add"
@@ -30,7 +30,7 @@ const EventList = () => {
       >
         Add New Event
       </Link>
-      <table className="min-w-full bg-white border border-gray-300">
+      <table className="min-w-full border border-gray-300">
         <thead>
           <tr>
             <th className="border px-4 py-2">Title</th>

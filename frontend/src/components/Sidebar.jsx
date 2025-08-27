@@ -1,10 +1,9 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
     <div className="bg-gray-800 text-white w-64 h-full">
-      <div className="border-b border-gray-400 mt-10 text-center">
+      <div className="border-b border-gray-400 text-center">
         <h2 className="text-3xl font-bold py-4 text-yellow-600">Dashboard</h2>
       </div>
       <nav className="mt-3">

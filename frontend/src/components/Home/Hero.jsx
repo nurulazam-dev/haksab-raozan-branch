@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import logo from "../../assets/images/logo/HAKSAB_logo.jpg";
+import logo from "../../assets/images/logo/abu_maola_rowja.png";
 import { Link } from "react-router-dom";
 
 const Hero = () => {

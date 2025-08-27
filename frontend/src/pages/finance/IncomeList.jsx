@@ -32,12 +32,12 @@ const IncomeList = () => {
         Add New Income
       </Link>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {incomeRecords.map((record) => (
+        {incomeRecords?.map((record) => (
           <ChartCard
-            key={record._id}
-            title={record.title}
-            amount={record.amount}
-            date={record.date}
+            key={record?._id}
+            title={record?.title}
+            amount={record?.amount}
+            date={record?.date}
           />
         ))}
       </div>

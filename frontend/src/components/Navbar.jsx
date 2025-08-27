@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaRegWindowClose } from "react-icons/fa";
+import logo from "../assets/images/logo/HAKSAB_logo.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,10 +20,15 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-gray-900 text-white shadow-md fixed w-full z-10">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+    <nav className="bg-gray-900 text-white fixed w-full z-10">
+      <div className="container mx-auto p-4 flex justify-between items-center">
         {/* Logo / Brand */}
         <Link to="/" className="text-xl font-bold tracking-wide">
+          <img
+            src={logo}
+            alt="HAKSAB-Raozan-Branch Logo"
+            className="inline-block w-10 h-8 mr-2 rounded-full"
+          />
           HAKSAB-Raozan
         </Link>
 

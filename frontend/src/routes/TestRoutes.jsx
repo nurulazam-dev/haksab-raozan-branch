@@ -24,6 +24,7 @@ import NoticeList from "../pages/notices/NoticeList";
 import AddNotice from "../pages/notices/AddNotice";
 import ReportsPage from "../pages/reports/ReportsPage";
 import Home from "../pages/Home";
+import NotFound from "../pages/NotFound";
 
 const TestRoutes = () => {
   return (
@@ -47,7 +48,8 @@ const TestRoutes = () => {
       <Route path="/notices" element={<NoticeList />} />
       <Route path="/notices/add" element={<AddNotice />} />
       <Route path="/reports" element={<ReportsPage />} />
-      <Route path="*" element={<Navigate to="/login" replace />} />
+      {/* <Route path="*" element={<Navigate to="/login" replace />} /> */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
