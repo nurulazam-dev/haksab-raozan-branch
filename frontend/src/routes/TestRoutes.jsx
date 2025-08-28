@@ -26,6 +26,7 @@ import ReportsPage from "../pages/reports/ReportsPage";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 import MainDashboard from "../pages/dashboard/MainDashboard";
+import Overview from "../pages/dashboard/Overview";
 
 const TestRoutes = () => {
   return (
@@ -35,7 +36,7 @@ const TestRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<MainDashboard />}>
-        <Route index element={<Home />} />
+        <Route index element={<Overview />} />
         <Route path="admin" element={<AdminDashboard />} />
         <Route path="accountant" element={<AccountantDashboard />} />
         <Route path="finance/income" element={<IncomeList />} />
