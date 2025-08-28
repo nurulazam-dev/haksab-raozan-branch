@@ -49,14 +49,47 @@ const MainDashboard = () => {
 
         {/* Sidebar Links */}
         <nav className="flex-1 space-y-2">
-          <NavLink to="/dashboard/home" className={linkClasses}>
-            <FaHome /> {isOpen && <span>Home</span>}
+          <NavLink to="/dashboard/admin" className={linkClasses}>
+            <FaHome /> {isOpen && <span>Admin Dashboard</span>}
+          </NavLink>
+          <NavLink to="/dashboard/accountant" className={linkClasses}>
+            <FaHome /> {isOpen && <span>Accountant Dashboard</span>}
+          </NavLink>
+          <NavLink to="/dashboard/finance/income" className={linkClasses}>
+            <FaHome /> {isOpen && <span>Income List</span>}
+          </NavLink>
+          <NavLink to="/dashboard/finance/add-income" className={linkClasses}>
+            <FaHome /> {isOpen && <span>Add Income</span>}
+          </NavLink>
+          <NavLink to="/dashboard/finance/expenses" className={linkClasses}>
+            <FaHome /> {isOpen && <span>Expense List</span>}
+          </NavLink>
+          <NavLink to="/dashboard/finance/add-expense" className={linkClasses}>
+            <FaHome /> {isOpen && <span>Add Expense</span>}
+          </NavLink>
+          <NavLink to="/dashboard/attendance" className={linkClasses}>
+            <FaUsers /> {isOpen && <span>Attendance</span>}
+          </NavLink>
+          <NavLink to="/dashboard/attendance/mark" className={linkClasses}>
+            <FaUsers /> {isOpen && <span>Mark Attendance</span>}
+          </NavLink>
+          <NavLink to="/dashboard/events" className={linkClasses}>
+            <FaUsers /> {isOpen && <span>Events</span>}
+          </NavLink>
+          <NavLink to="/dashboard/events/add" className={linkClasses}>
+            <FaUsers /> {isOpen && <span>Add Event</span>}
           </NavLink>
           <NavLink to="/dashboard/members" className={linkClasses}>
             <FaUsers /> {isOpen && <span>Members</span>}
           </NavLink>
-          <NavLink to="/dashboard/notifications" className={linkClasses}>
+          <NavLink to="/dashboard/notices" className={linkClasses}>
             <FaBell /> {isOpen && <span>Notices</span>}
+          </NavLink>
+          <NavLink to="/dashboard/notices/add" className={linkClasses}>
+            <FaBell /> {isOpen && <span>Add Notice</span>}
+          </NavLink>
+          <NavLink to="/dashboard/reports" className={linkClasses}>
+            <FaBell /> {isOpen && <span>Reports</span>}
           </NavLink>
           <NavLink to="/dashboard/settings" className={linkClasses}>
             <FaCog /> {isOpen && <span>Settings</span>}
