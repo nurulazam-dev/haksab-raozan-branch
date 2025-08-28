@@ -25,6 +25,7 @@ import AddNotice from "../pages/notices/AddNotice";
 import ReportsPage from "../pages/reports/ReportsPage";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
+import MainDashboard from "../pages/dashboard/MainDashboard";
 
 const TestRoutes = () => {
   return (
@@ -33,21 +34,25 @@ const TestRoutes = () => {
       <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/dashboard/admin" element={<AdminDashboard />} />
-      <Route path="/dashboard/accountant" element={<AccountantDashboard />} />
-      <Route path="/finance/income" element={<IncomeList />} />
-      <Route path="/finance/add-income" element={<AddIncome />} />
-      <Route path="/finance/expenses" element={<ExpenseList />} />
-      <Route path="/finance/add-expense" element={<AddExpense />} />
-      <Route path="/attendance" element={<AttendanceList />} />
-      <Route path="/attendance/mark" element={<MarkAttendance />} />
-      <Route path="/events" element={<EventList />} />
-      <Route path="/events/add" element={<AddEvent />} />
-      <Route path="/members" element={<MemberList />} />
-      <Route path="/members/:id" element={<MemberProfile />} />
-      <Route path="/notices" element={<NoticeList />} />
-      <Route path="/notices/add" element={<AddNotice />} />
-      <Route path="/reports" element={<ReportsPage />} />
+      <Route path="/dashboard" element={<MainDashboard />}>
+        <Route index element={<Home />} />
+        <Route path="admin" element={<AdminDashboard />} />
+        <Route path="accountant" element={<AccountantDashboard />} />
+        <Route path="finance/income" element={<IncomeList />} />
+        <Route path="finance/add-income" element={<AddIncome />} />
+        <Route path="finance/expenses" element={<ExpenseList />} />
+        <Route path="finance/add-expense" element={<AddExpense />} />
+        <Route path="attendance" element={<AttendanceList />} />
+        <Route path="attendance/mark" element={<MarkAttendance />} />
+        <Route path="events" element={<EventList />} />
+        <Route path="events/add" element={<AddEvent />} />
+        <Route path="members" element={<MemberList />} />
+        <Route path="members/:id" element={<MemberProfile />} />
+        <Route path="notices" element={<NoticeList />} />
+        <Route path="notices/add" element={<AddNotice />} />
+        <Route path="reports" element={<ReportsPage />} />
+      </Route>
+
       {/* <Route path="*" element={<Navigate to="/login" replace />} /> */}
       <Route path="*" element={<NotFound />} />
     </Routes>
