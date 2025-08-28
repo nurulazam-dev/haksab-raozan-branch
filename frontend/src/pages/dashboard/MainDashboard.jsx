@@ -14,19 +14,19 @@ const MainDashboard = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   const sidebarVariants = {
-    open: { width: "16rem" }, // expanded
-    closed: { width: "4rem" }, // collapsed
+    open: { width: "14.5rem" }, // expanded
+    closed: { width: "3.3rem" }, // collapsed
   };
 
   const linkClasses = ({ isActive }) =>
-    `flex items-center gap-3 px-4 py-2 rounded-lg transition-colors duration-300 ${
+    `flex items-center gap-3 px-4 py-2 transition-colors duration-300 ${
       isActive
-        ? "bg-indigo-600 text-white"
-        : "text-gray-100 hover:bg-gray-700 hover:text-white"
+        ? "text-blue-600"
+        : "text-white hover:bg-slate-700 hover:text-yellow-600"
     }`;
 
   return (
-    <div className="flex pt-16 h-screen bg-gray-50">
+    <div className="flex pt-16 bg-gray-50">
       {/* Sidebar */}
       <motion.div
         animate={isOpen ? "open" : "closed"}
@@ -37,10 +37,10 @@ const MainDashboard = () => {
         {/* Sidebar Header */}
         <div className="flex items-center justify-between px-4 py-4 border-b">
           {isOpen && (
-            <h1 className="text-2xl font-bold text-blue-600">Dashboard</h1>
+            <h1 className="text-2xl font-bold text-yellow-600">Dashboard</h1>
           )}
           <button
-            className="text-gray-200 hover:text-blue-600"
+            className="text-yellow-600 hover:text-blue-600"
             onClick={() => setIsOpen(!isOpen)}
           >
             <FaBars size={20} />
@@ -48,7 +48,7 @@ const MainDashboard = () => {
         </div>
 
         {/* Sidebar Links */}
-        <nav className="flex-1 space-y-2">
+        <nav className="flex-1">
           <NavLink to="/dashboard/admin" className={linkClasses}>
             <FaHome /> {isOpen && <span>Admin Dashboard</span>}
           </NavLink>

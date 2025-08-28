@@ -27,6 +27,7 @@ import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 import MainDashboard from "../pages/dashboard/MainDashboard";
 import Overview from "../pages/dashboard/Overview";
+import Settings from "../pages/dashboard/Settings";
 
 const TestRoutes = () => {
   return (
@@ -52,6 +53,7 @@ const TestRoutes = () => {
         <Route path="notices" element={<NoticeList />} />
         <Route path="notices/add" element={<AddNotice />} />
         <Route path="reports" element={<ReportsPage />} />
+        <Route path="settings" element={<Settings />} />
       </Route>
 
       {/* <Route path="*" element={<Navigate to="/login" replace />} /> */}
