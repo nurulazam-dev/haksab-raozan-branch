@@ -6,6 +6,7 @@ import Notices from "../components/Home/Notices";
 import OrgHistory from "../components/Home/OrgHistory";
 import OurOrgMembers from "../components/Home/OurOrgMembers";
 import UpcomingEvents from "../components/Home/UpcomingEvents";
+import YearlyPrograms from "../components/Home/YearlyPrograms";
 import AboutUs from "./AboutUs";
 import Contact from "./Contact";
 
@@ -14,6 +15,7 @@ const Home = () => {
     <div className="min-h-screen pt-0 md:pt-15">
       <InfiniteScrollBar />
       <Hero />
+      <YearlyPrograms />
       <Notices />
       <UpcomingEvents />
       <OrgHistory />
