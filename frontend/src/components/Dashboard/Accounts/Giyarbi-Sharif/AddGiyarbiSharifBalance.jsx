@@ -41,59 +41,59 @@ export default function AddGiyarbiSharifBalance() {
           {/* =================
               Header part
           ================= */}
-          <section className="border border-slate-300 w-full p-6 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+          <section className="border border-slate-300 w-full p-6 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-4">
             {/* Giyarbi Sharif Date */}
             <div>
               <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <MdOutlineDateRange /> Giyarbi Sharif Date
+                <MdOutlineDateRange /> Date
               </label>
               <input
                 type="date"
                 name="giyarbiSharifDate"
                 value={formData.giyarbiSharifDate}
                 onChange={handleChange}
-                placeholder="Enter Giyarbi Sharif date"
+                placeholder="Date"
                 required
-                className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                className="w-full border border-slate-500 rounded p-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
               />
             </div>
 
             {/* Arabic Month */}
             <div>
               <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <MdOutlineDateRange /> Arabic Month
+                <MdOutlineDateRange /> Month
               </label>
               <input
                 type="text"
                 name="arabicMonth"
                 value={formData.arabicMonth}
                 onChange={handleChange}
-                placeholder="Enter Arabic month"
+                placeholder="Month"
                 required
-                className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                className="w-full border border-slate-500 rounded p-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
               />
             </div>
 
             {/* Balance Collector */}
             <div>
               <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <AiOutlineUser /> Balance Collector
+                <AiOutlineUser /> TK Collector
               </label>
               <input
                 type="text"
                 name="balanceCollector"
                 value={formData.balanceCollector}
                 onChange={handleChange}
-                placeholder="Enter balance collector's name"
+                placeholder="collector"
                 required
-                className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                className="w-full border border-slate-500 rounded p-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
               />
             </div>
 
             {/* Income Amount */}
             <div>
               <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <FaDonate /> Total Income Amount (BDT)
+                <FaDonate /> Total Income
               </label>
               <input
                 type="number"
@@ -101,14 +101,14 @@ export default function AddGiyarbiSharifBalance() {
                 value={formData.amount}
                 onChange={handleChange}
                 disabled
-                className="w-full border border-slate-500 rounded px-4 py-2"
+                className="w-full border border-slate-500 rounded p-2"
               />
             </div>
 
             {/* Total Cost Amount */}
             <div>
               <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <FaDonate /> Total Cost Amount (BDT)
+                <FaDonate /> Total Cost
               </label>
               <input
                 type="number"
@@ -116,14 +116,14 @@ export default function AddGiyarbiSharifBalance() {
                 value={formData.amount}
                 onChange={handleChange}
                 disabled
-                className="w-full border border-slate-500 rounded px-4 py-2"
+                className="w-full border border-slate-500 rounded p-2"
               />
             </div>
 
             {/* Balance */}
             <div>
               <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <FaDonate /> Balance (BDT)
+                <FaDonate /> Balance
               </label>
               <input
                 type="number"
@@ -169,7 +169,7 @@ export default function AddGiyarbiSharifBalance() {
                     name="donationAmount"
                     value={formData.donationAmount}
                     onChange={handleChange}
-                    placeholder="Enter donation amount"
+                    placeholder="Enter amount"
                     required
                     className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
                   />

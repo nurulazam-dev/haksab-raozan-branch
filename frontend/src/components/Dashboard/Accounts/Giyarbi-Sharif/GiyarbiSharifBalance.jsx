@@ -5,6 +5,7 @@ import {
   FaArrowUp,
   FaBalanceScale,
   FaEdit,
+  FaEye,
   FaTrash,
 } from "react-icons/fa";
 
@@ -140,9 +141,10 @@ const GiyarbiSharifBalance = () => {
                     {item.balance}
                   </td>
                   <td className="px-4 py-3 text-center">{item.collector}</td>
-                  <td className="px-4 py-3 flex justify-center gap-3">
-                    <FaEdit className="text-blue-600 cursor-pointer hover:scale-110 transition" />
-                    <FaTrash className="text-red-600 cursor-pointer hover:scale-110 transition" />
+                  <td className="px-2 py-3 flex justify-center gap-4">
+                    <FaEye className="text-green-600 text-lg cursor-pointer hover:scale-110 transition" />
+                    <FaEdit className="text-blue-600 text-lg cursor-pointer hover:scale-110 transition" />
+                    <FaTrash className="text-red-600 text-lg cursor-pointer hover:scale-110 transition" />
                   </td>
                 </tr>
               ))}
