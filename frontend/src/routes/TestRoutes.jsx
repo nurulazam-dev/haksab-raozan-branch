@@ -29,6 +29,7 @@ import MainDashboard from "../pages/dashboard/MainDashboard";
 import Overview from "../pages/dashboard/Overview";
 import Settings from "../pages/dashboard/Settings";
 import GiyarbiSharifBalance from "../components/Dashboard/Accounts/Giyarbi-Sharif/GiyarbiSharifBalance";
+import AddGiyarbiSharifBalance from "../components/Dashboard/Accounts/Giyarbi-Sharif/AddGiyarbiSharifBalance";
 
 const TestRoutes = () => {
   return (
@@ -42,6 +43,7 @@ const TestRoutes = () => {
         <Route path="admin" element={<AdminDashboard />} />
         <Route path="accountant" element={<AccountantDashboard />} />
         <Route path="giyarbi-sharif" element={<GiyarbiSharifBalance />} />
+        <Route path="add-gs-balance" element={<AddGiyarbiSharifBalance />} />
         <Route path="finance/income" element={<IncomeList />} />
         <Route path="finance/add-income" element={<AddIncome />} />
         <Route path="finance/expenses" element={<ExpenseList />} />
