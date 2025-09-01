@@ -41,7 +41,7 @@ const Hero = () => {
           <img
             src={logo}
             alt="HAKSAB Logo"
-            className="w-64 md:w-80 drop-shadow-xl"
+            className="w-64 md:w-80 drop-shadow-2xl drop-shadow-amber-50"
           />
         </motion.div>
       </div>
