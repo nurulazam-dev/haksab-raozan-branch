@@ -13,9 +13,17 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Organization Info */}
         <div>
-          <h2 className="text-2xl font-bold text-white">
-            HAKSAB – Raozan Branch
-          </h2>
+          <div className="flex items-center justify-between gap-4">
+            {" "}
+            <img
+              src="./src/assets/images/logo/HAKSAB_logo.png"
+              alt="HAKSAB Logo"
+              className="w-16 h-16"
+            />
+            <h2 className="text-2xl font-bold text-white">
+              HAKSAB – Raozan Branch
+            </h2>
+          </div>
           <h1 className="mt-3 text-sm leading-6 text-yellow-600">
             Hazrat Abul Khair Sultanpury (RH.) Association Bangladesh (HAKSAB) –
             Raozan Branch.
