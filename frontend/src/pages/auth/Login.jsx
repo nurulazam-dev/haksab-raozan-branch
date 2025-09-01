@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../redux/authSlice";
 
 const Login = () => {
@@ -61,6 +61,17 @@ const Login = () => {
             Login
           </button>
         </form>
+
+        {/* Redirect to login */}
+        <p className="text-sm text-gray-600 text-center mt-3">
+          Don't have an account?{" "}
+          <Link
+            to="/register"
+            className="text-blue-600 hover:underline font-medium"
+          >
+            Register here
+          </Link>
+        </p>
       </div>
     </div>
   );
