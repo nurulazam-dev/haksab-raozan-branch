@@ -29,26 +29,26 @@ const GiyarbiSharifBalance = () => {
     {
       date: "2023-03-01",
       arabicMonth: "ربيع الأول",
-      income: 1200,
-      cost: 600,
-      balance: 600,
-      collector: "Khalid",
+      income: 2000,
+      cost: 1200,
+      balance: 800,
+      collector: "Imran",
     },
     {
       date: "2023-04-01",
-      arabicMonth: "ربيع الآخر",
+      arabicMonth: "ربيع الثاني",
       income: 1800,
-      cost: 800,
-      balance: 1000,
+      cost: 900,
+      balance: 900,
       collector: "Hasan",
     },
     {
       date: "2023-05-01",
       arabicMonth: "جمادى الأولى",
-      income: 2000,
-      cost: 900,
-      balance: 1100,
-      collector: "Rafiq",
+      income: 2500,
+      cost: 1100,
+      balance: 1400,
+      collector: "Karim",
     },
   ];
 
@@ -73,23 +73,23 @@ const GiyarbiSharifBalance = () => {
     },
   ];
 
-  // Pagination states
+  // Pagination logic
   const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 3;
+  const rowsPerPage = 4;
   const totalPages = Math.ceil(gsBalance.length / rowsPerPage);
 
-  const currentRows = gsBalance.slice(
+  const paginatedData = gsBalance.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
 
   return (
-    <div className="p-6 text-slate-800">
-      <h2 className="text-2xl font-bold mb-6 text-center">
-        📊 Giyarbi Sharif Balance
+    <div className="px-6 text-slate-800">
+      <h2 className="text-3xl font-bold mb-3 text-center text-blue-700">
+        Giyarbi Sharif Balance
       </h2>
 
-      {/* statistics cards */}
+      {/* Statistics */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8">
         {stats.map((stat) => (
           <motion.div
@@ -107,68 +107,67 @@ const GiyarbiSharifBalance = () => {
         ))}
       </div>
 
-      {/* data table */}
-      <div className="bg-white shadow-lg rounded-2xl p-6 border border-gray-100 overflow-x-auto">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="bg-gray-100 text-gray-600 text-sm uppercase tracking-wider">
-              <th className="py-3 px-4">Date</th>
-              <th className="py-3 px-4">Arabic Month</th>
-              <th className="py-3 px-4 text-right">Income</th>
-              <th className="py-3 px-4 text-right">Cost</th>
-              <th className="py-3 px-4 text-right">Balance</th>
-              <th className="py-3 px-4">Collector</th>
-              <th className="py-3 px-4 text-center">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentRows.map((item, index) => (
-              <motion.tr
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="hover:bg-gray-50 border-b"
-              >
-                <td className="py-3 px-4">{item.date}</td>
-                <td className="py-3 px-4">{item.arabicMonth}</td>
-                <td className="py-3 px-4 text-right text-green-600 font-medium">
-                  {item.income}
-                </td>
-                <td className="py-3 px-4 text-right text-red-600 font-medium">
-                  {item.cost}
-                </td>
-                <td className="py-3 px-4 text-right font-semibold">
-                  {item.balance}
-                </td>
-                <td className="py-3 px-4">{item.collector}</td>
-                <td className="py-3 px-4 flex justify-center items-center gap-3">
-                  <FaEdit className="text-blue-600 cursor-pointer hover:scale-110 transition" />
-                  <FaTrash className="text-red-600 cursor-pointer hover:scale-110 transition" />
-                </td>
-              </motion.tr>
-            ))}
-          </tbody>
-        </table>
+      {/* Table */}
+      <div className="bg-white shadow-lg rounded-md border border-gray-100 overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm text-left border-collapse">
+            <thead className="bg-gray-200 text-gray-700 uppercase text-xs sticky top-0">
+              <tr>
+                <th className="px-4 py-3">Date</th>
+                <th className="px-4 py-3">Arabic Month</th>
+                <th className="px-4 py-3 text-right">Income</th>
+                <th className="px-4 py-3 text-right">Cost</th>
+                <th className="px-4 py-3 text-right">Balance</th>
+                <th className="px-4 py-3 text-center">Collector</th>
+                <th className="px-4 py-3 text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {paginatedData.map((item, index) => (
+                <tr
+                  key={index}
+                  className="border-t hover:bg-gray-50 transition"
+                >
+                  <td className="px-4 py-3">{item.date}</td>
+                  <td className="px-4 py-3">{item.arabicMonth}</td>
+                  <td className="px-4 py-3 text-right text-green-600 font-medium">
+                    {item.income}
+                  </td>
+                  <td className="px-4 py-3 text-right text-red-600 font-medium">
+                    {item.cost}
+                  </td>
+                  <td className="px-4 py-3 text-right font-semibold text-blue-600">
+                    {item.balance}
+                  </td>
+                  <td className="px-4 py-3 text-center">{item.collector}</td>
+                  <td className="px-4 py-3 flex justify-center gap-3">
+                    <FaEdit className="text-blue-600 cursor-pointer hover:scale-110 transition" />
+                    <FaTrash className="text-red-600 cursor-pointer hover:scale-110 transition" />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         {/* Pagination */}
-        <div className="flex justify-between items-center mt-4">
+        <div className="flex justify-between items-center p-4 border-t bg-gray-50">
           <button
+            className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50"
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            className="px-4 py-2 text-sm bg-gray-200 rounded-lg hover:bg-gray-300 disabled:opacity-50"
           >
             Prev
           </button>
-          <p className="text-sm text-gray-600">
+          <span className="text-gray-600 text-sm">
             Page {currentPage} of {totalPages}
-          </p>
+          </span>
           <button
+            className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50"
             onClick={() =>
               setCurrentPage((prev) => Math.min(prev + 1, totalPages))
             }
             disabled={currentPage === totalPages}
-            className="px-4 py-2 text-sm bg-gray-200 rounded-lg hover:bg-gray-300 disabled:opacity-50"
           >
             Next
           </button>
