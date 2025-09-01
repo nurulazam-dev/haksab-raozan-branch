@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaDonate } from "react-icons/fa";
-import { MdOutlineDateRange } from "react-icons/md";
+import { TbCurrencyTaka } from "react-icons/tb";
+import { MdOutlineDateRange, MdPersonAdd } from "react-icons/md";
 import { AiOutlineUser } from "react-icons/ai";
 
 export default function AddGiyarbiSharifBalance() {
@@ -31,136 +32,202 @@ export default function AddGiyarbiSharifBalance() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-2xl font-bold text-center text-indigo-600 flex items-center justify-center gap-2 mb-6">
+        <h2 className="text-2xl font-bold text-center text-indigo-600 flex items-center justify-center gap-2 mb-4">
           <FaDonate className="text-indigo-500" />
           Add Giyarbi Sharif Balance
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-3">
-          {/* Giyarbi Sharif Date */}
-          <div>
-            <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-              <MdOutlineDateRange /> Giyarbi Sharif Date
-            </label>
-            <input
-              type="date"
-              name="giyarbiSharifDate"
-              value={formData.giyarbiSharifDate}
-              onChange={handleChange}
-              placeholder="Enter Giyarbi Sharif date"
-              required
-              className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-            />
-          </div>
+        <form onSubmit={handleSubmit} className="text-slate-700">
+          {/* =================
+              Header part
+          ================= */}
+          <section className="border border-slate-300 w-full p-6 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+            {/* Giyarbi Sharif Date */}
+            <div>
+              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
+                <MdOutlineDateRange /> Giyarbi Sharif Date
+              </label>
+              <input
+                type="date"
+                name="giyarbiSharifDate"
+                value={formData.giyarbiSharifDate}
+                onChange={handleChange}
+                placeholder="Enter Giyarbi Sharif date"
+                required
+                className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+              />
+            </div>
 
-          {/* Arabic Month */}
-          <div>
-            <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-              <MdOutlineDateRange /> Arabic Month
-            </label>
-            <input
-              type="text"
-              name="arabicMonth"
-              value={formData.arabicMonth}
-              onChange={handleChange}
-              placeholder="Enter Arabic month"
-              required
-              className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-            />
-          </div>
+            {/* Arabic Month */}
+            <div>
+              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
+                <MdOutlineDateRange /> Arabic Month
+              </label>
+              <input
+                type="text"
+                name="arabicMonth"
+                value={formData.arabicMonth}
+                onChange={handleChange}
+                placeholder="Enter Arabic month"
+                required
+                className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+              />
+            </div>
 
-          {/* Income Amount */}
-          <div>
-            <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-              <FaDonate /> Total Income Amount (BDT)
-            </label>
-            <input
-              type="number"
-              name="amount"
-              value={formData.amount}
-              onChange={handleChange}
-              readOnly
-              className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-            />
-          </div>
+            {/* Balance Collector */}
+            <div>
+              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
+                <AiOutlineUser /> Balance Collector
+              </label>
+              <input
+                type="text"
+                name="balanceCollector"
+                value={formData.balanceCollector}
+                onChange={handleChange}
+                placeholder="Enter balance collector's name"
+                required
+                className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+              />
+            </div>
 
-          {/* Total Cost Amount */}
-          <div>
-            <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-              <FaDonate /> Total Cost Amount (BDT)
-            </label>
-            <input
-              type="number"
-              name="amount"
-              value={formData.amount}
-              onChange={handleChange}
-              readOnly
-              className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-            />
-          </div>
+            {/* Income Amount */}
+            <div>
+              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
+                <FaDonate /> Total Income Amount (BDT)
+              </label>
+              <input
+                type="number"
+                name="amount"
+                value={formData.amount}
+                onChange={handleChange}
+                disabled
+                className="w-full border border-slate-500 rounded px-4 py-2"
+              />
+            </div>
 
-          {/* Balance */}
-          <div>
-            <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-              <FaDonate /> Balance (BDT)
-            </label>
-            <input
-              type="number"
-              name="amount"
-              value={formData.amount}
-              onChange={handleChange}
-              readOnly
-              className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-            />
-          </div>
+            {/* Total Cost Amount */}
+            <div>
+              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
+                <FaDonate /> Total Cost Amount (BDT)
+              </label>
+              <input
+                type="number"
+                name="amount"
+                value={formData.amount}
+                onChange={handleChange}
+                disabled
+                className="w-full border border-slate-500 rounded px-4 py-2"
+              />
+            </div>
 
-          {/* Balance Collector */}
-          <div>
-            <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-              <AiOutlineUser /> Balance Collector
-            </label>
-            <input
-              type="text"
-              name="balanceCollector"
-              value={formData.balanceCollector}
-              onChange={handleChange}
-              placeholder="Enter balance collector's name"
-              required
-              className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-            />
-          </div>
+            {/* Balance */}
+            <div>
+              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
+                <FaDonate /> Balance (BDT)
+              </label>
+              <input
+                type="number"
+                name="amount"
+                value={formData.amount}
+                onChange={handleChange}
+                disabled
+                className="w-full border border-slate-500 rounded px-4 py-2"
+              />
+            </div>
+          </section>
 
-          {/* Donor Name */}
-          <div>
-            <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-              <AiOutlineUser /> Donor Name
-            </label>
-            <input
-              type="text"
-              name="donorName"
-              value={formData.donorName}
-              onChange={handleChange}
-              placeholder="Enter donor's name"
-              required
-              className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-            />
-          </div>
-
-          {/* Amount */}
-          <div>
-            <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-              <FaDonate /> Amount (BDT)
-            </label>
-            <input
-              type="number"
-              name="amount"
-              value={formData.amount}
-              onChange={handleChange}
-              placeholder="Enter donation amount"
-              required
-              className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-            />
-          </div>
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+            {/* ======add income part========= */}
+            <div className="border border-green-600 px-3 py-4 rounded-lg shadow-lg">
+              <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
+                Add Income
+              </h2>
+              {/* 1 donor field */}
+              <div className="flex justify-center items-center mb-3 gap-3 w-full">
+                {/* Donor Name */}
+                <div className="w-[70%]">
+                  <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
+                    <AiOutlineUser /> Donor Name
+                  </label>
+                  <input
+                    type="text"
+                    name="donorName"
+                    value={formData.donorName}
+                    onChange={handleChange}
+                    placeholder="Enter donor's name"
+                    required
+                    className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                  />
+                </div>
+                {/* DonationAmount */}
+                <div className="w-[28%]">
+                  <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
+                    <FaDonate /> Amount
+                  </label>
+                  <input
+                    type="number"
+                    name="donationAmount"
+                    value={formData.donationAmount}
+                    onChange={handleChange}
+                    placeholder="Enter donation amount"
+                    required
+                    className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                  />
+                </div>
+              </div>
+              <div className="flex justify-end pt-4">
+                <div className="flex items-center gap-2 border border-violet-600 px-3 py-1 rounded-full cursor-pointer hover:bg-violet-100 transition">
+                  <MdPersonAdd className="text-green-600 text-3xl mx-auto" />{" "}
+                  Add More
+                </div>
+              </div>
+            </div>
+            {/* ======add cost part========= */}
+            <div className="border border-red-600 px-3 py-4 rounded-lg shadow-lg">
+              <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
+                Add Cost
+              </h2>
+              {/* 1 cost field */}
+              <div className="flex justify-center items-center mb-3 gap-3 w-full">
+                {/* Cost Name */}
+                <div className="w-[70%]">
+                  <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
+                    <AiOutlineUser /> Cost Name
+                  </label>
+                  <input
+                    type="text"
+                    name="costName"
+                    value={formData.costName}
+                    onChange={handleChange}
+                    placeholder="Enter cost name"
+                    required
+                    className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                  />
+                </div>
+                {/* Cost Amount */}
+                <div className="w-[28%]">
+                  <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
+                    <FaDonate /> Amount
+                  </label>
+                  <input
+                    type="number"
+                    name="costAmount"
+                    value={formData.costAmount}
+                    onChange={handleChange}
+                    placeholder="Enter cost amount"
+                    required
+                    className="w-full border border-slate-500 rounded px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                  />
+                </div>
+              </div>
+              <div className="flex justify-end pt-4">
+                <div className="flex items-center gap-1 border border-red-600 px-3 py-1 rounded-full cursor-pointer hover:bg-red-100 transition">
+                  <TbCurrencyTaka className="text-red-600 text-3xl mx-auto" />{" "}
+                  Add More
+                </div>
+              </div>
+            </div>
+          </section>
 
           {/* Submit Button */}
           <motion.button
