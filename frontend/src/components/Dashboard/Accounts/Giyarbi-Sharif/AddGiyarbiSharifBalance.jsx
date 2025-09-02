@@ -56,18 +56,6 @@ export default function AddGiyarbiSharifBalance() {
                 icon={<MdOutlineDateRange />}
               />
               {/* ======end====== */}
-              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <MdOutlineDateRange /> Date
-              </label>
-              <input
-                type="date"
-                name="giyarbiSharifDate"
-                value={formData.giyarbiSharifDate}
-                onChange={handleChange}
-                placeholder="Date"
-                required
-                className="w-full border border-slate-500 rounded p-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-              />
             </div>
 
             {/* Arabic Month */}
@@ -83,18 +71,6 @@ export default function AddGiyarbiSharifBalance() {
                 icon={<MdOutlineDateRange />}
               />
               {/* ======end====== */}
-              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <MdOutlineDateRange /> Month
-              </label>
-              <input
-                type="text"
-                name="arabicMonth"
-                value={formData.arabicMonth}
-                onChange={handleChange}
-                placeholder="Month"
-                required
-                className="w-full border border-slate-500 rounded p-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-              />
             </div>
 
             {/* Balance Collector */}
@@ -110,18 +86,6 @@ export default function AddGiyarbiSharifBalance() {
                 icon={<AiOutlineUser />}
               />
               {/* ======end====== */}
-              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <AiOutlineUser /> TK Collector
-              </label>
-              <input
-                type="text"
-                name="balanceCollector"
-                value={formData.balanceCollector}
-                onChange={handleChange}
-                placeholder="collector"
-                required
-                className="w-full border border-slate-500 rounded p-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-              />
             </div>
 
             {/* Income Amount */}
@@ -191,18 +155,6 @@ export default function AddGiyarbiSharifBalance() {
                     icon={<AiOutlineUser />}
                   />
                   {/* ======end====== */}
-                  <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                    <AiOutlineUser /> Donor Name
-                  </label>
-                  <input
-                    type="text"
-                    name="donorName"
-                    value={formData.donorName}
-                    onChange={handleChange}
-                    placeholder="Enter donor's name"
-                    required
-                    className="w-full border border-slate-500 rounded p-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-                  />
                 </div>
                 {/* DonationAmount */}
                 <div className="w-[28%]">
@@ -217,18 +169,6 @@ export default function AddGiyarbiSharifBalance() {
                     icon={<FaDonate />}
                   />
                   {/* ======end====== */}
-                  <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                    <FaDonate /> Amount
-                  </label>
-                  <input
-                    type="number"
-                    name="donationAmount"
-                    value={formData.donationAmount}
-                    onChange={handleChange}
-                    placeholder="Enter amount"
-                    required
-                    className="w-full border border-slate-500 rounded p-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-                  />
                 </div>
               </div>
 
@@ -259,18 +199,6 @@ export default function AddGiyarbiSharifBalance() {
                     icon={<MdPersonAdd />}
                   />
                   {/* ======end====== */}
-                  <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                    <AiOutlineUser /> Cost Name
-                  </label>
-                  <input
-                    type="text"
-                    name="costName"
-                    value={formData.costName}
-                    onChange={handleChange}
-                    placeholder="Enter cost name"
-                    required
-                    className="w-full border border-slate-500 rounded p-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-                  />
                 </div>
                 {/* Cost Amount */}
                 <div className="w-[28%]">
@@ -285,18 +213,6 @@ export default function AddGiyarbiSharifBalance() {
                     icon={<FaDonate />}
                   />
                   {/* ======end====== */}
-                  <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                    <FaDonate /> Amount
-                  </label>
-                  <input
-                    type="number"
-                    name="costAmount"
-                    value={formData.costAmount}
-                    onChange={handleChange}
-                    placeholder="Enter cost amount"
-                    required
-                    className="w-full border border-slate-500 rounded p-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-                  />
                 </div>
               </div>
               <div className="flex justify-end pt-4">
