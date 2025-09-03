@@ -8,10 +8,14 @@ import FloatingLabelInput from "../../../Shared/FloatingLabelInput";
 
 export default function AddGiyarbiSharifBalance() {
   const [formData, setFormData] = useState({
-    donorName: "",
-    amount: "",
-    date: "",
-    description: "",
+    giyarbiSharifDate: "",
+    arabicMonth: "",
+    balanceCollector: "",
+    totalIncome: "",
+    totalCost: "",
+    balance: "",
+    incomeEntries: [{ donorName: "", donationAmount: "" }],
+    costEntries: [{ costName: "", costAmount: "" }],
   });
 
   const handleChange = (e) => {
@@ -23,7 +27,16 @@ export default function AddGiyarbiSharifBalance() {
     e.preventDefault();
     console.log("Submitted Data:", formData);
     alert("Balance record added successfully!");
-    setFormData({ donorName: "", amount: "", date: "", description: "" });
+    setFormData({
+      giyarbiSharifDate: "",
+      arabicMonth: "",
+      balanceCollector: "",
+      totalIncome: "",
+      totalCost: "",
+      balance: "",
+      incomeEntries: [{ donorName: "", donationAmount: "" }],
+      costEntries: [{ costName: "", costAmount: "" }],
+    });
   };
 
   return (
@@ -52,7 +65,7 @@ export default function AddGiyarbiSharifBalance() {
                 value={formData?.giyarbiSharifDate}
                 onChange={handleChange}
                 required={true}
-                placeholder="Giyarbi Sharif Date"
+                placeholder="G S Date"
                 icon={<MdOutlineDateRange />}
               />
               {/* ======end====== */}
@@ -95,8 +108,8 @@ export default function AddGiyarbiSharifBalance() {
               </label>
               <input
                 type="number"
-                name="amount"
-                value={formData.amount}
+                name="totalIncome"
+                value={formData.totalIncome}
                 onChange={handleChange}
                 disabled
                 className="w-full border border-slate-500 rounded p-2"
@@ -110,8 +123,8 @@ export default function AddGiyarbiSharifBalance() {
               </label>
               <input
                 type="number"
-                name="amount"
-                value={formData.amount}
+                name="totalCost"
+                value={formData.totalCost}
                 onChange={handleChange}
                 disabled
                 className="w-full border border-slate-500 rounded p-2"
@@ -125,8 +138,8 @@ export default function AddGiyarbiSharifBalance() {
               </label>
               <input
                 type="number"
-                name="amount"
-                value={formData.amount}
+                name="balance"
+                value={formData.balance}
                 onChange={handleChange}
                 disabled
                 className="w-full border border-slate-500 rounded px-4 py-2"
@@ -143,7 +156,7 @@ export default function AddGiyarbiSharifBalance() {
               {/* 1 donor field */}
               <div className="flex justify-center items-center mb-3 gap-3 w-full">
                 {/* Donor Name */}
-                <div className="w-[70%]">
+                <div className="md:w-[70%] w-[65%]">
                   {/* ======start====== */}
                   <FloatingLabelInput
                     name="donorName"
@@ -157,13 +170,13 @@ export default function AddGiyarbiSharifBalance() {
                   {/* ======end====== */}
                 </div>
                 {/* DonationAmount */}
-                <div className="w-[28%]">
+                <div className="md:w-[30%] w-[35%]">
                   {/* ======start====== */}
                   <FloatingLabelInput
                     name="donationAmount"
                     type="number"
                     value={formData?.donationAmount}
-                    placeholder="Donation Amount"
+                    placeholder="Amount"
                     onChange={handleChange}
                     required={true}
                     icon={<FaDonate />}
@@ -187,7 +200,7 @@ export default function AddGiyarbiSharifBalance() {
               {/* 1 cost field */}
               <div className="flex justify-center items-center mb-3 gap-3 w-full">
                 {/* Cost Name */}
-                <div className="w-[70%]">
+                <div className="md:w-[70%] w-[65%]">
                   {/* ======start====== */}
                   <FloatingLabelInput
                     name="costName"
@@ -201,7 +214,7 @@ export default function AddGiyarbiSharifBalance() {
                   {/* ======end====== */}
                 </div>
                 {/* Cost Amount */}
-                <div className="w-[28%]">
+                <div className="md:w-[30%] w-[35%]">
                   {/* ======start====== */}
                   <FloatingLabelInput
                     name="costAmount"
@@ -209,7 +222,7 @@ export default function AddGiyarbiSharifBalance() {
                     value={formData?.costAmount}
                     onChange={handleChange}
                     required={true}
-                    placeholder="Cost Amount"
+                    placeholder="Amount"
                     icon={<FaDonate />}
                   />
                   {/* ======end====== */}
