@@ -11,9 +11,9 @@ export default function AddGiyarbiSharifBalance() {
     giyarbiSharifDate: "",
     arabicMonth: "",
     balanceCollector: "",
-    totalIncome: "",
-    totalCost: "",
-    balance: "",
+    totalIncome: 0,
+    totalCost: 0,
+    balance: 0,
     incomeEntries: [],
     costEntries: [],
   });
@@ -28,6 +28,14 @@ export default function AddGiyarbiSharifBalance() {
     setFormData((prevFormData) => ({
       ...prevFormData,
       [key]: [...prevFormData[key], item],
+    }));
+  };
+
+  //reusable function for delete item
+  const deleteItem = (key, index) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [key]: prevFormData[key].filter((_, i) => i !== index),
     }));
   };
 
@@ -63,6 +71,11 @@ export default function AddGiyarbiSharifBalance() {
     handleReusableInputChangeFunc("incomeEntries", index, event);
   };
 
+  const deleteIncomeEntry = (e, index) => {
+    e.preventDefault();
+
+    deleteItem("incomeEntries", index);
+  };
   /*================================
     logic for cost=start
   ================================*/
@@ -78,25 +91,15 @@ export default function AddGiyarbiSharifBalance() {
   const handleCostEntryChange = (event, index) => {
     handleReusableInputChangeFunc("costEntries", index, event);
   };
-  /*================================
-    logic for income=end
-  ================================*/
 
-  const handleSubmit = (e) => {
+  const deleteCostEntry = (e, index) => {
     e.preventDefault();
-    console.log("Submitted Data:", formData);
-    alert("Balance record added successfully!");
-    setFormData({
-      giyarbiSharifDate: "",
-      arabicMonth: "",
-      balanceCollector: "",
-      totalIncome: "",
-      totalCost: "",
-      balance: "",
-      incomeEntries: [],
-      costEntries: [],
-    });
+
+    deleteItem("costEntries", index);
   };
+  /*================================
+    logic for cost=end
+  ================================*/
 
   // logic for total income
   const calculateTotalIncome = () => {
@@ -109,7 +112,7 @@ export default function AddGiyarbiSharifBalance() {
   // logic for total cost
   const calculateTotalCost = () => {
     return formData.costEntries.reduce((total, entry) => {
-      const amount = parseFloat(entry.donationAmount) || 0;
+      const amount = parseFloat(entry.costAmount) || 0;
       return total + amount;
     }, 0);
   };
@@ -117,6 +120,31 @@ export default function AddGiyarbiSharifBalance() {
   // logic for balance
   const calculateBalance = () => {
     return calculateTotalIncome() - calculateTotalCost();
+  };
+
+  const totalIncome = calculateTotalIncome();
+  const totalCost = calculateTotalCost();
+  const balance = calculateBalance();
+
+  console.log(totalIncome);
+  console.log(totalCost);
+  console.log(balance);
+
+  // handle form submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted Data:", formData);
+    alert("Balance record added successfully!");
+    setFormData({
+      giyarbiSharifDate: "",
+      arabicMonth: "",
+      balanceCollector: "",
+      totalIncome: totalIncome || 0,
+      totalCost: totalCost || 0,
+      balance: balance || 0,
+      incomeEntries: [],
+      costEntries: [],
+    });
   };
 
   return (
@@ -186,9 +214,9 @@ export default function AddGiyarbiSharifBalance() {
               </h2>
               {/* ===1 donar field test start=== */}
               {formData?.incomeEntries?.map((item, index) => (
-                <div className="flex justify-center items-center mb-3 gap-3 w-full">
+                <div className="flex justify-center items-center mb-3 gap-2 w-full">
                   {/* Donar Name */}
-                  <div className="md:w-[70%] w-[65%]">
+                  <div className="md:w-[68%] w-[63%]">
                     <FloatingLabelInput
                       name="donarName"
                       type="text"
@@ -200,7 +228,7 @@ export default function AddGiyarbiSharifBalance() {
                     />
                   </div>
                   {/* DonationAmount */}
-                  <div className="md:w-[30%] w-[35%]">
+                  <div className="md:w-[29%] w-[34%]">
                     <FloatingLabelInput
                       name="donationAmount"
                       type="number"
@@ -210,6 +238,14 @@ export default function AddGiyarbiSharifBalance() {
                       required={true}
                       icon={<FaDonate />}
                     />
+                  </div>
+                  <div className="w-[3%]">
+                    <button
+                      onClick={(e) => deleteIncomeEntry(e, index)}
+                      className="text-[16px] bg-red-600 p-1 rounded-full text-white cursor-pointer"
+                    >
+                      <AiOutlineDelete />
+                    </button>
                   </div>
                 </div>
               ))}
@@ -236,10 +272,10 @@ export default function AddGiyarbiSharifBalance() {
               {formData?.costEntries?.map((item, index) => (
                 <div
                   key={index}
-                  className="flex justify-center items-center mb-3 gap-3 w-full"
+                  className="flex justify-center items-center mb-3 gap-2 w-full"
                 >
                   {/* Cost Name */}
-                  <div className="md:w-[70%] w-[65%]">
+                  <div className="md:w-[68%] w-[63%]">
                     <FloatingLabelInput
                       name="costName"
                       type="text"
@@ -251,7 +287,7 @@ export default function AddGiyarbiSharifBalance() {
                     />
                   </div>
                   {/* Cost Amount */}
-                  <div className="md:w-[30%] w-[35%]">
+                  <div className="md:w-[29%] w-[34%]">
                     <FloatingLabelInput
                       name="costAmount"
                       type="number"
@@ -261,6 +297,14 @@ export default function AddGiyarbiSharifBalance() {
                       placeholder="Amount"
                       icon={<FaDonate />}
                     />
+                  </div>
+                  <div className="w-[3%]">
+                    <button
+                      onClick={(e) => deleteCostEntry(e, index)}
+                      className="text-[16px] bg-red-600 p-1 rounded-full text-white cursor-pointer"
+                    >
+                      <AiOutlineDelete />
+                    </button>
                   </div>
                 </div>
               ))}
