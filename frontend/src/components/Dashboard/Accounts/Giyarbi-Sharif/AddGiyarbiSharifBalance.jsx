@@ -23,7 +23,6 @@ export default function AddGiyarbiSharifBalance() {
     setFormData({ ...formData, [name]: value });
   };
 
-  /* =========================start============================= */
   //reusable function for adding item
   const addItem = (key, item) => {
     setFormData((prevFormData) => ({
@@ -63,10 +62,25 @@ export default function AddGiyarbiSharifBalance() {
   const handleIncomeEntryChange = (event, index) => {
     handleReusableInputChangeFunc("incomeEntries", index, event);
   };
+
+  /*================================
+    logic for cost=start
+  ================================*/
+  const addCostEntry = (e) => {
+    e.preventDefault();
+
+    addItem("costEntries", {
+      costName: "",
+      costAmount: "",
+    });
+  };
+
+  const handleCostEntryChange = (event, index) => {
+    handleReusableInputChangeFunc("costEntries", index, event);
+  };
   /*================================
     logic for income=end
   ================================*/
-  /* =========end============ */
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -219,37 +233,45 @@ export default function AddGiyarbiSharifBalance() {
                 Add Cost
               </h2>
               {/* ===1 cost field=== */}
-              <div className="flex justify-center items-center mb-3 gap-3 w-full">
-                {/* Cost Name */}
-                <div className="md:w-[70%] w-[65%]">
-                  <FloatingLabelInput
-                    name="costName"
-                    type="text"
-                    value={formData?.costName}
-                    onChange={handleChange}
-                    required={true}
-                    placeholder="Cost Name"
-                    icon={<MdPersonAdd />}
-                  />
+              {formData?.costEntries?.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex justify-center items-center mb-3 gap-3 w-full"
+                >
+                  {/* Cost Name */}
+                  <div className="md:w-[70%] w-[65%]">
+                    <FloatingLabelInput
+                      name="costName"
+                      type="text"
+                      value={item?.costName}
+                      onChange={(e) => handleCostEntryChange(e, index)}
+                      required={true}
+                      placeholder="Cost Name"
+                      icon={<MdPersonAdd />}
+                    />
+                  </div>
+                  {/* Cost Amount */}
+                  <div className="md:w-[30%] w-[35%]">
+                    <FloatingLabelInput
+                      name="costAmount"
+                      type="number"
+                      value={item?.costAmount}
+                      onChange={(e) => handleCostEntryChange(e, index)}
+                      required={true}
+                      placeholder="Amount"
+                      icon={<FaDonate />}
+                    />
+                  </div>
                 </div>
-                {/* Cost Amount */}
-                <div className="md:w-[30%] w-[35%]">
-                  <FloatingLabelInput
-                    name="costAmount"
-                    type="number"
-                    value={formData?.costAmount}
-                    onChange={handleChange}
-                    required={true}
-                    placeholder="Amount"
-                    icon={<FaDonate />}
-                  />
-                </div>
-              </div>
+              ))}
               <div className="flex justify-end pt-4">
-                <div className="flex items-center gap-1 border border-red-600 px-2 py-1 rounded-full cursor-pointer hover:bg-red-100 transition">
+                <button
+                  onClick={addCostEntry}
+                  className="flex items-center gap-1 border border-red-600 px-2 py-1 rounded-full cursor-pointer hover:bg-red-100 transition"
+                >
                   <TbCurrencyTaka className="text-red-600 text-3xl mx-auto" />{" "}
                   Add One
-                </div>
+                </button>
               </div>
             </div>
           </section>
