@@ -11,144 +11,112 @@ export default function AddGiyarbiSharifBalance() {
     giyarbiSharifDate: "",
     arabicMonth: "",
     balanceCollector: "",
-    totalIncome: 0,
-    totalCost: 0,
-    balance: 0,
     incomeEntries: [],
     costEntries: [],
   });
 
+  // Handle main form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  //reusable function for adding item
-  const addItem = (key, item) => {
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [key]: [...prevFormData[key], item],
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
     }));
   };
 
-  //reusable function for delete item
-  const deleteItem = (key, index) => {
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [key]: prevFormData[key].filter((_, i) => i !== index),
-    }));
-  };
-
-  //reusable input change function
-  const handleReusableInputChangeFunc = (key, index, event) => {
-    const { name, value } = event.target;
-
-    setFormData((prevFormData) => {
-      const updateItems = [...prevFormData[key]];
-
-      updateItems[index][name] = value;
-
-      return {
-        ...prevFormData,
-        [key]: updateItems,
-      };
-    });
-  };
-
-  /*================================
-    logic for income=start
-  ================================*/
+  // Add new income entry
   const addIncomeEntry = (e) => {
     e.preventDefault();
+    setFormData((prev) => ({
+      ...prev,
+      incomeEntries: [
+        ...prev.incomeEntries,
+        { donarName: "", donationAmount: "" },
+      ],
+    }));
+  };
 
-    addItem("incomeEntries", {
-      donarName: "",
-      donationAmount: "",
+  // Update income entry
+  const handleIncomeEntryChange = (e, idx) => {
+    const { name, value } = e.target;
+    setFormData((prev) => {
+      const updated = [...prev.incomeEntries];
+      updated[idx][name] = value;
+      return { ...prev, incomeEntries: updated };
     });
   };
 
-  const handleIncomeEntryChange = (event, index) => {
-    handleReusableInputChangeFunc("incomeEntries", index, event);
-  };
-
-  const deleteIncomeEntry = (e, index) => {
+  // Delete income entry
+  const deleteIncomeEntry = (e, idx) => {
     e.preventDefault();
-
-    deleteItem("incomeEntries", index);
+    setFormData((prev) => ({
+      ...prev,
+      incomeEntries: prev.incomeEntries.filter((_, i) => i !== idx),
+    }));
   };
-  /*================================
-    logic for cost=start
-  ================================*/
+
+  // Add new cost entry
   const addCostEntry = (e) => {
     e.preventDefault();
+    setFormData((prev) => ({
+      ...prev,
+      costEntries: [...prev.costEntries, { costName: "", costAmount: "" }],
+    }));
+  };
 
-    addItem("costEntries", {
-      costName: "",
-      costAmount: "",
+  // Update cost entry
+  const handleCostEntryChange = (e, idx) => {
+    const { name, value } = e.target;
+    setFormData((prev) => {
+      const updated = [...prev.costEntries];
+      updated[idx][name] = value;
+      return { ...prev, costEntries: updated };
     });
   };
 
-  const handleCostEntryChange = (event, index) => {
-    handleReusableInputChangeFunc("costEntries", index, event);
-  };
-
-  const deleteCostEntry = (e, index) => {
+  // Delete cost entry
+  const deleteCostEntry = (e, idx) => {
     e.preventDefault();
-
-    deleteItem("costEntries", index);
-  };
-  /*================================
-    logic for cost=end
-  ================================*/
-
-  // logic for total income
-  const calculateTotalIncome = () => {
-    return formData.incomeEntries.reduce((total, entry) => {
-      const amount = parseFloat(entry.donationAmount) || 0;
-      return total + amount;
-    }, 0);
+    setFormData((prev) => ({
+      ...prev,
+      costEntries: prev.costEntries.filter((_, i) => i !== idx),
+    }));
   };
 
-  // logic for total cost
-  const calculateTotalCost = () => {
-    return formData.costEntries.reduce((total, entry) => {
-      const amount = parseFloat(entry.costAmount) || 0;
-      return total + amount;
-    }, 0);
-  };
+  // Calculate totals
+  const totalIncome = formData.incomeEntries.reduce(
+    (sum, entry) => sum + (parseFloat(entry.donationAmount) || 0),
+    0
+  );
+  const totalCost = formData.costEntries.reduce(
+    (sum, entry) => sum + (parseFloat(entry.costAmount) || 0),
+    0
+  );
+  const balance = totalIncome - totalCost;
 
-  // logic for balance
-  const calculateBalance = () => {
-    return calculateTotalIncome() - calculateTotalCost();
-  };
-
-  const totalIncome = calculateTotalIncome();
-  const totalCost = calculateTotalCost();
-  const balance = calculateBalance();
-
-  console.log(totalIncome);
-  console.log(totalCost);
-  console.log(balance);
-
-  // handle form submit
+  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted Data:", formData);
+    const submitData = {
+      ...formData,
+      totalIncome,
+      totalCost,
+      balance,
+    };
+    console.log("submit Data:", submitData);
+
     alert("Balance record added successfully!");
     setFormData({
       giyarbiSharifDate: "",
       arabicMonth: "",
       balanceCollector: "",
-      totalIncome: totalIncome || 0,
-      totalCost: totalCost || 0,
-      balance: balance || 0,
       incomeEntries: [],
       costEntries: [],
     });
   };
 
   return (
-    <div className="">
+    <div>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -160,148 +128,134 @@ export default function AddGiyarbiSharifBalance() {
         </h2>
 
         <form onSubmit={handleSubmit} className="text-slate-700">
-          {/* =================
-              Header part
-          ================= */}
+          {/* Header part */}
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
-            {/* Giyarbi Sharif Date */}
-            <div>
-              <FloatingLabelInput
-                name="giyarbiSharifDate"
-                type="date"
-                value={formData?.giyarbiSharifDate}
-                onChange={handleChange}
-                required={true}
-                placeholder="Giyarbi Sharif Date"
-                icon={<MdOutlineDateRange />}
-              />
-            </div>
-
-            {/* Arabic Month */}
-            <div>
-              <FloatingLabelInput
-                name="arabicMonth"
-                type="text"
-                value={formData?.arabicMonth}
-                placeholder="Arabic Month"
-                onChange={handleChange}
-                required={true}
-                icon={<MdOutlineDateRange />}
-              />
-            </div>
-
-            {/* Balance Collector */}
-            <div>
-              <FloatingLabelInput
-                name="balanceCollector"
-                type="text"
-                value={formData?.balanceCollector}
-                placeholder="Balance Collector"
-                onChange={handleChange}
-                required={true}
-                icon={<AiOutlineUser />}
-              />
-            </div>
+            <FloatingLabelInput
+              name="giyarbiSharifDate"
+              type="date"
+              value={formData.giyarbiSharifDate}
+              onChange={handleChange}
+              required
+              placeholder="Giyarbi Sharif Date"
+              icon={<MdOutlineDateRange />}
+            />
+            <FloatingLabelInput
+              name="arabicMonth"
+              type="text"
+              value={formData.arabicMonth}
+              onChange={handleChange}
+              required
+              placeholder="Arabic Month"
+              icon={<MdOutlineDateRange />}
+            />
+            <FloatingLabelInput
+              name="balanceCollector"
+              type="text"
+              value={formData.balanceCollector}
+              onChange={handleChange}
+              required
+              placeholder="Balance Collector"
+              icon={<AiOutlineUser />}
+            />
           </section>
 
           <section className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
-            {/* ========================================
-                        Add income start
-              ========================================= */}
+            {/* Income Entries */}
             <div className="border border-green-600 px-3 py-4 rounded-lg shadow-lg">
               <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
                 Add Income
               </h2>
-              {/* ===1 donar field test start=== */}
-              {formData?.incomeEntries?.map((item, index) => (
-                <div className="flex justify-center items-center mb-3 gap-2 w-full">
-                  {/* Donar Name */}
+              {formData.incomeEntries.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex justify-center items-center mb-3 gap-2 w-full"
+                >
                   <div className="md:w-[68%] w-[63%]">
                     <FloatingLabelInput
                       name="donarName"
                       type="text"
                       value={item.donarName}
-                      onChange={(e) => handleIncomeEntryChange(e, index)}
-                      required={true}
+                      onChange={(e) => handleIncomeEntryChange(e, idx)}
+                      required
                       placeholder="Donar Name"
                       icon={<AiOutlineUser />}
                     />
                   </div>
-                  {/* DonationAmount */}
                   <div className="md:w-[29%] w-[34%]">
                     <FloatingLabelInput
                       name="donationAmount"
                       type="number"
-                      value={item?.donationAmount}
+                      min="0"
+                      value={item.donationAmount}
+                      onChange={(e) => handleIncomeEntryChange(e, idx)}
+                      required
                       placeholder="Amount"
-                      onChange={(e) => handleIncomeEntryChange(e, index)}
-                      required={true}
                       icon={<FaDonate />}
                     />
                   </div>
                   <div className="w-[3%]">
                     <button
-                      onClick={(e) => deleteIncomeEntry(e, index)}
+                      onClick={(e) => deleteIncomeEntry(e, idx)}
+                      type="button"
                       className="text-[16px] bg-red-600 p-1 rounded-full text-white cursor-pointer"
+                      aria-label="Delete income entry"
                     >
                       <AiOutlineDelete />
                     </button>
                   </div>
                 </div>
               ))}
-              {/* ===1 donar field test end=== */}
               <div className="flex justify-end pt-4">
                 <button
                   onClick={addIncomeEntry}
+                  type="button"
                   className="flex items-center gap-2 border border-green-600 px-2 py-1 rounded-full cursor-pointer hover:bg-green-100 transition"
                 >
-                  <MdPersonAdd className="text-green-600 text-3xl mx-auto" />{" "}
+                  <MdPersonAdd className="text-green-600 text-3xl mx-auto" />
                   Add One
                 </button>
               </div>
             </div>
 
-            {/* ========================================
-                        Add Cost start
-              ========================================= */}
+            {/* Cost Entries */}
             <div className="border border-red-600 px-3 py-4 rounded-lg shadow-lg">
               <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
                 Add Cost
               </h2>
-              {/* ===1 cost field=== */}
-              {formData?.costEntries?.map((item, index) => (
+              {formData.costEntries.map((item, idx) => (
                 <div
-                  key={index}
+                  key={idx}
                   className="flex justify-center items-center mb-3 gap-2 w-full"
                 >
-                  {/* Cost Name */}
                   <div className="md:w-[68%] w-[63%]">
                     <FloatingLabelInput
                       name="costName"
                       type="text"
-                      value={item?.costName}
-                      onChange={(e) => handleCostEntryChange(e, index)}
-                      required={true}
+                      value={item.costName}
+                      onChange={(e) => handleCostEntryChange(e, idx)}
+                      required
                       placeholder="Cost Name"
                       icon={<MdPersonAdd />}
                     />
                   </div>
-                  {/* Cost Amount */}
                   <div className="md:w-[29%] w-[34%]">
                     <FloatingLabelInput
                       name="costAmount"
                       type="number"
-                      value={item?.costAmount}
-                      onChange={(e) => handleCostEntryChange(e, index)}
-                      required={true}
+                      min="0"
+                      value={item.costAmount}
+                      onChange={(e) => handleCostEntryChange(e, idx)}
+                      required
                       placeholder="Amount"
                       icon={<FaDonate />}
                     />
                   </div>
                   <div className="w-[3%]">
                     <button
-                      onClick={(e) => deleteCostEntry(e, index)}
+                      onClick={(e) => deleteCostEntry(e, idx)}
+                      type="button"
                       className="text-[16px] bg-red-600 p-1 rounded-full text-white cursor-pointer"
+                      aria-label="Delete cost entry"
                     >
                       <AiOutlineDelete />
                     </button>
@@ -311,86 +265,72 @@ export default function AddGiyarbiSharifBalance() {
               <div className="flex justify-end pt-4">
                 <button
                   onClick={addCostEntry}
+                  type="button"
                   className="flex items-center gap-1 border border-red-600 px-2 py-1 rounded-full cursor-pointer hover:bg-red-100 transition"
                 >
-                  <TbCurrencyTaka className="text-red-600 text-3xl mx-auto" />{" "}
+                  <TbCurrencyTaka className="text-red-600 text-3xl mx-auto" />
                   Add One
                 </button>
               </div>
             </div>
           </section>
 
-          {/* ========================================
-                        statistics section
-          ========================================= */}
+          {/* Statistics Section */}
           <section className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
-            {/* ===Total Income Amount=== */}
             <div className="shadow-lg p-4 rounded-lg border border-slate-300">
               <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
                 Total Income
               </h2>
               <div className="flex items-center gap-2">
-                <div className="">
-                  <FaDonate className="text-green-600 text-2xl" />
-                </div>
-                <div>
-                  <input
-                    type="number"
-                    name="totalIncome"
-                    value={calculateTotalIncome()}
-                    disabled
-                    className="border-none"
-                  />
-                </div>
+                <FaDonate className="text-green-600 text-2xl" />
+                <input
+                  type="number"
+                  name="totalIncome"
+                  value={totalIncome}
+                  disabled
+                  className="border-none bg-transparent"
+                  tabIndex={-1}
+                  aria-label="Total Income"
+                />
               </div>
             </div>
-
-            {/* ===Total Cost Amount=== */}
             <div className="shadow-lg p-4 rounded-lg border border-slate-300">
               <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
                 Total Cost
               </h2>
               <div className="flex items-center gap-2">
-                <div className="">
-                  <FaDonate className="text-green-600 text-2xl" />
-                </div>
-                <div>
-                  <input
-                    type="number"
-                    name="totalCost"
-                    value={calculateTotalCost()}
-                    disabled
-                    className="border-none"
-                  />
-                </div>
+                <FaDonate className="text-green-600 text-2xl" />
+                <input
+                  type="number"
+                  name="totalCost"
+                  value={totalCost}
+                  disabled
+                  className="border-none bg-transparent"
+                  tabIndex={-1}
+                  aria-label="Total Cost"
+                />
               </div>
             </div>
-
-            {/* ===Balance=== */}
             <div className="shadow-lg p-4 rounded-lg border border-slate-300">
               <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
                 Balance
               </h2>
               <div className="flex items-center gap-2">
-                <div className="">
-                  <FaDonate className="text-green-600 text-2xl" />
-                </div>
-                <div>
-                  <input
-                    type="number"
-                    name="balance"
-                    value={calculateBalance()}
-                    disabled
-                    className="border-none"
-                  />
-                </div>
+                <FaDonate className="text-green-600 text-2xl" />
+                <input
+                  type="number"
+                  name="balance"
+                  value={balance}
+                  disabled
+                  className="border-none bg-transparent"
+                  tabIndex={-1}
+                  aria-label="Balance"
+                />
               </div>
             </div>
           </section>
 
-          {/* ================
-              Submit Button
-          ================ */}
+          {/* Submit Button */}
           <motion.button
             whileTap={{ scale: 0.95 }}
             type="submit"
