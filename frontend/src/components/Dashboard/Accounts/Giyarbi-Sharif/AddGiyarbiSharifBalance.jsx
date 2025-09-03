@@ -106,7 +106,7 @@ export default function AddGiyarbiSharifBalance() {
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -121,7 +121,7 @@ export default function AddGiyarbiSharifBalance() {
           {/* =================
               Header part
           ================= */}
-          <section className="border border-slate-300 w-full p-6 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-4">
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
             {/* Giyarbi Sharif Date */}
             <div>
               <FloatingLabelInput
@@ -130,7 +130,7 @@ export default function AddGiyarbiSharifBalance() {
                 value={formData?.giyarbiSharifDate}
                 onChange={handleChange}
                 required={true}
-                placeholder="G S Date"
+                placeholder="Giyarbi Sharif Date"
                 icon={<MdOutlineDateRange />}
               />
             </div>
@@ -154,76 +154,34 @@ export default function AddGiyarbiSharifBalance() {
                 name="balanceCollector"
                 type="text"
                 value={formData?.balanceCollector}
-                placeholder="TK Collector"
+                placeholder="Balance Collector"
                 onChange={handleChange}
                 required={true}
                 icon={<AiOutlineUser />}
               />
             </div>
-
-            {/* Income Amount */}
-            <div>
-              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <FaDonate /> Total Income
-              </label>
-              <input
-                type="number"
-                name="totalIncome"
-                value={calculateTotalIncome()}
-                disabled
-                className="w-full border border-slate-500 rounded p-2"
-              />
-            </div>
-
-            {/* Total Cost Amount */}
-            <div>
-              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <FaDonate /> Total Cost
-              </label>
-              <input
-                type="number"
-                name="totalCost"
-                value={calculateTotalCost()}
-                disabled
-                className="w-full border border-slate-500 rounded p-2"
-              />
-            </div>
-
-            {/* Balance */}
-            <div>
-              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <FaDonate /> Balance
-              </label>
-              <input
-                type="number"
-                name="balance"
-                value={calculateBalance()}
-                disabled
-                className="w-full border border-slate-500 rounded px-4 py-2"
-              />
-            </div>
           </section>
 
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-            {/* ======add income part========= */}
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+            {/* ========================================
+                        Add income start
+              ========================================= */}
             <div className="border border-green-600 px-3 py-4 rounded-lg shadow-lg">
               <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
                 Add Income
               </h2>
-              {/* ========================================
-                        1 donor field test start
-              ========================================= */}
+              {/* ===1 donar field test start=== */}
               {formData?.incomeEntries?.map((item, index) => (
                 <div className="flex justify-center items-center mb-3 gap-3 w-full">
-                  {/* Donor Name */}
+                  {/* Donar Name */}
                   <div className="md:w-[70%] w-[65%]">
                     <FloatingLabelInput
-                      name="donorName"
+                      name="donarName"
                       type="text"
-                      value={item.donorName}
+                      value={item.donarName}
                       onChange={(e) => handleIncomeEntryChange(e, index)}
                       required={true}
-                      placeholder="Donor Name"
+                      placeholder="Donar Name"
                       icon={<AiOutlineUser />}
                     />
                   </div>
@@ -241,61 +199,29 @@ export default function AddGiyarbiSharifBalance() {
                   </div>
                 </div>
               ))}
-              {/* ==============================================
-                               1 donar field test end
-              ============================================== */}
-              {/* 1 donor field */}
-              <div className="flex justify-center items-center mb-3 gap-3 w-full">
-                {/* Donor Name */}
-                <div className="md:w-[70%] w-[65%]">
-                  {/* ======start====== */}
-                  <FloatingLabelInput
-                    name="donorName"
-                    type="text"
-                    value={formData?.donorName}
-                    onChange={handleChange}
-                    required={true}
-                    placeholder="Donor Name"
-                    icon={<AiOutlineUser />}
-                  />
-                  {/* ======end====== */}
-                </div>
-                {/* DonationAmount */}
-                <div className="md:w-[30%] w-[35%]">
-                  {/* ======start====== */}
-                  <FloatingLabelInput
-                    name="donationAmount"
-                    type="number"
-                    value={formData?.donationAmount}
-                    placeholder="Amount"
-                    onChange={handleChange}
-                    required={true}
-                    icon={<FaDonate />}
-                  />
-                  {/* ======end====== */}
-                </div>
-              </div>
-
+              {/* ===1 donar field test end=== */}
               <div className="flex justify-end pt-4">
                 <button
                   onClick={addIncomeEntry}
                   className="flex items-center gap-2 border border-green-600 px-2 py-1 rounded-full cursor-pointer hover:bg-green-100 transition"
                 >
                   <MdPersonAdd className="text-green-600 text-3xl mx-auto" />{" "}
-                  Add More
+                  Add One
                 </button>
               </div>
             </div>
-            {/* ======add cost part========= */}
+
+            {/* ========================================
+                        Add Cost start
+              ========================================= */}
             <div className="border border-red-600 px-3 py-4 rounded-lg shadow-lg">
               <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
                 Add Cost
               </h2>
-              {/* 1 cost field */}
+              {/* ===1 cost field=== */}
               <div className="flex justify-center items-center mb-3 gap-3 w-full">
                 {/* Cost Name */}
                 <div className="md:w-[70%] w-[65%]">
-                  {/* ======start====== */}
                   <FloatingLabelInput
                     name="costName"
                     type="text"
@@ -305,11 +231,9 @@ export default function AddGiyarbiSharifBalance() {
                     placeholder="Cost Name"
                     icon={<MdPersonAdd />}
                   />
-                  {/* ======end====== */}
                 </div>
                 {/* Cost Amount */}
                 <div className="md:w-[30%] w-[35%]">
-                  {/* ======start====== */}
                   <FloatingLabelInput
                     name="costAmount"
                     type="number"
@@ -319,23 +243,25 @@ export default function AddGiyarbiSharifBalance() {
                     placeholder="Amount"
                     icon={<FaDonate />}
                   />
-                  {/* ======end====== */}
                 </div>
               </div>
               <div className="flex justify-end pt-4">
                 <div className="flex items-center gap-1 border border-red-600 px-2 py-1 rounded-full cursor-pointer hover:bg-red-100 transition">
                   <TbCurrencyTaka className="text-red-600 text-3xl mx-auto" />{" "}
-                  Add More
+                  Add One
                 </div>
               </div>
             </div>
           </section>
-          {/* statistics section */}
-          <section className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-4">
-            {/* Income Amount */}
+
+          {/* ========================================
+                        statistics section
+          ========================================= */}
+          <section className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
+            {/* ===Total Income Amount=== */}
             <div className="shadow-lg p-4 rounded-lg border border-slate-300">
               <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
-                Total Amount
+                Total Income
               </h2>
               <div className="flex items-center gap-2">
                 <div className="">
@@ -353,36 +279,52 @@ export default function AddGiyarbiSharifBalance() {
               </div>
             </div>
 
-            {/* Total Cost Amount */}
-            <div>
-              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <FaDonate /> Total Cost
-              </label>
-              <input
-                type="number"
-                name="totalCost"
-                value={calculateTotalCost()}
-                disabled
-                className="w-full border border-slate-500 rounded p-2"
-              />
+            {/* ===Total Cost Amount=== */}
+            <div className="shadow-lg p-4 rounded-lg border border-slate-300">
+              <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
+                Total Cost
+              </h2>
+              <div className="flex items-center gap-2">
+                <div className="">
+                  <FaDonate className="text-green-600 text-2xl" />
+                </div>
+                <div>
+                  <input
+                    type="number"
+                    name="totalCost"
+                    value={calculateTotalCost()}
+                    disabled
+                    className="border-none"
+                  />
+                </div>
+              </div>
             </div>
 
-            {/* Balance */}
-            <div>
-              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
-                <FaDonate /> Balance
-              </label>
-              <input
-                type="number"
-                name="balance"
-                value={calculateBalance()}
-                disabled
-                className="w-full border border-slate-500 rounded px-4 py-2"
-              />
+            {/* ===Balance=== */}
+            <div className="shadow-lg p-4 rounded-lg border border-slate-300">
+              <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
+                Balance
+              </h2>
+              <div className="flex items-center gap-2">
+                <div className="">
+                  <FaDonate className="text-green-600 text-2xl" />
+                </div>
+                <div>
+                  <input
+                    type="number"
+                    name="balance"
+                    value={calculateBalance()}
+                    disabled
+                    className="border-none"
+                  />
+                </div>
+              </div>
             </div>
           </section>
 
-          {/* Submit Button */}
+          {/* ================
+              Submit Button
+          ================ */}
           <motion.button
             whileTap={{ scale: 0.95 }}
             type="submit"
