@@ -49,7 +49,7 @@ export default function AddGiyarbiSharifBalance() {
   };
 
   /*================================
-    logic for qualification=start
+    logic for income=start
   ================================*/
   const addIncomeEntry = (e) => {
     e.preventDefault();
@@ -64,7 +64,7 @@ export default function AddGiyarbiSharifBalance() {
     handleReusableInputChangeFunc("incomeEntries", index, event);
   };
   /*================================
-    logic for qualification=end
+    logic for income=end
   ================================*/
   /* =========end============ */
 
@@ -82,6 +82,27 @@ export default function AddGiyarbiSharifBalance() {
       incomeEntries: [],
       costEntries: [],
     });
+  };
+
+  // logic for total income
+  const calculateTotalIncome = () => {
+    return formData.incomeEntries.reduce((total, entry) => {
+      const amount = parseFloat(entry.donationAmount) || 0;
+      return total + amount;
+    }, 0);
+  };
+
+  // logic for total cost
+  const calculateTotalCost = () => {
+    return formData.costEntries.reduce((total, entry) => {
+      const amount = parseFloat(entry.donationAmount) || 0;
+      return total + amount;
+    }, 0);
+  };
+
+  // logic for balance
+  const calculateBalance = () => {
+    return calculateTotalIncome() - calculateTotalCost();
   };
 
   return (
@@ -103,7 +124,6 @@ export default function AddGiyarbiSharifBalance() {
           <section className="border border-slate-300 w-full p-6 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-4">
             {/* Giyarbi Sharif Date */}
             <div>
-              {/* ======start====== */}
               <FloatingLabelInput
                 name="giyarbiSharifDate"
                 type="date"
@@ -113,12 +133,10 @@ export default function AddGiyarbiSharifBalance() {
                 placeholder="G S Date"
                 icon={<MdOutlineDateRange />}
               />
-              {/* ======end====== */}
             </div>
 
             {/* Arabic Month */}
             <div>
-              {/* ======start====== */}
               <FloatingLabelInput
                 name="arabicMonth"
                 type="text"
@@ -128,12 +146,10 @@ export default function AddGiyarbiSharifBalance() {
                 required={true}
                 icon={<MdOutlineDateRange />}
               />
-              {/* ======end====== */}
             </div>
 
             {/* Balance Collector */}
             <div>
-              {/* ======start====== */}
               <FloatingLabelInput
                 name="balanceCollector"
                 type="text"
@@ -143,7 +159,6 @@ export default function AddGiyarbiSharifBalance() {
                 required={true}
                 icon={<AiOutlineUser />}
               />
-              {/* ======end====== */}
             </div>
 
             {/* Income Amount */}
@@ -154,8 +169,7 @@ export default function AddGiyarbiSharifBalance() {
               <input
                 type="number"
                 name="totalIncome"
-                value={formData.totalIncome}
-                onChange={handleChange}
+                value={calculateTotalIncome()}
                 disabled
                 className="w-full border border-slate-500 rounded p-2"
               />
@@ -169,8 +183,7 @@ export default function AddGiyarbiSharifBalance() {
               <input
                 type="number"
                 name="totalCost"
-                value={formData.totalCost}
-                onChange={handleChange}
+                value={calculateTotalCost()}
                 disabled
                 className="w-full border border-slate-500 rounded p-2"
               />
@@ -184,8 +197,7 @@ export default function AddGiyarbiSharifBalance() {
               <input
                 type="number"
                 name="balance"
-                value={formData.balance}
-                onChange={handleChange}
+                value={calculateBalance()}
                 disabled
                 className="w-full border border-slate-500 rounded px-4 py-2"
               />
@@ -198,45 +210,40 @@ export default function AddGiyarbiSharifBalance() {
               <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
                 Add Income
               </h2>
-              {/* =========================================================================== */}
-              <div>
-                {formData.incomeEntries?.map((item, index) => (
-                  <div key={index}>
-                    <div>
-                      {/* ===Starting & ending Date part=== */}
-                      <div className="grid grid-cols-2 gap-5">
-                        <div>
-                          <p className="form_label">Donar Name*</p>
-                          <input
-                            type="text"
-                            name="donarName"
-                            value={item.donarName}
-                            className="form_input"
-                            onChange={(e) => handleIncomeEntryChange(e, index)}
-                          />
-                        </div>
-                        <div>
-                          <p className="form_label">Donation Amount*</p>
-                          <input
-                            type="number"
-                            name="donationAmount"
-                            value={item.donationAmount}
-                            className="form_input"
-                            onChange={(e) => handleIncomeEntryChange(e, index)}
-                          />
-                        </div>
-                      </div>
-                    </div>
+              {/* ========================================
+                        1 donor field test start
+              ========================================= */}
+              {formData?.incomeEntries?.map((item, index) => (
+                <div className="flex justify-center items-center mb-3 gap-3 w-full">
+                  {/* Donor Name */}
+                  <div className="md:w-[70%] w-[65%]">
+                    <FloatingLabelInput
+                      name="donorName"
+                      type="text"
+                      value={item.donorName}
+                      onChange={(e) => handleIncomeEntryChange(e, index)}
+                      required={true}
+                      placeholder="Donor Name"
+                      icon={<AiOutlineUser />}
+                    />
                   </div>
-                ))}
-                <button
-                  onClick={addIncomeEntry}
-                  className="bg-[#000] py-2 px-5 rounded text-white h-fit cursor-pointer"
-                >
-                  Add Income
-                </button>
-              </div>
-              {/* ======================================== */}
+                  {/* DonationAmount */}
+                  <div className="md:w-[30%] w-[35%]">
+                    <FloatingLabelInput
+                      name="donationAmount"
+                      type="number"
+                      value={item?.donationAmount}
+                      placeholder="Amount"
+                      onChange={(e) => handleIncomeEntryChange(e, index)}
+                      required={true}
+                      icon={<FaDonate />}
+                    />
+                  </div>
+                </div>
+              ))}
+              {/* ==============================================
+                               1 donar field test end
+              ============================================== */}
               {/* 1 donor field */}
               <div className="flex justify-center items-center mb-3 gap-3 w-full">
                 {/* Donor Name */}
@@ -321,6 +328,57 @@ export default function AddGiyarbiSharifBalance() {
                   Add More
                 </div>
               </div>
+            </div>
+          </section>
+          {/* statistics section */}
+          <section className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-4">
+            {/* Income Amount */}
+            <div className="shadow-lg p-4 rounded-lg border border-slate-300">
+              <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
+                Total Amount
+              </h2>
+              <div className="flex items-center gap-2">
+                <div className="">
+                  <FaDonate className="text-green-600 text-2xl" />
+                </div>
+                <div>
+                  <input
+                    type="number"
+                    name="totalIncome"
+                    value={calculateTotalIncome()}
+                    disabled
+                    className="border-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Total Cost Amount */}
+            <div>
+              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
+                <FaDonate /> Total Cost
+              </label>
+              <input
+                type="number"
+                name="totalCost"
+                value={calculateTotalCost()}
+                disabled
+                className="w-full border border-slate-500 rounded p-2"
+              />
+            </div>
+
+            {/* Balance */}
+            <div>
+              <label className="text-gray-600 mb-1 font-medium flex items-center gap-2">
+                <FaDonate /> Balance
+              </label>
+              <input
+                type="number"
+                name="balance"
+                value={calculateBalance()}
+                disabled
+                className="w-full border border-slate-500 rounded px-4 py-2"
+              />
             </div>
           </section>
 
