@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FaDonate } from "react-icons/fa";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { MdOutlineDateRange, MdPersonAdd } from "react-icons/md";
-import { AiOutlineUser } from "react-icons/ai";
+import { AiOutlineDelete, AiOutlineUser } from "react-icons/ai";
 import FloatingLabelInput from "../../../Shared/FloatingLabelInput";
 
 export default function AddGiyarbiSharifBalance() {
@@ -14,14 +14,59 @@ export default function AddGiyarbiSharifBalance() {
     totalIncome: "",
     totalCost: "",
     balance: "",
-    incomeEntries: [{ donorName: "", donationAmount: "" }],
-    costEntries: [{ costName: "", costAmount: "" }],
+    incomeEntries: [],
+    costEntries: [],
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  /* =========================start============================= */
+  //reusable function for adding item
+  const addItem = (key, item) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [key]: [...prevFormData[key], item],
+    }));
+  };
+
+  //reusable input change function
+  const handleReusableInputChangeFunc = (key, index, event) => {
+    const { name, value } = event.target;
+
+    setFormData((prevFormData) => {
+      const updateItems = [...prevFormData[key]];
+
+      updateItems[index][name] = value;
+
+      return {
+        ...prevFormData,
+        [key]: updateItems,
+      };
+    });
+  };
+
+  /*================================
+    logic for qualification=start
+  ================================*/
+  const addIncomeEntry = (e) => {
+    e.preventDefault();
+
+    addItem("incomeEntries", {
+      donarName: "",
+      donationAmount: "",
+    });
+  };
+
+  const handleIncomeEntryChange = (event, index) => {
+    handleReusableInputChangeFunc("incomeEntries", index, event);
+  };
+  /*================================
+    logic for qualification=end
+  ================================*/
+  /* =========end============ */
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,8 +79,8 @@ export default function AddGiyarbiSharifBalance() {
       totalIncome: "",
       totalCost: "",
       balance: "",
-      incomeEntries: [{ donorName: "", donationAmount: "" }],
-      costEntries: [{ costName: "", costAmount: "" }],
+      incomeEntries: [],
+      costEntries: [],
     });
   };
 
@@ -153,6 +198,45 @@ export default function AddGiyarbiSharifBalance() {
               <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
                 Add Income
               </h2>
+              {/* =========================================================================== */}
+              <div>
+                {formData.incomeEntries?.map((item, index) => (
+                  <div key={index}>
+                    <div>
+                      {/* ===Starting & ending Date part=== */}
+                      <div className="grid grid-cols-2 gap-5">
+                        <div>
+                          <p className="form_label">Donar Name*</p>
+                          <input
+                            type="text"
+                            name="donarName"
+                            value={item.donarName}
+                            className="form_input"
+                            onChange={(e) => handleIncomeEntryChange(e, index)}
+                          />
+                        </div>
+                        <div>
+                          <p className="form_label">Donation Amount*</p>
+                          <input
+                            type="number"
+                            name="donationAmount"
+                            value={item.donationAmount}
+                            className="form_input"
+                            onChange={(e) => handleIncomeEntryChange(e, index)}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+                <button
+                  onClick={addIncomeEntry}
+                  className="bg-[#000] py-2 px-5 rounded text-white h-fit cursor-pointer"
+                >
+                  Add Income
+                </button>
+              </div>
+              {/* ======================================== */}
               {/* 1 donor field */}
               <div className="flex justify-center items-center mb-3 gap-3 w-full">
                 {/* Donor Name */}
@@ -186,10 +270,13 @@ export default function AddGiyarbiSharifBalance() {
               </div>
 
               <div className="flex justify-end pt-4">
-                <div className="flex items-center gap-2 border border-green-600 px-2 py-1 rounded-full cursor-pointer hover:bg-green-100 transition">
+                <button
+                  onClick={addIncomeEntry}
+                  className="flex items-center gap-2 border border-green-600 px-2 py-1 rounded-full cursor-pointer hover:bg-green-100 transition"
+                >
                   <MdPersonAdd className="text-green-600 text-3xl mx-auto" />{" "}
                   Add More
-                </div>
+                </button>
               </div>
             </div>
             {/* ======add cost part========= */}
