@@ -1,6 +1,8 @@
 import { useParams, Link } from "react-router-dom";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import { gsBalancedata } from "../../../../assets/data/gsBalanceData";
 import logo from "../../../../assets/images/logo/abu_maola_rowja.png";
+import GSBDetailsPDF from "./GSBDetailsPdf";
 
 const GiyarbiSharifBalanceDetails = () => {
   const { id } = useParams(); // get id from URL
@@ -142,6 +144,19 @@ const GiyarbiSharifBalanceDetails = () => {
           </div>
         </div>
       </section>
+      {/* PDF Download Button */}
+      <div className="flex justify-end mb-4">
+        <PDFDownloadLink
+          document={<GSBDetailsPDF balance={balance} />}
+          fileName={`Giyarbi-Sharif-Balance-${balance.id}.pdf`}
+        >
+          {({ loading }) => (
+            <button className="px-4 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition">
+              {loading ? "Generating PDF..." : "Download PDF"}
+            </button>
+          )}
+        </PDFDownloadLink>
+      </div>
       <div className="flex justify-between items-center py-2 text-sm text-slate-600">
         <p>Powered By @nurulazam</p>
         <p>
