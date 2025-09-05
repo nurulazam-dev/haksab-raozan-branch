@@ -1,4 +1,4 @@
-const gsBalancedata = [
+export const gsBalancedata = [
   {
     id: "gsb-1",
     giyarbiSharifDate: "2023-01-01",

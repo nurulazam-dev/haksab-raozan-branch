@@ -8,68 +8,26 @@ import {
   FaEye,
   FaTrash,
 } from "react-icons/fa";
+import gsBalancedata from "../../../../assets/data/gsBalanceData";
 
 const GiyarbiSharifBalance = () => {
-  const gsBalance = [
-    {
-      date: "2023-01-01",
-      arabicMonth: "محرم",
-      income: 1000,
-      cost: 500,
-      balance: 500,
-      collector: "Roman",
-    },
-    {
-      date: "2023-02-01",
-      arabicMonth: "صفر",
-      income: 1500,
-      cost: 700,
-      balance: 800,
-      collector: "Arif",
-    },
-    {
-      date: "2023-03-01",
-      arabicMonth: "ربيع الأول",
-      income: 2000,
-      cost: 1200,
-      balance: 800,
-      collector: "Imran",
-    },
-    {
-      date: "2023-04-01",
-      arabicMonth: "ربيع الثاني",
-      income: 1800,
-      cost: 900,
-      balance: 900,
-      collector: "Hasan",
-    },
-    {
-      date: "2023-05-01",
-      arabicMonth: "جمادى الأولى",
-      income: 2500,
-      cost: 1100,
-      balance: 1400,
-      collector: "Karim",
-    },
-  ];
-
   const stats = [
     {
       id: 1,
       title: "Total Income",
-      value: gsBalance.reduce((acc, item) => acc + item.income, 0),
+      value: gsBalancedata?.reduce((acc, item) => acc + item?.totalIncome, 0),
       icon: <FaArrowUp className="text-green-500 text-xl" />,
     },
     {
       id: 2,
       title: "Total Cost",
-      value: gsBalance.reduce((acc, item) => acc + item.cost, 0),
+      value: gsBalancedata?.reduce((acc, item) => acc + item?.totalCost, 0),
       icon: <FaArrowDown className="text-red-500 text-xl" />,
     },
     {
       id: 3,
       title: "Current Balance",
-      value: gsBalance.reduce((acc, item) => acc + item.balance, 0),
+      value: gsBalancedata?.reduce((acc, item) => acc + item?.balance, 0),
       icon: <FaBalanceScale className="text-blue-500 text-xl" />,
     },
   ];
@@ -77,9 +35,9 @@ const GiyarbiSharifBalance = () => {
   // Pagination logic
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 4;
-  const totalPages = Math.ceil(gsBalance.length / rowsPerPage);
+  const totalPages = Math.ceil(gsBalancedata?.length / rowsPerPage);
 
-  const paginatedData = gsBalance.slice(
+  const paginatedData = gsBalancedata?.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
@@ -91,19 +49,19 @@ const GiyarbiSharifBalance = () => {
       </h2>
 
       {/* Statistics */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8">
-        {stats.map((stat) => (
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-5">
+        {stats?.map((stat) => (
           <motion.div
-            key={stat.id}
+            key={stat?.id}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-white shadow-lg rounded-2xl p-6 flex items-center justify-between border border-gray-100"
+            className="bg-white shadow-lg rounded-2xl px-6 py-4 flex items-center justify-between border border-gray-100"
           >
             <div>
-              <p className="text-gray-500 text-sm">{stat.title}</p>
-              <h3 className="text-2xl font-semibold">{stat.value}</h3>
+              <p className="text-gray-500 text-sm">{stat?.title}</p>
+              <h3 className="text-2xl font-semibold">{stat?.value}</h3>
             </div>
-            <div className="p-3 bg-gray-100 rounded-full">{stat.icon}</div>
+            <div className="p-3 bg-gray-100 rounded-full">{stat?.icon}</div>
           </motion.div>
         ))}
       </div>
@@ -124,23 +82,25 @@ const GiyarbiSharifBalance = () => {
               </tr>
             </thead>
             <tbody>
-              {paginatedData.map((item, index) => (
+              {paginatedData?.map((item, index) => (
                 <tr
                   key={index}
                   className="border-t hover:bg-gray-50 transition"
                 >
-                  <td className="px-4 py-3">{item.date}</td>
-                  <td className="px-4 py-3">{item.arabicMonth}</td>
+                  <td className="px-4 py-3">{item?.giyarbiSharifDate}</td>
+                  <td className="px-4 py-3">{item?.arabicMonth}</td>
                   <td className="px-4 py-3 text-right text-green-600 font-medium">
-                    {item.income}
+                    {item?.totalIncome}
                   </td>
                   <td className="px-4 py-3 text-right text-red-600 font-medium">
-                    {item.cost}
+                    {item?.totalCost}
                   </td>
                   <td className="px-4 py-3 text-right font-semibold text-blue-600">
-                    {item.balance}
+                    {item?.balance}
                   </td>
-                  <td className="px-4 py-3 text-center">{item.collector}</td>
+                  <td className="px-4 py-3 text-center">
+                    {item?.balanceCollector}
+                  </td>
                   <td className="px-2 py-3 flex justify-center gap-4">
                     <FaEye className="text-green-600 text-lg cursor-pointer hover:scale-110 transition" />
                     <FaEdit className="text-blue-600 text-lg cursor-pointer hover:scale-110 transition" />
