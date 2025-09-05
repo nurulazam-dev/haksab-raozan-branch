@@ -5,8 +5,16 @@ import { TbCurrencyTaka } from "react-icons/tb";
 import { MdOutlineDateRange, MdPersonAdd } from "react-icons/md";
 import { AiOutlineDelete, AiOutlineUser } from "react-icons/ai";
 import FloatingLabelInput from "../../../Shared/FloatingLabelInput";
+import { gsBalancedata } from "../../../../assets/data/gsBalanceData";
+import { useParams } from "react-router-dom";
 
-export default function UpdateGiyarbiSharifBalance({ initialData, onUpdate }) {
+// export default function UpdateGiyarbiSharifBalance({ initialData, onUpdate }) {
+export default function UpdateGiyarbiSharifBalance({ onUpdate }) {
+  /* ========================== */
+  const { id } = useParams(); // get id from URL
+  const getBalance = gsBalancedata.find((item) => item.id === id);
+  /* ========================== */
+
   const [formData, setFormData] = useState({
     giyarbiSharifDate: "",
     arabicMonth: "",
@@ -16,11 +24,17 @@ export default function UpdateGiyarbiSharifBalance({ initialData, onUpdate }) {
   });
 
   // Load existing data into form
-  useEffect(() => {
+  /* useEffect(() => {
     if (initialData) {
       setFormData(initialData);
     }
-  }, [initialData]);
+  }, [initialData]); */
+
+  useEffect(() => {
+    if (getBalance) {
+      setFormData(getBalance);
+    }
+  }, [getBalance]);
 
   // Handle main input changes
   const handleChange = (e) => {
@@ -116,6 +130,24 @@ export default function UpdateGiyarbiSharifBalance({ initialData, onUpdate }) {
     alert("Balance record updated successfully!");
   };
 
+  if (!getBalance) {
+    return (
+      <div className="p-6 text-center">
+        <h2 className="text-xl font-semibold text-red-600">
+          Balance not found!
+        </h2>
+        <Link
+          to="/dashboard/giyarbi-sharif-balance"
+          className="text-blue-500 underline"
+        >
+          Go Back
+        </Link>
+      </div>
+    );
+  }
+
+  console.log("balance", balance);
+
   return (
     <div>
       <motion.div
@@ -136,7 +168,7 @@ export default function UpdateGiyarbiSharifBalance({ initialData, onUpdate }) {
               type="date"
               value={formData.giyarbiSharifDate}
               onChange={handleChange}
-              required
+              disabled={true}
               placeholder="Giyarbi Sharif Date"
               icon={<MdOutlineDateRange />}
             />
@@ -145,7 +177,7 @@ export default function UpdateGiyarbiSharifBalance({ initialData, onUpdate }) {
               type="text"
               value={formData.arabicMonth}
               onChange={handleChange}
-              required
+              disabled={true}
               placeholder="Arabic Month"
               icon={<MdOutlineDateRange />}
             />
@@ -154,7 +186,7 @@ export default function UpdateGiyarbiSharifBalance({ initialData, onUpdate }) {
               type="text"
               value={formData.balanceCollector}
               onChange={handleChange}
-              required
+              disabled={true}
               placeholder="Balance Collector"
               icon={<AiOutlineUser />}
             />
@@ -172,6 +204,7 @@ export default function UpdateGiyarbiSharifBalance({ initialData, onUpdate }) {
                   key={idx}
                   className="flex justify-center items-center mb-3 gap-2 w-full"
                 >
+                  {idx + 1}.{" "}
                   <div className="md:w-[68%] w-[63%]">
                     <FloatingLabelInput
                       name="donarName"
@@ -228,6 +261,7 @@ export default function UpdateGiyarbiSharifBalance({ initialData, onUpdate }) {
                   key={idx}
                   className="flex justify-center items-center mb-3 gap-2 w-full"
                 >
+                  {idx + 1}.{" "}
                   <div className="md:w-[68%] w-[63%]">
                     <FloatingLabelInput
                       name="costName"

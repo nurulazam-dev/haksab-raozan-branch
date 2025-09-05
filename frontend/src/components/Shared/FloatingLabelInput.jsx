@@ -8,6 +8,8 @@ const FloatingLabelInput = ({
   placeholder,
   icon,
   required,
+  readOnly,
+  disabled,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   return (
@@ -21,6 +23,8 @@ const FloatingLabelInput = ({
         value={value}
         onChange={onChange}
         required={required}
+        readOnly={readOnly}
+        disabled={disabled}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         className="flex h-10 w-full rounded border border-input bg-background pl-7 pr-7 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium  disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200 peer placeholder-transparent"

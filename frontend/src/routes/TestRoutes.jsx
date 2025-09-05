@@ -31,6 +31,7 @@ import Settings from "../pages/dashboard/Settings";
 import GiyarbiSharifBalance from "../components/Dashboard/Accounts/Giyarbi-Sharif/GiyarbiSharifBalance";
 import AddGiyarbiSharifBalance from "../components/Dashboard/Accounts/Giyarbi-Sharif/AddGiyarbiSharifBalance";
 import UpdateGiyarbiSharifBalance from "../components/Dashboard/Accounts/Giyarbi-Sharif/UpdateGiyarbiSharifBalance";
+import GiyarbiSharifBalanceDetails from "../components/Dashboard/Accounts/Giyarbi-Sharif/GiyarbiSharifBalanceDetails";
 
 const TestRoutes = () => {
   return (
@@ -44,14 +45,20 @@ const TestRoutes = () => {
         <Route index element={<Overview />} />
         <Route path="admin" element={<AdminDashboard />} />
         <Route path="accountant" element={<AccountantDashboard />} />
-        <Route path="giyarbi-sharif" element={<GiyarbiSharifBalance />} />
+        <Route
+          path="giyarbi-sharif-balance"
+          element={<GiyarbiSharifBalance />}
+        />
         <Route
           path="add-giyarbi-sharif-balance"
           element={<AddGiyarbiSharifBalance />}
         />
-        {/* <Route path="giyarbi-sharif/:id" element={<AddGiyarbiSharifBalance />} /> */}
         <Route
-          path="giyarbi-sharif/update/:id"
+          path="giyarbi-sharif-balance/details/:id"
+          element={<GiyarbiSharifBalanceDetails />}
+        />
+        <Route
+          path="giyarbi-sharif-balance/update/:id"
           element={<UpdateGiyarbiSharifBalance />}
         />
         <Route path="finance/income" element={<IncomeList />} />

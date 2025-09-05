@@ -170,6 +170,7 @@ export default function AddGiyarbiSharifBalance() {
                   key={idx}
                   className="flex justify-center items-center mb-3 gap-2 w-full"
                 >
+                  {idx + 1}.{" "}
                   <div className="md:w-[68%] w-[63%]">
                     <FloatingLabelInput
                       name="donarName"
@@ -227,6 +228,7 @@ export default function AddGiyarbiSharifBalance() {
                   key={idx}
                   className="flex justify-center items-center mb-3 gap-2 w-full"
                 >
+                  {idx + 1}.{" "}
                   <div className="md:w-[68%] w-[63%]">
                     <FloatingLabelInput
                       name="costName"
