@@ -27,40 +27,38 @@ const GiyarbiSharifBalanceDetails = () => {
         GS Balance Details
       </h2>
 
-      <div className="border border-blue-600 px-3 py-4 rounded-lg shadow-lg mb-4">
+      <div className="border border-blue-600 px-3 py-2 rounded-lg shadow-lg mb-4">
         <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
           Balance Summary
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <p>
-              <span className="font-semibold">Date:</span>{" "}
-              {balance.giyarbiSharifDate}
-            </p>
-            <p>
-              <span className="font-semibold">Arabic Month:</span>{" "}
-              {balance.arabicMonth}
-            </p>
-            <p>
-              <span className="font-semibold">Collector:</span>{" "}
-              {balance.balanceCollector}
-            </p>
-          </div>
-          <div>
-            {" "}
-            <p className="text-green-600 font-medium">
-              <span className="font-semibold text-black">Income:</span>{" "}
-              {balance.totalIncome}
-            </p>
-            <p className="text-red-600 font-medium">
-              <span className="font-semibold text-black">Cost:</span>{" "}
-              {balance.totalCost}
-            </p>
-            <p className="text-blue-600 font-medium">
-              <span className="font-semibold text-black">Balance:</span>{" "}
-              {balance.balance}
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <p>
+            <span className="font-semibold text-black">
+              Giyarbi Sharif Date:
+            </span>{" "}
+            {balance.giyarbiSharifDate}
+          </p>
+          <p>
+            <span className="font-semibold text-black">Arabic Month:</span>{" "}
+            {balance.arabicMonth}
+          </p>
+          <p>
+            <span className="font-semibold text-black">Balance Collector:</span>{" "}
+            {balance.balanceCollector}
+          </p>
+
+          <p className="text-green-600 font-medium">
+            <span className="font-semibold text-black">Total Income:</span>{" "}
+            {balance.totalIncome}/=
+          </p>
+          <p className="text-red-600 font-medium">
+            <span className="font-semibold text-black">Total Cost:</span>{" "}
+            {balance.totalCost}/=
+          </p>
+          <p className="text-blue-600 font-medium">
+            <span className="font-semibold text-black">Available Balance:</span>{" "}
+            {balance.balance}/=
+          </p>
         </div>
       </div>
       {/* income & Cost table */}
@@ -71,7 +69,7 @@ const GiyarbiSharifBalanceDetails = () => {
             Income Entries
           </h2>
           {balance.incomeEntries.map((item, idx) => (
-            <div key={idx} className="flex justify-between mb-2">
+            <div key={idx} className="flex justify-between border-t mb-1">
               <span>{item.donarName}</span>
               <span>{item.donationAmount}</span>
             </div>
@@ -88,7 +86,7 @@ const GiyarbiSharifBalanceDetails = () => {
             Cost Entries
           </h2>
           {balance.costEntries.map((item, idx) => (
-            <div key={idx} className="flex justify-between mb-2">
+            <div key={idx} className="flex justify-between border-t mb-1">
               <span>{item.costName}</span>
               <span>{item.costAmount}</span>
             </div>
