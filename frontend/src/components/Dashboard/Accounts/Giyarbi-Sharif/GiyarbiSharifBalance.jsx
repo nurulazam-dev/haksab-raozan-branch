@@ -23,7 +23,7 @@ const GiyarbiSharifBalance = () => {
         Giyarbi Sharif Balance
       </h2>
 
-      {/* Giyarbi Sharif Balance Statistics */}
+      {/* Giyarbi Sharifs Balance Statistics */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-5">
         {gsBalanceStats?.map((stat) => (
           <motion.div
