@@ -142,6 +142,24 @@ const GiyarbiSharifBalanceDetails = () => {
           </div>
         </div>
       </section>
+      <div className="flex justify-between items-center py-2 text-sm text-slate-600">
+        <p>Powered By @nurulazam</p>
+        <p>
+          Print on{" "}
+          {new Date()
+            .toLocaleString("en-GB", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
+              hour12: true,
+            })
+            .replace(/\//g, "-")}{" "}
+        </p>
+        <p>Developed By @mnawebprogramming</p>
+      </div>
     </div>
   );
 };
