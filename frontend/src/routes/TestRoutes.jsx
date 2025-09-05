@@ -30,6 +30,7 @@ import Overview from "../pages/dashboard/Overview";
 import Settings from "../pages/dashboard/Settings";
 import GiyarbiSharifBalance from "../components/Dashboard/Accounts/Giyarbi-Sharif/GiyarbiSharifBalance";
 import AddGiyarbiSharifBalance from "../components/Dashboard/Accounts/Giyarbi-Sharif/AddGiyarbiSharifBalance";
+import UpdateGiyarbiSharifBalance from "../components/Dashboard/Accounts/Giyarbi-Sharif/UpdateGiyarbiSharifBalance";
 
 const TestRoutes = () => {
   return (
@@ -38,6 +39,10 @@ const TestRoutes = () => {
       <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route
+        path="/update-gs-balance/:id"
+        element={<UpdateGiyarbiSharifBalance />}
+      />
       <Route path="/dashboard" element={<MainDashboard />}>
         <Route index element={<Overview />} />
         <Route path="admin" element={<AdminDashboard />} />
