@@ -82,13 +82,13 @@ const GiyarbiSharifBalance = () => {
                   <td className="px-2 py-3 flex justify-center gap-4">
                     <FaEye
                       onClick={() =>
-                        navigate(`/dashboard/giyarbi-sharif/${item.id}`)
+                        navigate(`/dashboard/giyarbi-sharif/${item?.id}`)
                       }
                       className="text-green-600 text-lg cursor-pointer hover:scale-110 transition"
                     />
                     <FaEdit
                       onClick={() =>
-                        navigate(`/dashboard/giyarbi-sharif/update/${item.id}`)
+                        navigate(`/dashboard/giyarbi-sharif/update/${item?.id}`)
                       }
                       className="text-blue-600 text-lg cursor-pointer hover:scale-110 transition"
                     />
