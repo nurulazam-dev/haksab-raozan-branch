@@ -22,48 +22,83 @@ const GiyarbiSharifBalanceDetails = () => {
   }
 
   return (
-    <div className="p-6 max-w-3xl mx-auto bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-bold text-blue-700 mb-4">Balance Details</h2>
-      <div className="space-y-3">
-        <p>
-          <span className="font-semibold">Date:</span>{" "}
-          {balance.giyarbiSharifDate}
-        </p>
-        <p>
-          <span className="font-semibold">Arabic Month:</span>{" "}
-          {balance.arabicMonth}
-        </p>
-        <p className="text-green-600 font-medium">
-          <span className="font-semibold text-black">Income:</span>{" "}
-          {balance.totalIncome}
-        </p>
-        <p className="text-red-600 font-medium">
-          <span className="font-semibold text-black">Cost:</span>{" "}
-          {balance.totalCost}
-        </p>
-        <p className="text-blue-600 font-medium">
-          <span className="font-semibold text-black">Balance:</span>{" "}
-          {balance.balance}
-        </p>
-        <p>
-          <span className="font-semibold">Collector:</span>{" "}
-          {balance.balanceCollector}
-        </p>
+    <div className="px-6 text-slate-800">
+      <h2 className="text-3xl font-bold mb-3 text-center text-blue-700">
+        GS Balance Details
+      </h2>
+
+      <div className="border border-blue-600 px-3 py-4 rounded-lg shadow-lg mb-4">
+        <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
+          Balance Summary
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p>
+              <span className="font-semibold">Date:</span>{" "}
+              {balance.giyarbiSharifDate}
+            </p>
+            <p>
+              <span className="font-semibold">Arabic Month:</span>{" "}
+              {balance.arabicMonth}
+            </p>
+            <p>
+              <span className="font-semibold">Collector:</span>{" "}
+              {balance.balanceCollector}
+            </p>
+          </div>
+          <div>
+            {" "}
+            <p className="text-green-600 font-medium">
+              <span className="font-semibold text-black">Income:</span>{" "}
+              {balance.totalIncome}
+            </p>
+            <p className="text-red-600 font-medium">
+              <span className="font-semibold text-black">Cost:</span>{" "}
+              {balance.totalCost}
+            </p>
+            <p className="text-blue-600 font-medium">
+              <span className="font-semibold text-black">Balance:</span>{" "}
+              {balance.balance}
+            </p>
+          </div>
+        </div>
       </div>
-      <div className="mt-6 flex justify-between">
-        <Link
-          to="/dashboard/giyarbi-sharif-balance"
-          className="bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300"
-        >
-          Back
-        </Link>
-        <Link
-          to={`/dashboard/giyarbi-sharif-balance/update/${id}`}
-          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
-        >
-          Edit
-        </Link>
-      </div>
+      {/* income & Cost table */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+        {/* Income Entries */}
+        <div className="border border-green-600 px-3 py-4 rounded-lg shadow-lg">
+          <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
+            Income Entries
+          </h2>
+          {balance.incomeEntries.map((item, idx) => (
+            <div key={idx} className="flex justify-between mb-2">
+              <span>{item.donarName}</span>
+              <span>{item.donationAmount}</span>
+            </div>
+          ))}
+          <div className="flex justify-between font-semibold border-t-2 border-slate-700 pt-1">
+            <span>Total Income:</span>
+            <span>{balance.totalIncome}</span>
+          </div>
+        </div>
+
+        {/* Cost Entries */}
+        <div className="border border-red-600 px-3 py-4 rounded-lg shadow-lg">
+          <h2 className="text-xl font-bold text-center underline underline-offset-4 mb-3">
+            Cost Entries
+          </h2>
+          {balance.costEntries.map((item, idx) => (
+            <div key={idx} className="flex justify-between mb-2">
+              <span>{item.costName}</span>
+              <span>{item.costAmount}</span>
+            </div>
+          ))}
+          <div className="flex justify-between font-semibold border-t-2 border-slate-700 pt-1">
+            <span>Total Cost:</span>
+            <span>{balance.totalCost}</span>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
