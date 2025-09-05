@@ -45,9 +45,13 @@ const TestRoutes = () => {
         <Route path="admin" element={<AdminDashboard />} />
         <Route path="accountant" element={<AccountantDashboard />} />
         <Route path="giyarbi-sharif" element={<GiyarbiSharifBalance />} />
-        <Route path="add-gs-balance" element={<AddGiyarbiSharifBalance />} />
         <Route
-          path="update-gs-balance/:id"
+          path="add-giyarbi-sharif-balance"
+          element={<AddGiyarbiSharifBalance />}
+        />
+        {/* <Route path="giyarbi-sharif/:id" element={<AddGiyarbiSharifBalance />} /> */}
+        <Route
+          path="giyarbi-sharif/update/:id"
           element={<UpdateGiyarbiSharifBalance />}
         />
         <Route path="finance/income" element={<IncomeList />} />

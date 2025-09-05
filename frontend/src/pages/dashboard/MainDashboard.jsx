@@ -55,7 +55,10 @@ const MainDashboard = () => {
           <NavLink to="/dashboard/giyarbi-sharif" className={linkClasses}>
             <FaHome /> {isOpen && <span>Giyarbi Sharif</span>}
           </NavLink>
-          <NavLink to="/dashboard/add-gs-balance" className={linkClasses}>
+          <NavLink
+            to="/dashboard/add-giyarbi-sharif-balance"
+            className={linkClasses}
+          >
             <FaHome /> {isOpen && <span>Add GS Balance</span>}
           </NavLink>
           <NavLink to="/dashboard/accountant" className={linkClasses}>

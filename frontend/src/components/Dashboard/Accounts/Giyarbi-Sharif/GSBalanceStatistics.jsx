@@ -1,7 +1,29 @@
 import { motion } from "framer-motion";
-import { gsBalanceStats } from "../../../../assets/data/gsBalanceData";
+import { FaArrowDown, FaArrowUp, FaBalanceScale } from "react-icons/fa";
+import { gsBalancedata } from "../../../../assets/data/gsBalanceData";
 
 const GSBalanceStatistics = () => {
+  const gsBalanceStats = [
+    {
+      id: 1,
+      title: "Total Income",
+      value: gsBalancedata?.reduce((acc, item) => acc + item?.totalIncome, 0),
+      icon: <FaArrowUp className="text-green-500 text-xl" />,
+    },
+    {
+      id: 2,
+      title: "Total Cost",
+      value: gsBalancedata?.reduce((acc, item) => acc + item?.totalCost, 0),
+      icon: <FaArrowDown className="text-red-500 text-xl" />,
+    },
+    {
+      id: 3,
+      title: "Current Balance",
+      value: gsBalancedata?.reduce((acc, item) => acc + item?.balance, 0),
+      icon: <FaBalanceScale className="text-blue-500 text-xl" />,
+    },
+  ];
+
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-5">
       {gsBalanceStats?.map((stat) => (

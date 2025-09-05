@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { gsBalancedata } from "../../../../assets/data/gsBalanceData";
 import GSBalanceStatistics from "./GSBalanceStatistics";
 
 const GiyarbiSharifBalance = () => {
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteItem, setDeleteItem] = useState(null);
+
+  const navigate = useNavigate();
+
   // Pagination logic
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 4;
@@ -14,6 +20,20 @@ const GiyarbiSharifBalance = () => {
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
+
+  // Handle Delete
+  const handleDelete = (item) => {
+    setDeleteItem(item);
+    setShowDeleteModal(true);
+  };
+
+  const confirmDelete = () => {
+    console.log("Deleted:", deleteItem);
+    // TODO: call API here
+    setShowDeleteModal(false);
+    setDeleteItem(null);
+    alert("Balance record deleted successfully!");
+  };
 
   return (
     <div className="px-6 text-slate-800">
@@ -60,9 +80,22 @@ const GiyarbiSharifBalance = () => {
                     {item?.balanceCollector}
                   </td>
                   <td className="px-2 py-3 flex justify-center gap-4">
-                    <FaEye className="text-green-600 text-lg cursor-pointer hover:scale-110 transition" />
-                    <FaEdit className="text-blue-600 text-lg cursor-pointer hover:scale-110 transition" />
-                    <FaTrash className="text-red-600 text-lg cursor-pointer hover:scale-110 transition" />
+                    <FaEye
+                      onClick={() =>
+                        navigate(`/dashboard/giyarbi-sharif/${item.id}`)
+                      }
+                      className="text-green-600 text-lg cursor-pointer hover:scale-110 transition"
+                    />
+                    <FaEdit
+                      onClick={() =>
+                        navigate(`/dashboard/giyarbi-sharif/update/${item.id}`)
+                      }
+                      className="text-blue-600 text-lg cursor-pointer hover:scale-110 transition"
+                    />
+                    <FaTrash
+                      onClick={() => handleDelete(item)}
+                      className="text-red-600 text-lg cursor-pointer hover:scale-110 transition"
+                    />
                   </td>
                 </tr>
               ))}
@@ -93,6 +126,38 @@ const GiyarbiSharifBalance = () => {
           </button>
         </div>
       </div>
+
+      {/* Delete Modal */}
+      {showDeleteModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="bg-white p-6 rounded-lg shadow-lg w-[90%] md:w-[400px] text-center"
+          >
+            <h2 className="text-lg font-bold mb-4">
+              Are you sure you want to delete?
+            </h2>
+            <p className="text-sm text-gray-600 mb-6">
+              This action cannot be undone.
+            </p>
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={() => setShowDeleteModal(false)}
+                className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmDelete}
+                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+              >
+                Delete
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };
