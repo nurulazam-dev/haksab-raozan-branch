@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { gsBalancedata } from "../../../../assets/data/gsBalanceData";
 import GSBalanceStatistics from "./GSBalanceStatistics";
