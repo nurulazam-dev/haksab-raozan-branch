@@ -50,13 +50,106 @@ const GSBDetailsPDF = ({ balance }) => (
     <Page size="A4" style={styles.page}>
       {/* Header */}
       <View style={styles.header}>
-        <Image src={logo} style={{ width: 80, height: 80, margin: "0 auto" }} />
+        <Text
+          style={{
+            textAlign: "center",
+            fontSize: 10,
+            marginBottom: 6,
+            fontStyle: "italic",
+          }}
+        >
+          Bismillahir Rahmanir Rahim
+        </Text>
+        <View style={{ position: "relative", paddingVertical: 8 }}>
+          <Image
+            src={logo}
+            style={{
+              width: 80,
+              height: 80,
+              margin: "0 auto",
+              objectFit: "contain",
+            }}
+          />
+          {/* takbir part */}
+          <View
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 10,
+              fontSize: 8,
+              fontStyle: "italic",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              width: "100%",
+              alignItems: "center",
+            }}
+          >
+            {/* left side takbir */}
+            <View style={{ textAlign: "start" }}>
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Naraye Takbir
+              </Text>
+
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Naraye Risalat
+              </Text>
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Naraye Haydari
+              </Text>
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Naraye Hasnayin
+              </Text>
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Naraye Gaosiya
+              </Text>
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Naraye Gaosiya
+              </Text>
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Abu Maola Sultanpuri RH.
+              </Text>
+            </View>
+            {/* right side takbir */}
+            <View style={{ textAlign: "end" }}>
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Allahu Akbar
+              </Text>
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Yea Rasulullah S.A.W.
+              </Text>
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Yea Ali Martuza A.S.
+              </Text>
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Yea Hasan Yea Hossain A.S.
+              </Text>
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Yea Gaosul Azam Dastagir RH.
+              </Text>
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Gaosul Azam Maisvandary RH.
+              </Text>
+              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+                Marhaba Marhaba
+              </Text>
+            </View>
+          </View>
+        </View>
         <Text style={styles.title}>
           Hazrat Abul Khair Sultanpuri RH. Association Bangladesh
         </Text>
-        <Text>(HASKAB) - Raozan Branch</Text>
-        <Text>East Raozan, Rashidar Para, Joynagor, Chattogram.</Text>
-        <Text>Email: info@haskab-raozan-branch.org</Text>
+        <Text style={styles.title}>(HASKAB) - Raozan Branch</Text>
+        <Text style={{ textAlign: "center", fontSize: 8 }}>
+          East Raozan, Rashidar Para, Joynagor, Chattogram.
+        </Text>
+        <Text style={{ textAlign: "center", fontSize: 8 }}>
+          Email: info@haskab-raozan-branch.org
+        </Text>
+        <Text style={{ textAlign: "center", fontSize: 8 }}>
+          Head Office: Satgachia Darbar Sharif, Mujibnagar, Haidgaon, Patia,
+          Chattogram.
+        </Text>
       </View>
 
       {/* Summary */}

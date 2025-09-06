@@ -68,7 +68,6 @@ const GiyarbiSharifBalanceDetails = () => {
             Haidgaon, Patia, Chattogram.
           </p>
         </div>
-        <div className="border border-slate-400 mt-2"></div>
       </section>
       <h2 className="text-2xl font-bold mb-1 text-center bg-green-600 text-white py-1">
         Giyarbi Sharif Balance Details
