@@ -34,8 +34,10 @@ const styles = StyleSheet.create({
   summarySection: {
     marginBottom: 10,
     padding: 6,
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    // display: "grid",
+    // gridTemplateColumns: "repeat(3, 1fr)",
     gap: 4,
     fontSize: 10,
   },
@@ -43,10 +45,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     borderBottom: "1pt solid #eee",
-    paddingVertical: 2,
+    padding: 4,
   },
   footer: {
-    marginTop: 8,
+    marginTop: 4,
     fontSize: 8,
     color: "#45556c",
     flexDirection: "row",
@@ -69,12 +71,12 @@ const GSBDetailsPDF = ({ balance }) => (
         >
           Bismillahir Rahmanir Rahim
         </Text>
-        <View style={{ position: "relative", paddingVertical: 8 }}>
+        <View style={{ position: "relative", marginBottom: 6 }}>
           <Image
             src={logo}
             style={{
-              width: 80,
-              height: 80,
+              width: 60,
+              height: 60,
               margin: "0 auto",
               objectFit: "contain",
             }}
@@ -95,7 +97,7 @@ const GSBDetailsPDF = ({ balance }) => (
             }}
           >
             {/* left side takbir */}
-            <View style={{ textAlign: "start" }}>
+            <View style={{ textAlign: "start", lineHeight: 0.5 }}>
               <Text style={{ fontStyle: "italic", fontSize: 8 }}>
                 Naraye Takbir
               </Text>
@@ -120,26 +122,40 @@ const GSBDetailsPDF = ({ balance }) => (
               </Text>
             </View>
             {/* right side takbir */}
-            <View style={{ textAlign: "right" }}>
-              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+            <View style={{ lineHeight: 0.5, textAlign: "end" }}>
+              <Text
+                style={{ fontStyle: "italic", fontSize: 8, textAlign: "right" }}
+              >
                 Allahu Akbar
               </Text>
-              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+              <Text
+                style={{ fontStyle: "italic", fontSize: 8, textAlign: "right" }}
+              >
                 Yea Rasulullah S.A.W.
               </Text>
-              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+              <Text
+                style={{ fontStyle: "italic", fontSize: 8, textAlign: "right" }}
+              >
                 Yea Ali Martuza A.S.
               </Text>
-              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+              <Text
+                style={{ fontStyle: "italic", fontSize: 8, textAlign: "right" }}
+              >
                 Yea Hasan Yea Hossain A.S.
               </Text>
-              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+              <Text
+                style={{ fontStyle: "italic", fontSize: 8, textAlign: "right" }}
+              >
                 Yea Gaosul Azam Dastagir RH.
               </Text>
-              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+              <Text
+                style={{ fontStyle: "italic", fontSize: 8, textAlign: "right" }}
+              >
                 Gaosul Azam Maisvandary RH.
               </Text>
-              <Text style={{ fontStyle: "italic", fontSize: 8 }}>
+              <Text
+                style={{ fontStyle: "italic", fontSize: 8, textAlign: "right" }}
+              >
                 Marhaba Marhaba
               </Text>
             </View>
@@ -152,7 +168,7 @@ const GSBDetailsPDF = ({ balance }) => (
         <Text style={{ textAlign: "center", fontSize: 8, marginBottom: 4 }}>
           East Raozan, Rashidar Para, Joynagor, Chattogram.
         </Text>
-        <Text style={{ textAlign: "center", fontSize: 8, marginBottom: 2 }}>
+        <Text style={{ textAlign: "center", fontSize: 8, marginBottom: 3 }}>
           Email: info@haskab-raozan-branch.org
         </Text>
         <Text style={{ textAlign: "center", fontSize: 8 }}>
@@ -177,11 +193,11 @@ const GSBDetailsPDF = ({ balance }) => (
       {/* Summary */}
       <View style={styles.summarySection}>
         <Text>
-          <Text style={{ fontWeight: "bold" }}>Giyarbi Sharif Date : </Text>
+          <Text style={{ fontWeight: "bold" }}>Date: </Text>
           {balance.giyarbiSharifDate}
         </Text>
         <Text>
-          <Text style={{ fontWeight: "bold" }}>Arabic Month: </Text>
+          <Text style={{ fontWeight: "bold" }}>Month: </Text>
           {balance.arabicMonth}
         </Text>
         <Text>
@@ -189,43 +205,67 @@ const GSBDetailsPDF = ({ balance }) => (
           {balance.balanceCollector}
         </Text>
         <Text>
-          <Text style={{ fontWeight: "bold" }}>Total Income: </Text>
+          <Text style={{ fontWeight: "bold" }}>Income: </Text>
           {balance.totalIncome} /=
         </Text>
         <Text>
-          <Text style={{ fontWeight: "bold" }}>Total Cost: </Text>
+          <Text style={{ fontWeight: "bold" }}>Cost: </Text>
           {balance.totalCost} /=
         </Text>
         <Text>
-          <Text style={{ fontWeight: "bold" }}>Available Balance: </Text>
+          <Text style={{ fontWeight: "bold" }}>Balance: </Text>
           {balance.balance} /=
         </Text>
       </View>
+      {/* income & Cost */}
+      <View
+        style={{ flexDirection: "row", gap: 10, fontSize: 9, width: "100%" }}
+      >
+        {/* Income */}
+        <View style={{ width: "50%", border: "1pt solid #ccc" }}>
+          <Text
+            style={{
+              fontWeight: "bold",
+              marginBottom: 4,
+              textAlign: "center",
+              fontSize: 10,
+              width: "100%",
+              backgroundColor: "#f0f0f0",
+              padding: 2,
+            }}
+          >
+            Income Entries
+          </Text>
+          {balance.incomeEntries.map((item, idx) => (
+            <View style={styles.row} key={idx}>
+              <Text>{item.donarName}</Text>
+              <Text>{item.donationAmount}</Text>
+            </View>
+          ))}
+        </View>
 
-      {/* Income */}
-      <View style={styles.section}>
-        <Text style={{ fontWeight: "bold", marginBottom: 4 }}>
-          Income Entries
-        </Text>
-        {balance.incomeEntries.map((item, idx) => (
-          <View style={styles.row} key={idx}>
-            <Text>{item.donarName}</Text>
-            <Text>{item.donationAmount}</Text>
-          </View>
-        ))}
-      </View>
-
-      {/* Cost */}
-      <View style={styles.section}>
-        <Text style={{ fontWeight: "bold", marginBottom: 4 }}>
-          Cost Entries
-        </Text>
-        {balance.costEntries.map((item, idx) => (
-          <View style={styles.row} key={idx}>
-            <Text>{item.costName}</Text>
-            <Text>{item.costAmount}</Text>
-          </View>
-        ))}
+        {/* Cost */}
+        <View style={{ width: "50%", border: "1pt solid #ccc" }}>
+          <Text
+            style={{
+              fontWeight: "bold",
+              marginBottom: 4,
+              textAlign: "center",
+              fontSize: 10,
+              width: "100%",
+              backgroundColor: "#f0f0f0",
+              padding: 2,
+            }}
+          >
+            Cost Entries
+          </Text>
+          {balance.costEntries.map((item, idx) => (
+            <View style={styles.row} key={idx}>
+              <Text>{item.costName}</Text>
+              <Text>{item.costAmount}</Text>
+            </View>
+          ))}
+        </View>
       </View>
 
       {/* Footer */}
