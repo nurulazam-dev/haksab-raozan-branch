@@ -31,6 +31,14 @@ const styles = StyleSheet.create({
     border: "1pt solid #ccc",
     borderRadius: 4,
   },
+  summarySection: {
+    marginBottom: 10,
+    padding: 6,
+    display: "grid",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    gap: 4,
+    fontSize: 10,
+  },
   row: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -38,8 +46,8 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
   },
   footer: {
-    marginTop: 10,
-    fontSize: 10,
+    marginTop: 8,
+    fontSize: 8,
     color: "#45556c",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -141,10 +149,10 @@ const GSBDetailsPDF = ({ balance }) => (
           Hazrat Abul Khair Sultanpuri RH. Association Bangladesh
         </Text>
         <Text style={styles.title}>(HASKAB) - Raozan Branch</Text>
-        <Text style={{ textAlign: "center", fontSize: 8 }}>
+        <Text style={{ textAlign: "center", fontSize: 8, marginBottom: 4 }}>
           East Raozan, Rashidar Para, Joynagor, Chattogram.
         </Text>
-        <Text style={{ textAlign: "center", fontSize: 8 }}>
+        <Text style={{ textAlign: "center", fontSize: 8, marginBottom: 2 }}>
           Email: info@haskab-raozan-branch.org
         </Text>
         <Text style={{ textAlign: "center", fontSize: 8 }}>
@@ -153,17 +161,45 @@ const GSBDetailsPDF = ({ balance }) => (
         </Text>
       </View>
 
+      <Text
+        style={{
+          fontSize: 14,
+          fontWeight: "bold",
+          marginBottom: 5,
+          textAlign: "center",
+          backgroundColor: "#4CAF50",
+          color: "white",
+          padding: 4,
+        }}
+      >
+        Balance Summary
+      </Text>
       {/* Summary */}
-      <View style={styles.section}>
-        <Text style={{ fontSize: 14, fontWeight: "bold", marginBottom: 5 }}>
-          Balance Summary
+      <View style={styles.summarySection}>
+        <Text>
+          <Text style={{ fontWeight: "bold" }}>Giyarbi Sharif Date : </Text>
+          {balance.giyarbiSharifDate}
         </Text>
-        <Text>Date: {balance.giyarbiSharifDate}</Text>
-        <Text>Arabic Month: {balance.arabicMonth}</Text>
-        <Text>Collector: {balance.balanceCollector}</Text>
-        <Text>Total Income: {balance.totalIncome} /=</Text>
-        <Text>Total Cost: {balance.totalCost} /=</Text>
-        <Text>Available Balance: {balance.balance} /=</Text>
+        <Text>
+          <Text style={{ fontWeight: "bold" }}>Arabic Month: </Text>
+          {balance.arabicMonth}
+        </Text>
+        <Text>
+          <Text style={{ fontWeight: "bold" }}>Collector: </Text>
+          {balance.balanceCollector}
+        </Text>
+        <Text>
+          <Text style={{ fontWeight: "bold" }}>Total Income: </Text>
+          {balance.totalIncome} /=
+        </Text>
+        <Text>
+          <Text style={{ fontWeight: "bold" }}>Total Cost: </Text>
+          {balance.totalCost} /=
+        </Text>
+        <Text>
+          <Text style={{ fontWeight: "bold" }}>Available Balance: </Text>
+          {balance.balance} /=
+        </Text>
       </View>
 
       {/* Income */}
