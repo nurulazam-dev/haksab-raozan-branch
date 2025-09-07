@@ -38,8 +38,9 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
   },
   footer: {
-    marginTop: 20,
+    marginTop: 10,
     fontSize: 10,
+    color: "#45556c",
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -111,7 +112,7 @@ const GSBDetailsPDF = ({ balance }) => (
               </Text>
             </View>
             {/* right side takbir */}
-            <View style={{ textAlign: "end" }}>
+            <View style={{ textAlign: "right" }}>
               <Text style={{ fontStyle: "italic", fontSize: 8 }}>
                 Allahu Akbar
               </Text>
@@ -195,7 +196,7 @@ const GSBDetailsPDF = ({ balance }) => (
       <View style={styles.footer}>
         <Text>Powered By @nurulazam</Text>
         <Text>
-          Print on{" "}
+          Print :{" "}
           {new Date()
             .toLocaleString("en-GB", {
               day: "2-digit",

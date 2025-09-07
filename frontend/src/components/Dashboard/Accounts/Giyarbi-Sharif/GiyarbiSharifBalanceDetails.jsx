@@ -143,23 +143,10 @@ const GiyarbiSharifBalanceDetails = () => {
           </div>
         </div>
       </section>
-      {/* PDF Download Button */}
-      <div className="flex justify-end mb-4">
-        <PDFDownloadLink
-          document={<GSBDetailsPDF balance={balance} />}
-          fileName={`Giyarbi-Sharif-Balance-${balance.id}.pdf`}
-        >
-          {({ loading }) => (
-            <button className="px-4 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition">
-              {loading ? "Generating PDF..." : "Download PDF"}
-            </button>
-          )}
-        </PDFDownloadLink>
-      </div>
       <div className="flex justify-between items-center py-2 text-sm text-slate-600">
         <p>Powered By @nurulazam</p>
         <p>
-          Print on{" "}
+          Print :{" "}
           {new Date()
             .toLocaleString("en-GB", {
               day: "2-digit",
@@ -173,6 +160,19 @@ const GiyarbiSharifBalanceDetails = () => {
             .replace(/\//g, "-")}{" "}
         </p>
         <p>Developed By @mnawebprogramming</p>
+      </div>
+      {/* PDF Download Button */}
+      <div className="flex justify-end mb-4">
+        <PDFDownloadLink
+          document={<GSBDetailsPDF balance={balance} />}
+          fileName={`Giyarbi-Sharif-Balance-${balance.id}.pdf`}
+        >
+          {({ loading }) => (
+            <button className="px-4 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition">
+              {loading ? "Generating PDF..." : "Download PDF"}
+            </button>
+          )}
+        </PDFDownloadLink>
       </div>
     </div>
   );
