@@ -36,8 +36,6 @@ const styles = StyleSheet.create({
     padding: 6,
     flexDirection: "row",
     justifyContent: "space-between",
-    // display: "grid",
-    // gridTemplateColumns: "repeat(3, 1fr)",
     gap: 4,
     fontSize: 10,
   },
