@@ -238,10 +238,12 @@ const GSBDetailsPDF = ({ balance }) => (
             <View style={styles.row} key={idx}>
               <Text>{item.donarName}</Text>
               <Text>{item.donationAmount}</Text>
-              <Text style={{ fontWeight: "bold" }}> Total Income: </Text>
-              <Text style={{ fontWeight: "bold" }}>{item.totalIncome}</Text>
             </View>
           ))}
+          <View style={styles.row}>
+            <Text style={{ fontWeight: "bold" }}> Total Income: </Text>
+            <Text style={{ fontWeight: "bold" }}>{balance.totalIncome}</Text>
+          </View>
         </View>
 
         {/* Cost */}
@@ -263,10 +265,12 @@ const GSBDetailsPDF = ({ balance }) => (
             <View style={styles.row} key={idx}>
               <Text>{item.costName}</Text>
               <Text>{item.costAmount}</Text>
-              <Text style={{ fontWeight: "bold" }}> Total Cost: </Text>
-              <Text style={{ fontWeight: "bold" }}>{item.totalCost}</Text>
             </View>
           ))}
+          <View style={styles.row}>
+            <Text style={{ fontWeight: "bold" }}> Total Cost: </Text>
+            <Text style={{ fontWeight: "bold" }}>{balance.totalCost}</Text>
+          </View>
         </View>
       </View>
 

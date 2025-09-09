@@ -50,6 +50,7 @@ const GiyarbiSharifBalance = () => {
           <table className="w-full text-sm text-left border-collapse">
             <thead className="bg-gray-200 text-gray-700 uppercase text-xs sticky top-0">
               <tr>
+                <th className="px-4 py-3">#</th>
                 <th className="px-4 py-3">Date</th>
                 <th className="px-4 py-3">Arabic Month</th>
                 <th className="px-4 py-3 text-right">Income</th>
@@ -65,6 +66,7 @@ const GiyarbiSharifBalance = () => {
                   key={index}
                   className="border-t hover:bg-gray-50 transition"
                 >
+                  <td className="px-4 py-3">{item?.id}</td>
                   <td className="px-4 py-3">{item?.giyarbiSharifDate}</td>
                   <td className="px-4 py-3">{item?.arabicMonth}</td>
                   <td className="px-4 py-3 text-right text-green-600 font-medium">
