@@ -1,9 +1,9 @@
 export const programBalancedata = [
   {
-    id: "HAKSAB_R_B_ProgramBalance-1",
-    programDay: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-1",
+    programDay: "Friday",
+    programName: "Giyarbi Sharif",
+    balanceType: "Monthly",
     programDate: "2023-01-01",
     balanceCollector: "Roman",
     incomeEntries: [
@@ -27,12 +27,10 @@ export const programBalancedata = [
     balance: 10450,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-2",
-    programDay: "",
-    programName: "",
-    balanceType: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-2",
+    programDay: "Saturday",
+    programName: "Annual Milad",
+    balanceType: "Yearly",
     programDate: "2023-02-01",
     balanceCollector: "Kamal",
     incomeEntries: [
@@ -52,12 +50,10 @@ export const programBalancedata = [
     balance: -750,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-3",
-    programDay: "",
-    programName: "",
-    balanceType: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-3",
+    programDay: "Monday",
+    programName: "Eid Reunion",
+    balanceType: "Special",
     programDate: "2023-03-01",
     balanceCollector: "Rafiq",
     incomeEntries: [
@@ -76,10 +72,10 @@ export const programBalancedata = [
     balance: 150,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-4",
-    programDay: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-4",
+    programDay: "Sunday",
+    programName: "Monthly Meeting",
+    balanceType: "Monthly",
     programDate: "2023-04-01",
     balanceCollector: "Samim",
     incomeEntries: [
@@ -98,10 +94,10 @@ export const programBalancedata = [
     balance: -170,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-5",
-    programDay: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-5",
+    programDay: "Wednesday",
+    programName: "Charity Distribution",
+    balanceType: "Special",
     programDate: "2023-05-01",
     balanceCollector: "Rock",
     incomeEntries: [
@@ -120,10 +116,10 @@ export const programBalancedata = [
     balance: 70,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-6",
-    programDay: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-6",
+    programDay: "Thursday",
+    programName: "Monthly Meeting",
+    balanceType: "Monthly",
     programDate: "2023-06-01",
     balanceCollector: "Roman",
     incomeEntries: [
@@ -142,10 +138,10 @@ export const programBalancedata = [
     balance: -10,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-7",
-    programDay: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-7",
+    programDay: "Friday",
+    programName: "Giyarbi Sharif",
+    balanceType: "Monthly",
     programDate: "2023-07-01",
     balanceCollector: "Basa",
     incomeEntries: [
@@ -164,10 +160,10 @@ export const programBalancedata = [
     balance: 150,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-8",
-    programDay: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-8",
+    programDay: "Saturday",
+    programName: "Annual Milad",
+    balanceType: "Yearly",
     programDate: "2023-08-01",
     balanceCollector: "Masud",
     incomeEntries: [
@@ -186,10 +182,10 @@ export const programBalancedata = [
     balance: 230,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-9",
-    programDay: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-9",
+    programDay: "Monday",
+    programName: "Eid Reunion",
+    balanceType: "Special",
     programDate: "2023-09-01",
     balanceCollector: "Mizan",
     incomeEntries: [
@@ -208,10 +204,10 @@ export const programBalancedata = [
     balance: 520,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-10",
-    programDay: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-10",
+    programDay: "Wednesday",
+    programName: "Charity Distribution",
+    balanceType: "Special",
     programDate: "2023-10-01",
     balanceCollector: "Kamal",
     incomeEntries: [
@@ -230,10 +226,10 @@ export const programBalancedata = [
     balance: 540,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-11",
-    programDay: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-11",
+    programDay: "Thursday",
+    programName: "Monthly Meeting",
+    balanceType: "Monthly",
     programDate: "2023-11-01",
     balanceCollector: "Rohim",
     incomeEntries: [
@@ -252,10 +248,10 @@ export const programBalancedata = [
     balance: 660,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-12",
-    programDay: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-12",
+    programDay: "Friday",
+    programName: "Giyarbi Sharif",
+    balanceType: "Monthly",
     programDate: "2023-12-01",
     balanceCollector: "Rafiq",
     incomeEntries: [
@@ -274,10 +270,10 @@ export const programBalancedata = [
     balance: 650,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-13",
-    programDay: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-13",
+    programDay: "Saturday",
+    programName: "Annual Milad",
+    balanceType: "Yearly",
     programDate: "2024-01-01",
     balanceCollector: "Samim",
     incomeEntries: [
@@ -296,10 +292,10 @@ export const programBalancedata = [
     balance: 540,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-14",
-    programDay: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-14",
+    programDay: "Monday",
+    programName: "Eid Reunion",
+    balanceType: "Special",
     programDate: "2024-02-01",
     balanceCollector: "Rock",
     incomeEntries: [
@@ -318,10 +314,10 @@ export const programBalancedata = [
     balance: 330,
   },
   {
-    id: "HAKSAB_R_B_ProgramBalance-15",
-    programDay: "",
-    programName: "",
-    balanceType: "",
+    id: "BPB-15",
+    programDay: "Wednesday",
+    programName: "Charity Distribution",
+    balanceType: "Special",
     programDate: "2024-03-01",
     balanceCollector: "Roman",
     incomeEntries: [

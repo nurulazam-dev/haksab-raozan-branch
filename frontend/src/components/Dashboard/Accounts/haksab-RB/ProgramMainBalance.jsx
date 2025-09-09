@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
-import { gsBalancedata } from "../../../../assets/data/gsBalanceData";
+import { programBalancedata } from "../../../../assets/data/programBalanceData";
 import GSBalanceStatistics from "../Giyarbi-Sharif/GSBalanceStatistics";
 
 const ProgramMainBalance = () => {
@@ -14,9 +14,9 @@ const ProgramMainBalance = () => {
   // Pagination logic
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 4;
-  const totalPages = Math.ceil(gsBalancedata?.length / rowsPerPage);
+  const totalPages = Math.ceil(programBalancedata?.length / rowsPerPage);
 
-  const paginatedData = gsBalancedata?.slice(
+  const paginatedData = programBalancedata?.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
@@ -36,7 +36,7 @@ const ProgramMainBalance = () => {
   };
 
   return (
-    <div className="px-3 text-slate-800">
+    <div className="px-1 text-slate-800">
       <h2 className="text-3xl font-bold mb-3 text-center text-blue-700">
         Program Balance
       </h2>
@@ -53,7 +53,7 @@ const ProgramMainBalance = () => {
                 <th className="px-4 py-3">#</th>
                 <th className="px-4 py-3">Date</th>
                 <th className="px-4 py-3">Day</th>
-                <th className="px-4 py-3">Balance Type</th>
+                <th className="px-4 py-3">B. Type</th>
                 <th className="px-4 py-3 text-right">Program</th>
                 <th className="px-4 py-3 text-right">Income</th>
                 <th className="px-4 py-3 text-right">Cost</th>
@@ -68,20 +68,21 @@ const ProgramMainBalance = () => {
                   key={index}
                   className="border-t hover:bg-gray-50 transition"
                 >
-                  <td className="px-4 py-3">{item?.id}</td>
-                  <td className="px-4 py-3">{item?.date}</td>
-                  <td className="px-4 py-3">{item?.balanceType}</td>
-                  <td className="px-4 py-3">{item?.programName}</td>
-                  <td className="px-4 py-3 text-right text-green-600 font-medium">
+                  <td className="px-2 py-3">{item?.id}</td>
+                  <td className="px-2 py-3">{item?.programDate}</td>
+                  <td className="px-2 py-3">{item?.programDay}</td>
+                  <td className="px-2 py-3">{item?.balanceType}</td>
+                  <td className="px-2 py-3">{item?.programName}</td>
+                  <td className="px-2 py-3 text-right text-green-600 font-medium">
                     {item?.totalIncome}
                   </td>
-                  <td className="px-4 py-3 text-right text-red-600 font-medium">
+                  <td className="px-2 py-3 text-right text-red-600 font-medium">
                     {item?.totalCost}
                   </td>
-                  <td className="px-4 py-3 text-right font-semibold text-blue-600">
+                  <td className="px-2 py-3 text-right font-semibold text-blue-600">
                     {item?.balance}
                   </td>
-                  <td className="px-4 py-3 text-center">
+                  <td className="px-2 py-3 text-center">
                     {item?.balanceCollector}
                   </td>
                   <td className="px-2 py-3 flex justify-center gap-4">
