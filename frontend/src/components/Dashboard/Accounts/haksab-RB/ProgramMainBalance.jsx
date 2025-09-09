@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { gsBalancedata } from "../../../../assets/data/gsBalanceData";
-import GSBalanceStatistics from "./GSBalanceStatistics";
+import GSBalanceStatistics from "../Giyarbi-Sharif/GSBalanceStatistics";
 
 const ProgramMainBalance = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -36,7 +36,7 @@ const ProgramMainBalance = () => {
   };
 
   return (
-    <div className="px-6 text-slate-800">
+    <div className="px-3 text-slate-800">
       <h2 className="text-3xl font-bold mb-3 text-center text-blue-700">
         Program Balance
       </h2>
@@ -54,6 +54,7 @@ const ProgramMainBalance = () => {
                 <th className="px-4 py-3">Date</th>
                 <th className="px-4 py-3">Day</th>
                 <th className="px-4 py-3">Balance Type</th>
+                <th className="px-4 py-3 text-right">Program</th>
                 <th className="px-4 py-3 text-right">Income</th>
                 <th className="px-4 py-3 text-right">Cost</th>
                 <th className="px-4 py-3 text-right">Balance</th>
@@ -68,8 +69,9 @@ const ProgramMainBalance = () => {
                   className="border-t hover:bg-gray-50 transition"
                 >
                   <td className="px-4 py-3">{item?.id}</td>
-                  <td className="px-4 py-3">{item?.giyarbiSharifDate}</td>
-                  <td className="px-4 py-3">{item?.arabicMonth}</td>
+                  <td className="px-4 py-3">{item?.date}</td>
+                  <td className="px-4 py-3">{item?.balanceType}</td>
+                  <td className="px-4 py-3">{item?.programName}</td>
                   <td className="px-4 py-3 text-right text-green-600 font-medium">
                     {item?.totalIncome}
                   </td>
@@ -86,7 +88,7 @@ const ProgramMainBalance = () => {
                     <FaEye
                       onClick={() =>
                         navigate(
-                          `/dashboard/giyarbi-sharif-balance/details/${item?.id}`
+                          `/dashboard/program-balance/details/${item?.id}`
                         )
                       }
                       className="text-green-600 text-lg cursor-pointer hover:scale-110 transition"
@@ -94,7 +96,7 @@ const ProgramMainBalance = () => {
                     <FaEdit
                       onClick={() =>
                         navigate(
-                          `/dashboard/giyarbi-sharif-balance/update/${item?.id}`
+                          `/dashboard/program-balance/update/${item?.id}`
                         )
                       }
                       className="text-blue-600 text-lg cursor-pointer hover:scale-110 transition"
