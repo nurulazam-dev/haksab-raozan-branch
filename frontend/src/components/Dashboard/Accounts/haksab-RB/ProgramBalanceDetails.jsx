@@ -1,8 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import GSBDetailsPDF from "./GSBDetailsPdf";
 import TopBanner from "../../../Shared/TopBanner";
 import { programBalancedata } from "../../../../assets/data/programBalanceData";
+import ProgramBalanceDetailsPDF from "./ProgramBalanceDetailsPDF";
 
 const ProgramBalanceDetails = () => {
   const { id } = useParams(); // get id from URL
@@ -128,8 +128,8 @@ const ProgramBalanceDetails = () => {
       {/* PDF Download Button */}
       <div className="flex justify-end mb-4">
         <PDFDownloadLink
-          document={<GSBDetailsPDF balance={balance} />}
-          fileName={`Giyarbi-Sharif-Balance-${balance.id}.pdf`}
+          document={<ProgramBalanceDetailsPDF balance={balance} />}
+          fileName={`Program-Balance-${balance.id}.pdf`}
         >
           {({ loading }) => (
             <button className="px-4 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition">
