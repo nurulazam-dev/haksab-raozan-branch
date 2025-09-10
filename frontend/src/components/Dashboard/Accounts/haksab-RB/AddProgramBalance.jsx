@@ -5,6 +5,7 @@ import { TbCurrencyTaka } from "react-icons/tb";
 import { MdOutlineDateRange, MdPersonAdd } from "react-icons/md";
 import { AiOutlineDelete, AiOutlineUser } from "react-icons/ai";
 import FloatingLabelInput from "../../../Shared/FloatingLabelInput";
+import TopBanner from "../../../Shared/TopBanner";
 
 const AddProgramBalance = () => {
   const [formData, setFormData] = useState({
@@ -126,8 +127,11 @@ const AddProgramBalance = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-2xl font-bold text-center text-indigo-600 flex items-center justify-center gap-2 mb-4">
-          <FaDonate className="text-indigo-500" />
+        {/* top section */}
+        <TopBanner />
+
+        {/* Title */}
+        <h2 className="text-2xl font-bold mb-4 text-center bg-green-600 text-white py-1 rounded-t-lg">
           Add Program Balance
         </h2>
 

@@ -37,7 +37,7 @@ const ProgramMainBalance = () => {
   };
 
   return (
-    <div className="px-1 text-slate-800">
+    <div className="text-slate-800">
       {/* top section */}
       <TopBanner />
 
