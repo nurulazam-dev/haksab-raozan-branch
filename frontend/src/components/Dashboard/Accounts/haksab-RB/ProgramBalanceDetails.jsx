@@ -15,7 +15,7 @@ const ProgramBalanceDetails = () => {
           Balance not found!
         </h2>
         <Link
-          to="/dashboard/giyarbi-sharif-balance"
+          to="/dashboard/program-balance"
           className="text-blue-500 underline"
         >
           Go Back

@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   summarySection: {
-    marginBottom: 10,
     padding: 6,
+    paddingBottom: 0,
     flexDirection: "row",
     justifyContent: "space-between",
     gap: 4,
@@ -201,6 +201,8 @@ const ProgramBalanceDetailsPDF = ({ balance }) => (
           <Text style={{ fontWeight: "bold" }}>Program: </Text>
           {balance.programName}
         </Text>
+      </View>
+      <View style={styles.summarySection}>
         <Text>
           <Text style={{ fontWeight: "bold" }}>Type: </Text>
           {balance.balanceType}
@@ -224,7 +226,13 @@ const ProgramBalanceDetailsPDF = ({ balance }) => (
       </View>
       {/* income & Cost */}
       <View
-        style={{ flexDirection: "row", gap: 10, fontSize: 9, width: "100%" }}
+        style={{
+          flexDirection: "row",
+          gap: 10,
+          fontSize: 9,
+          width: "100%",
+          marginTop: 12,
+        }}
       >
         {/* Income */}
         <View style={{ width: "50%", border: "1pt solid #ccc" }}>
