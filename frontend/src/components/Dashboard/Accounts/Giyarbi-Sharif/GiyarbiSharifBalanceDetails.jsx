@@ -30,7 +30,7 @@ const GiyarbiSharifBalanceDetails = () => {
       <TopBanner />
 
       {/* Title */}
-      <h2 className="text-2xl font-bold mb-1 text-center bg-green-600 text-white py-1">
+      <h2 className="text-2xl font-bold mb-4 text-center bg-green-600 text-white py-1 rounded-t-lg">
         Giyarbi Sharif Balance Details
       </h2>
 
