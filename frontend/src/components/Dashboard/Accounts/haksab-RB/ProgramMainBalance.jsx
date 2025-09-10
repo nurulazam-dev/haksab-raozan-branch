@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { programBalancedata } from "../../../../assets/data/programBalanceData";
 import GSBalanceStatistics from "../Giyarbi-Sharif/GSBalanceStatistics";
+import TopBanner from "../../../Shared/TopBanner";
 
 const ProgramMainBalance = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -37,7 +38,11 @@ const ProgramMainBalance = () => {
 
   return (
     <div className="px-1 text-slate-800">
-      <h2 className="text-3xl font-bold mb-3 text-center text-blue-700">
+      {/* top section */}
+      <TopBanner />
+
+      {/* Title */}
+      <h2 className="text-2xl font-bold mb-4 text-center bg-green-600 text-white py-1 rounded-t-lg">
         Program Balance
       </h2>
 
