@@ -35,6 +35,7 @@ import GiyarbiSharifBalanceDetails from "../components/Dashboard/Accounts/Giyarb
 import AddProgramBalance from "../components/Dashboard/Accounts/haksab-RB/AddProgramBalance";
 import ProgramMainBalance from "../components/Dashboard/Accounts/haksab-RB/ProgramMainBalance";
 import ProgramBalanceDetails from "../components/Dashboard/Accounts/haksab-RB/ProgramBalanceDetails";
+import UpdateProgramBalance from "../components/Dashboard/Accounts/haksab-RB/UpdateProgramBalance";
 
 const TestRoutes = () => {
   return (
@@ -53,6 +54,10 @@ const TestRoutes = () => {
         <Route
           path="program-balance/details/:id"
           element={<ProgramBalanceDetails />}
+        />
+        <Route
+          path="program-balance/update/:id"
+          element={<UpdateProgramBalance />}
         />
         <Route
           path="giyarbi-sharif-balance"
