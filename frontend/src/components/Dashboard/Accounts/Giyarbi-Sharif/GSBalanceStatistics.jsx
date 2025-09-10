@@ -31,7 +31,7 @@ const GSBalanceStatistics = () => {
           key={stat?.id}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-white shadow-lg rounded-2xl px-6 py-4 flex items-center justify-between border border-gray-100"
+          className="bg-white shadow-lg rounded-lg px-6 py-4 flex items-center justify-between border border-gray-100"
         >
           <div>
             <p className="text-gray-500 text-sm">{stat?.title}</p>

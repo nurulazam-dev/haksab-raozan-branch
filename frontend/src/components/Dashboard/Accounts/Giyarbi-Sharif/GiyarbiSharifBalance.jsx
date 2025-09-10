@@ -14,7 +14,7 @@ const GiyarbiSharifBalance = () => {
 
   // Pagination logic
   const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 4;
+  const rowsPerPage = 5;
   const totalPages = Math.ceil(gsBalancedata?.length / rowsPerPage);
 
   const paginatedData = gsBalancedata?.slice(
@@ -43,7 +43,7 @@ const GiyarbiSharifBalance = () => {
 
       {/* Title */}
       <h2 className="text-2xl font-bold mb-4 text-center bg-green-600 text-white py-1 rounded-t-lg">
-        PGiyarbi Sharif Balance
+        Giyarbi Sharif Balance
       </h2>
 
       {/* Giyarbi Sharifs Balance Statistics */}
@@ -54,7 +54,7 @@ const GiyarbiSharifBalance = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left border-collapse">
             <thead className="bg-gray-200 text-gray-700 uppercase text-xs sticky top-0">
-              <tr>
+              <tr className="text-center">
                 <th className="px-4 py-3">#</th>
                 <th className="px-4 py-3">Date</th>
                 <th className="px-4 py-3">Arabic Month</th>
@@ -71,22 +71,22 @@ const GiyarbiSharifBalance = () => {
                   key={index}
                   className="border-t hover:bg-gray-50 transition"
                 >
-                  <td className="px-4 py-3">{item?.id}</td>
-                  <td className="px-4 py-3">{item?.giyarbiSharifDate}</td>
-                  <td className="px-4 py-3">{item?.arabicMonth}</td>
-                  <td className="px-4 py-3 text-right text-green-600 font-medium">
+                  <td className="px-4 py-2">{item?.id}</td>
+                  <td className="px-4 py-2">{item?.giyarbiSharifDate}</td>
+                  <td className="px-4 py-2">{item?.arabicMonth}</td>
+                  <td className="px-4 py-2 text-right text-green-600 font-medium">
                     {item?.totalIncome}
                   </td>
-                  <td className="px-4 py-3 text-right text-red-600 font-medium">
+                  <td className="px-4 py-2 text-right text-red-600 font-medium">
                     {item?.totalCost}
                   </td>
-                  <td className="px-4 py-3 text-right font-semibold text-blue-600">
+                  <td className="px-4 py-2 text-right font-semibold text-blue-600">
                     {item?.balance}
                   </td>
-                  <td className="px-4 py-3 text-center">
+                  <td className="px-4 py-2 text-center">
                     {item?.balanceCollector}
                   </td>
-                  <td className="px-2 py-3 flex justify-center gap-4">
+                  <td className="px-2 py-2 flex justify-center gap-4">
                     <FaEye
                       onClick={() =>
                         navigate(
