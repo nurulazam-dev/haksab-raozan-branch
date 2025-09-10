@@ -13,7 +13,7 @@ const ProgramMainBalance = () => {
 
   // Pagination logic
   const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 4;
+  const rowsPerPage = 5;
   const totalPages = Math.ceil(programBalancedata?.length / rowsPerPage);
 
   const paginatedData = programBalancedata?.slice(
@@ -49,17 +49,19 @@ const ProgramMainBalance = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left border-collapse">
             <thead className="bg-gray-200 text-gray-700 uppercase text-xs sticky top-0">
-              <tr>
-                <th className="px-4 py-3">#</th>
-                <th className="px-4 py-3">Date</th>
-                <th className="px-4 py-3">Day</th>
-                <th className="px-4 py-3">B. Type</th>
-                <th className="px-4 py-3 text-right">Program</th>
-                <th className="px-4 py-3 text-right">Income</th>
-                <th className="px-4 py-3 text-right">Cost</th>
-                <th className="px-4 py-3 text-right">Balance</th>
-                <th className="px-4 py-3 text-center">Collector</th>
-                <th className="px-4 py-3 text-center">Action</th>
+              <tr className="text-center">
+                <th className="p-3 border-r-[1px] border-gray-400">#</th>
+                <th className="p-3 border-r-[1px] border-gray-400">Date</th>
+                <th className="p-3 border-r-[1px] border-gray-400">Day</th>
+                <th className="p-3 border-r-[1px] border-gray-400">B. Type</th>
+                <th className="p-3 border-r-[1px] border-gray-400">Program</th>
+                <th className="p-3 border-r-[1px] border-gray-400">Income</th>
+                <th className="p-3 border-r-[1px] border-gray-400">Cost</th>
+                <th className="p-3 border-r-[1px] border-gray-400">Balance</th>
+                <th className="p-3 border-r-[1px] border-gray-400">
+                  Collector
+                </th>
+                <th className="p-3">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -68,24 +70,34 @@ const ProgramMainBalance = () => {
                   key={index}
                   className="border-t hover:bg-gray-50 transition"
                 >
-                  <td className="px-2 py-3">{item?.id}</td>
-                  <td className="px-2 py-3">{item?.programDate}</td>
-                  <td className="px-2 py-3">{item?.programDay}</td>
-                  <td className="px-2 py-3">{item?.balanceType}</td>
-                  <td className="px-2 py-3">{item?.programName}</td>
-                  <td className="px-2 py-3 text-right text-green-600 font-medium">
+                  <td className="p-2 border-r-[1px] border-gray-400">
+                    {item?.id}
+                  </td>
+                  <td className="p-2 border-r-[1px] border-gray-400">
+                    {item?.programDate}
+                  </td>
+                  <td className="p-2 border-r-[1px] border-gray-400">
+                    {item?.programDay}
+                  </td>
+                  <td className="p-2 border-r-[1px] border-gray-400">
+                    {item?.balanceType}
+                  </td>
+                  <td className="p-2 border-r-[1px] border-gray-400">
+                    {item?.programName}
+                  </td>
+                  <td className="p-2 text-right text-green-600 font-medium border-r-[1px] border-gray-400">
                     {item?.totalIncome}
                   </td>
-                  <td className="px-2 py-3 text-right text-red-600 font-medium">
+                  <td className="p-2 text-right text-red-600 font-medium border-r-[1px] border-gray-400">
                     {item?.totalCost}
                   </td>
-                  <td className="px-2 py-3 text-right font-semibold text-blue-600">
+                  <td className="p-2 text-right font-semibold text-blue-600 border-r-[1px] border-gray-400">
                     {item?.balance}
                   </td>
-                  <td className="px-2 py-3 text-center">
+                  <td className="p-2 text-center border-r-[1px] border-gray-400">
                     {item?.balanceCollector}
                   </td>
-                  <td className="px-2 py-3 flex justify-center gap-4">
+                  <td className="p-2 flex justify-center gap-4">
                     <FaEye
                       onClick={() =>
                         navigate(
