@@ -2,7 +2,7 @@ import orgLogo from "../../assets/images/logo/abu_maola_rowja.png";
 
 const TopBanner = () => {
   return (
-    <section className="mb-3 text-slate-800 bg-white">
+    <section className="pb-3 text-slate-800 bg-white">
       <p className="text-center mb-2">Bismillahir Rahmanir Rahim</p>
       <div className="relative py-2">
         <img src={orgLogo} alt="" className="mx-auto h-32 object-contain" />

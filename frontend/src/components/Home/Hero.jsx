@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-r from-green-800 via-green-700 to-green-900 text-white py-16 px-6 md:px-12">
+    <section className="relative bg-gradient-to-r from-green-800 via-green-700 to-green-900 text-white py-10 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
         {/* Logo + Intro */}
         <motion.div
