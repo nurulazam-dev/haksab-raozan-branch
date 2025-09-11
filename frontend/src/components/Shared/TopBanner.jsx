@@ -1,10 +1,12 @@
 import orgLogo from "../../assets/images/logo/abu_maola_rowja.png";
 
-const TopBanner = () => {
+const TopBanner = ({ customClass, orgTitleClass }) => {
   return (
-    <section className="pb-3 text-slate-800 bg-white">
-      <p className="text-center mb-2">Bismillahir Rahmanir Rahim</p>
-      <div className="relative py-2">
+    <section className={`pb-3 text-slate-800 ${customClass}`}>
+      <p className="text-center mb-2 anek-bangla-400">
+        বিসমিল্লাহির রাহমানির রাহিম
+      </p>
+      <div className="relative py-3">
         <img src={orgLogo} alt="" className="mx-auto h-32 object-contain" />
         <div className="flex justify-between items-center absolute inset-0 px-2">
           <div className="text-start">
@@ -28,8 +30,14 @@ const TopBanner = () => {
         </div>
       </div>
       <div className="text-center">
-        <h2 className="text-2xl font-bold mb-1 text-slate-700">
-          Hazrat Abul Khair Sultanpuri RH. Association Bangladesh, <br />
+        <h2
+          className={`font-bold mb-1 anek-bangla-600  ${
+            orgTitleClass ? orgTitleClass : "text-slate-700 text-2xl"
+          }`}
+        >
+          {/* Hazrat Abul Khair Sultanpuri RH. Association Bangladesh,  */}
+          হযরত আবুল খায়ের সুলতানপুরী (র.) এসোসিয়েশন বাংলাদেশ,
+          <br />
           (HASKAB) - Raozan Branch
         </h2>
         <p className="text-sm">

@@ -15,7 +15,12 @@ const Home = () => {
   return (
     <div className="min-h-screen pt-0 md:pt-15">
       <InfiniteScrollBar />
-      <TopBanner />
+      <TopBanner
+        customClass={
+          "bg-gradient-to-r from-green-800 via-green-700 to-green-900 text-white px-10 pt-2"
+        }
+        orgTitleClass={"text-4xl text-yellow-300"}
+      />
       <Hero />
       <YearlyPrograms />
       <Notices />
