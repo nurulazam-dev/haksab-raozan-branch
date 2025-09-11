@@ -6,6 +6,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { TfiFacebook } from "react-icons/tfi";
+import brandlogo from "../assets/images/logo/HAKSAB_logo.png";
 
 const Footer = () => {
   return (
@@ -15,11 +16,7 @@ const Footer = () => {
         <div>
           <div className="flex items-center justify-between gap-4">
             {" "}
-            <img
-              src="./src/assets/images/logo/HAKSAB_logo.png"
-              alt="HAKSAB Logo"
-              className="w-16 h-16"
-            />
+            <img src={brandlogo} alt="HAKSAB Logo" className="w-16 h-16" />
             <h2 className="text-2xl font-bold text-white">
               HAKSAB – Raozan Branch
             </h2>

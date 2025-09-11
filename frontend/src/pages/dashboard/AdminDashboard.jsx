@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFinancialSummary } from "../../redux/financeSlice";
 import ChartCard from "../../components/ChartCard";
-import Sidebar from "../../components/Sidebar";
 import TopBanner from "../../components/Shared/TopBanner";
 
 const AdminDashboard = () => {
