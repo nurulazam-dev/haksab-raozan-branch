@@ -1,11 +1,11 @@
 const InfiniteScrollBar = () => {
   const noticeText =
-    "Welcome to Haksab-Raozan-Branch! Stay updated with our latest news and events. Join us in making a difference!";
+    "হযরত আবুল খায়ের সুলতানপুরী রহ. অ্যাসোসিয়েশন বাংলাদেশ (হাকসাব)-রাওজান শাখায় আপনাকে স্বাগতম! আমাদের সর্বশেষ সংবাদ এবং ইভেন্টগুলির সাথে আপডেট থাকুন। পরিবর্তন আনতে আমাদের সাথে যোগ দিন!";
 
   return (
     <div className="overflow-hidden whitespace-nowrap w-full bg-red-800 py-1">
       <div
-        className="inline-block text-yellow-300 lg:text-[25px] text-[18px] font-serif leading-10"
+        className="inline-block text-yellow-300 lg:text-[25px] text-[18px] anek-bangla-400 leading-10"
         style={{
           display: "inline-block",
           whiteSpace: "nowrap",
