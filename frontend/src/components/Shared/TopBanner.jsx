@@ -40,8 +40,11 @@ const TopBanner = ({ customClass, orgTitleClass }) => {
           <br />
           (HASKAB) - Raozan Branch
         </h2>
-        <p className="text-sm">
+        {/* <p className="text-sm">
           East Raozan, Rashidar Para, Joynagor-4340, Raozan, Chattogram.
+        </p> */}
+        <p className="text-sm anek-bangla-400">
+          পূর্ব রাউজান, রশিদর পাড়া, জয়নগর-৪৩৪০, রাউজান, চট্টগ্রাম।
         </p>
         <p className="text-sm">
           <strong>Email:</strong> info@haskab-raozan-branch.org
