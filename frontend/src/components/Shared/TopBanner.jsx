@@ -49,7 +49,7 @@ const TopBanner = ({ customClass, orgTitleClass }) => {
       </div>
       <div className="text-center">
         <h2
-          className={`font-bold mb-1 anek-bangla-600  ${
+          className={`font-bold mb-1 galada-regular  ${
             orgTitleClass ? orgTitleClass : "text-slate-700 text-2xl"
           }`}
         >

@@ -19,7 +19,7 @@ const Home = () => {
         customClass={
           "bg-gradient-to-r from-green-800 via-green-700 to-green-900 text-white px-10 pt-2"
         }
-        orgTitleClass={"text-4xl text-yellow-300"}
+        orgTitleClass={"text-4xl text-yellow-300 leading-12"}
       />
       <Hero />
       <YearlyPrograms />
