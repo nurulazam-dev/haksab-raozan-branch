@@ -49,9 +49,13 @@ const TopBanner = ({ customClass, orgTitleClass }) => {
         <p className="text-sm">
           <strong>Email:</strong> info@haskab-raozan-branch.org
         </p>
-        <p>
+        {/* <p>
           <strong>Head Office:</strong> Satgachia Darbar Sharif, Mujibnagar,
           Haidgaon, Patia, Chattogram.
+        </p> */}
+        <p className="anek-bangla-400">
+          <strong>প্রধান কার্যালয়:</strong> সাতগাছিয়া দরবার শরীফ, মুজিবনগর,
+          হাইদগাঁও, পটিয়া, চট্টগ্রাম।
         </p>
       </div>
     </section>

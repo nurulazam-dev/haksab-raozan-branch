@@ -18,24 +18,29 @@
   font-family: "Galada", cursive;
   font-weight: 400;
   font-style: normal;
+  letter-spacing: 0.05em;
 }
 .anek-bangla {
   font-family: "Anek Bangla", sans-serif;
   font-weight: 200;
   font-style: normal;
+  letter-spacing: 0.05em;
 }
 .anek-bangla-400 {
   font-family: "Anek Bangla", sans-serif;
   font-weight: 400;
   font-style: normal;
+  letter-spacing: 0.05em;
 }
 .anek-bangla-600 {
   font-family: "Anek Bangla", sans-serif;
   font-weight: 600;
   font-style: normal;
+  letter-spacing: 0.05em;
 }
 .anek-bangla-800 {
   font-family: "Anek Bangla", sans-serif;
   font-weight: 800;
   font-style: normal;
+  letter-spacing: 0.05em;
 }
