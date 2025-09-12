@@ -26,7 +26,7 @@ const Navbar = () => {
             alt="HAKSAB-Raozan-Branch Logo"
             className="inline-block w-8 h-8 mr-2 rounded-full"
           />
-          HAKSAB-Raozan
+          HAKSAB-RB
         </Link>
 
         {/* Desktop Menu */}
