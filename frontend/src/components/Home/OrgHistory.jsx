@@ -50,12 +50,14 @@ const OrgHistory = () => {
             </div>
             <div className="p-4">
               <iframe
-                src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/facebook&tabs=timeline&width=400&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                src="https://www.youtube.com/embed/rE_v0onk3JA?si=45Qvt1yo_bautGxD"
                 width="100%"
                 height="300"
                 style={{ border: "none", overflow: "hidden" }}
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                title="Facebook Page"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+                title="YouTube video player"
               ></iframe>
             </div>
           </motion.div>
@@ -75,10 +77,12 @@ const OrgHistory = () => {
               <iframe
                 width="100%"
                 height="300"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="YouTube video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                src="https://www.youtube.com/embed/KxagFeTWehY?si=03ZUoo4XePGBrUbd"
+                style={{ border: "none", overflow: "hidden" }}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+                title="YouTube video player"
               ></iframe>
             </div>
           </motion.div>
